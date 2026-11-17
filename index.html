@@ -132,7 +132,7 @@ label.f{display:block;font-size:12.5px;color:var(--mute);margin:10px 0 4px}
    plan, on la range (zone libre, équipements, aléas, note).
    Fichier unique, aucune dépendance externe, fonctionne hors-ligne.
    ===================================================================== */
-const VERSION = 'v2026-11-09 · 12';
+const VERSION = 'v2026-11-17 · 13';
 const STORE_KEY = 'gareoPhoto.v2';
 
 const EQUIP = [{"n": "Abri vélo", "l": [1, 2, 1, 3, 2], "d": "Abri / structure légère de stationnement et protection des vélos"}, {"n": "Abris de quais/marquise", "l": [3, 3, 2, 4, 1], "d": "Abris ou marquises protégeant les voyageurs sur les quais"}, {"n": "AEP (Adduction eau potable)", "l": [2, 2, 2, 4, 4], "d": "Réseau d’alimentation en eau potable de la gare (sanitaires, robinets, usages courants)"}, {"n": "Alimentation SNCF Réseau", "l": [3, 3, 4, 4, 3], "d": "Alimentation électrique dédiée aux équipements ferroviaires de SNCF Réseau en gare (signalisation, aiguillages, postes, etc.)"}, {"n": "Armoire de climatisation", "l": [1, 2, 3, 1, 1], "d": "Armoire de traitement d’air / climatisation alimentant principalement des locaux techniques ou équipements sensibles"}, {"n": "Armoire élévatique", "l": [3, 2, 2, 4, 1], "d": "Armoire de commande et de puissance des ascenseurs et escaliers mécaniques"}, {"n": "ART PMR", "l": [0, 2, 2, 4, 4], "d": "Dispositif d’aide et d’information dédié aux PMR"}, {"n": "ART/AMT/BLS (Automate de vente)", "l": [0, 2, 2, 4, 0], "d": "Automates de vente de titres de transport"}, {"n": "Ascenseur de service / Monte charge", "l": [1, 2, 3, 1, 1], "d": "Ascenseur dédié aux flux logistiques et manutention"}, {"n": "Ascenseur non secouru", "l": [3, 2, 1, 4, 1], "d": "Ascenseur voyageurs non intégré au dispositif d'évacuation"}, {"n": "Ascenseur secouru", "l": [4, 2, 1, 4, 1], "d": "Ascenseur intégré au dispositif d'évacuation de sécurité"}, {"n": "Assise quais", "l": [2, 1, 0, 4, 1], "d": "Sièges ou bancs installés sur les quais"}, {"n": "BAES", "l": [4, 0, 1, 1, 1], "d": "Blocs autonomes d'éclairage de sécurité"}, {"n": "Baie CFA", "l": [4, 3, 4, 1, 1], "d": "Baie courants faibles pour réseaux et systèmes numériques"}, {"n": "Baie Sono", "l": [4, 1, 2, 3, 1], "d": "Baie de diffusion sonore de sécurité et d'exploitation"}, {"n": "Baie Sono commerciale", "l": [0, 2, 2, 2, 0], "d": "Baie de diffusion sonore à usage commercial/confort"}, {"n": "Balise sonore", "l": [2, 0, 1, 2, 1], "d": "Balise d'orientation sonore pour déficients visuels"}, {"n": "Bandes détection à la canne", "l": [4, 0, 1, 3, 3], "d": "Bandes au sol détectables à la canne des malvoyants"}, {"n": "Bandes pododactiles", "l": [4, 0, 1, 3, 1], "d": "Bandes en relief d'alerte au sol (ex. bord de quai)"}, {"n": "Barrières et clôtures fixes", "l": [4, 2, 3, 1, 1], "d": "Clôtures rigides séparant zones publiques et zones dangereuses"}, {"n": "Barrières extérieurs levantes", "l": [4, 2, 3, 1, 1], "d": "Barrières motorisées de contrôle d'accès véhicules"}, {"n": "Borne d'appel d'urgence", "l": [4, 2, 1, 1, 1], "d": "Borne permettant aux usagers d'alerter en cas d'urgence"}, {"n": "Bureaux", "l": [1, 3, 4, 1, 4], "d": "Locaux administratifs et de travail"}, {"n": "Caméras", "l": [1, 1, 3, 1, 1], "d": "Caméras de vidéosurveillance générales"}, {"n": "Caméras ascenseurs", "l": [4, 1, 1, 3, 1], "d": "Caméras dédiées à la surveillance des cabines d'ascenseurs"}, {"n": "Caméras pour téléopération", "l": [1, 1, 3, 1, 1], "d": "Caméras nécessaires au pilotage à distance d'équipements"}, {"n": "Caméras vente billetterie", "l": [1, 1, 1, 3, 1], "d": "Caméras de surveillance zones de vente/guichets"}, {"n": "Centrale GTC/GTB", "l": [4, 4, 4, 4, 4], "d": "Système centralisé de gestion technique/énergétique du bâtiment"}, {"n": "Centrale SSI", "l": [4, 4, 1, 1, 1], "d": "Unité centrale du Système de Sécurité Incendie"}, {"n": "Chambre froide", "l": [1, 3, 3, 2, 1], "d": "Chambre à froid pour usages commerciaux/restauration"}, {"n": "Château d’eau", "l": [4, 3, 3, 3, 3], "d": "Ouvrage de stockage et de mise en pression de l'eau du site"}, {"n": "Chaudière et circuit d'eau chaude", "l": [1, 4, 1, 3, 3], "d": "Production et distribution d'eau chaude de chauffage"}, {"n": "Clim locaux techniques", "l": [1, 2, 4, 1, 1], "d": "Climatisation des locaux abritant des équipements sensibles"}, {"n": "Cœur de réseau télécoms", "l": [4, 4, 4, 4, 2], "d": "Noyau des infrastructures réseau et télécoms de la gare"}, {"n": "Désenfumage mécanique", "l": [4, 2, 1, 1, 1], "d": "Système motorisé d'extraction des fumées en cas d'incendie"}, {"n": "Désenfumage naturel", "l": [4, 2, 1, 1, 1], "d": "Trappes ou ouvrants pour évacuation naturelle des fumées"}, {"n": "Détecteur incendie", "l": [4, 1, 4, 1, 1], "d": "Capteurs de détection précoce de départ de feu"}, {"n": "Eau chaude sanitaire", "l": [1, 2, 1, 3, 3], "d": "Production d'ECS pour sanitaires et usages courants"}, {"n": "Eclairage", "l": [3, 1, 2, 4, 2], "d": "Éclairage général des espaces gare et accès"}, {"n": "Eclairage de sécurité sur source centrale", "l": [4, 1, 1, 1, 1], "d": "Éclairage de sécurité alimenté par une source centralisée"}, {"n": "Eclairage indispensable à l'ouverture d'un espace", "l": [1, 1, 4, 1, 1], "d": "Éclairage minimal réglementaire conditionnant l'ouverture au public"}, {"n": "Ecran TFT PMR", "l": [1, 2, 2, 3, 4], "d": "Écran d'information adapté aux besoins des PMR"}, {"n": "Ecrans TFT/TIM", "l": [1, 2, 2, 4, 1], "d": "Écrans d'information voyageurs (horaires, voies, messages)"}, {"n": "Emetteur de chaleur ERP", "l": [1, 2, 1, 3, 2], "d": "Radiateurs ou terminaux de chauffage en zones voyageurs"}, {"n": "Emetteur de chaleur ERT", "l": [1, 2, 1, 1, 4], "d": "Radiateurs ou terminaux de chauffage en zones techniques"}, {"n": "Ensemble local technique Transformateur", "l": [4, 4, 4, 4, 4], "d": "Local abritant le transformateur principal d'alimentation de la gare"}, {"n": "Ensemble local technique Transformateur de secours avec Source secours BT/HT", "l": [4, 4, 4, 4, 2], "d": "Local abritant transformateur et source électrique de secours"}, {"n": "Enveloppe", "l": [4, 4, 4, 3, 3], "d": "Façades, toitures, menuiseries, étanchéité du bâtiment"}, {"n": "Equipement ferroviaire réseau", "l": [4, 4, 4, 1, 1], "d": "Équipements d'infrastructure ferroviaire (signalisation, voie, aiguillage…)"}, {"n": "Equipement médical de premiers secours", "l": [4, 1, 1, 1, 1], "d": "\""}, {"n": "Escalier Mécanique", "l": [1, 4, 1, 3, 1], "d": "Escalier motorisé pour le transport de voyageurs"}, {"n": "Escalier Mécanique secouru", "l": [4, 4, 1, 3, 1], "d": "Escalier mécanique intégré aux cheminements de sécurité"}, {"n": "Espace commercial", "l": [1, 4, 3, 3, 1], "d": "Locaux dédiés aux commerces et services en gare"}, {"n": "Espace d'attente", "l": [1, 4, 3, 4, 1], "d": "Zones de salle d'attente et assises voyageurs"}, {"n": "Espace de circulation", "l": [2, 4, 3, 4, 1], "d": "Couloirs, halls et zones de déplacement voyageurs"}, {"n": "Extinction incendie par gaz argon", "l": [4, 3, 4, 1, 1], "d": "Système d'extinction automatisé par gaz en locaux sensibles"}, {"n": "Extinction incendie par sprinklage", "l": [4, 3, 4, 1, 1], "d": "Réseau de sprinklers automatiques contre l'incendie"}, {"n": "Fondation", "l": [4, 4, 4, 1, 1], "d": "Ouvrages de fondation du bâtiment ou de l'ouvrage"}, {"n": "Fontaine à eau", "l": [0, 2, 0, 4, 3], "d": "Fontaines de distribution d'eau potable aux usagers"}, {"n": "Groupe de production de froid", "l": [1, 3, 3, 1, 2], "d": "Production centralisée de froid pour la climatisation"}, {"n": "Haut-parleur", "l": [4, 2, 3, 3, 0], "d": "Diffuseurs sonores dans les espaces voyageurs et techniques"}, {"n": "Interphonie Ascenseur", "l": [4, 2, 1, 3, 1], "d": "Système d'appel et de communication en cabine d'ascenseur"}, {"n": "Interphonie CAB", "l": [1, 1, 2, 2, 1], "d": "Système d'interphonie intégré aux portillons automatiques de contrôle d'accès et de billettique"}, {"n": "Ligne CAB/PEC", "l": [1, 3, 4, 3, 1], "d": "Ligne de portillons de contrôle d'accès ou billettique"}, {"n": "Lignes de vie ou autres dispositifs fixes pour l'entretien", "l": [4, 1, 3, 1, 4], "d": "Dispositifs de protection contre les chutes pour interventions en hauteur"}, {"n": "Local technique", "l": [1, 4, 4, 1, 2], "d": "Local abritant des équipements techniques (élec, CVC, IT…)"}, {"n": "Ouvrage d'assainissement ou technique", "l": [2, 4, 2, 1, 4], "d": "Ouvrages de collecte et gestion des eaux usées/pluviales"}, {"n": "Panneaux photovoltaïques", "l": [1, 3, 3, 1, 4], "d": "Installation de production d'électricité solaire"}, {"n": "Panneaux solaires thermiques", "l": [1, 3, 3, 1, 4], "d": "Capteurs solaires pour production de chaleur ou d'ECS"}, {"n": "Paratonnerre", "l": [4, 3, 2, 1, 1], "d": "Dispositif de protection contre la foudre"}, {"n": "Parking", "l": [1, 3, 1, 4, 1], "d": "Parking voyageurs accolé à la gare"}, {"n": "Parking exploitants", "l": [1, 3, 4, 1, 3], "d": "Parking réservé aux personnels et prestataires"}, {"n": "Passage souterrain", "l": [1, 4, 4, 4, 0], "d": "Ouvrage souterrain pour accéder aux quais et aux espaces"}, {"n": "Passerelle", "l": [4, 4, 4, 4, 0], "d": "Ouvrage aérien piéton pour franchir les voies"}, {"n": "Petit ouvrage sous voie", "l": [1, 4, 2, 1, 1], "d": "Petit ouvrage (buse, dalot) traversant sous la voie ferrée"}, {"n": "Pneumatique", "l": [1, 3, 2, 1, 1], "d": "Réseau d'air comprimé pour automatismes et équipements"}, {"n": "Pompe de relevage", "l": [1, 3, 4, 1, 3], "d": "Pompe évacuant les eaux de locaux bas ou souterrains"}, {"n": "Ponts rails", "l": [4, 4, 4, 1, 1], "d": "Ponts supportant les voies ferrées"}, {"n": "Ponts route", "l": [4, 4, 4, 1, 1], "d": "Ponts routiers associés à la gare ou franchissant la voie"}, {"n": "Portail mécanique de secours téléopéré", "l": [4, 3, 3, 1, 1], "d": "Portail motorisé de secours commandable à distance"}, {"n": "Portes auto", "l": [1, 3, 3, 3, 1], "d": "Portes automatiques d'accès aux bâtiments et espaces"}, {"n": "Pupitre téléopération", "l": [4, 4, 4, 1, 2], "d": "Poste de commande et de supervision centralisé permettant à un opérateur (agent ou centre de téléopération) de contrôler et piloter à distan"}, {"n": "Quai", "l": [1, 4, 4, 4, 2], "d": "Plateforme voyageurs au bord des voies"}, {"n": "Réseaux de plomberies", "l": [1, 3, 4, 3, 3], "d": "Réseaux d'eau, évacuation et raccordements sanitaires"}, {"n": "Rideau mécanique", "l": [4, 2, 3, 1, 1], "d": "Rideau de fermeture manuel ou localement motorisé"}, {"n": "Rideau métallique téléopéré", "l": [4, 2, 3, 1, 1], "d": "Rideau métallique motorisé commandable à distance"}, {"n": "Sanitaire ERP", "l": [1, 3, 1, 4, 2], "d": "Sanitaires accessibles au public voyageurs"}, {"n": "Sanitaires ERT", "l": [1, 3, 1, 1, 4], "d": "Sanitaires pour personnels et zones techniques"}, {"n": "Sirène d'évacuation et diffuseur lumineux", "l": [4, 1, 1, 1, 1], "d": "Dispositifs sonores et visuels d'alarme générale"}, {"n": "Sirène évacuation", "l": [4, 1, 1, 1, 1], "d": "Dispositifs sonores d'alarme incendie et d'évacuation"}, {"n": "Source centrale de secours", "l": [4, 3, 4, 4, 1], "d": "Source électrique centralisée pour circuits de secours"}, {"n": "SSI - Diffuseurs lumineux", "l": [4, 1, 1, 1, 1], "d": "Diffuseurs lumineux contrôlés par le SSI"}, {"n": "Structure", "l": [4, 4, 4, 1, 1], "d": "Ossature porteuse du bâtiment ou de l'ouvrage"}, {"n": "Tableau Divisionnaire", "l": [4, 2, 3, 3, 1], "d": "Tableau électrique distribuant l'électricité à une zone ou un usage"}, {"n": "Tableau divisionnaire de bâtiment", "l": [4, 2, 4, 4, 2], "d": "Tableau électrique dédié à un bâtiment ou une entité"}, {"n": "Tableau Général Secouru", "l": [4, 2, 4, 4, 2], "d": "Tableau alimentant les circuits électriques secourus"}, {"n": "Tarif Jaune/bleu", "l": [4, 3, 4, 4, 1], "d": "Point de livraison électrique du réseau public (comptage HTA/BT)"}, {"n": "téléphone", "l": [1, 1, 2, 1, 1], "d": "Téléphonie fixe interne et externe de la gare"}, {"n": "Terrains nus G&C", "l": [1, 1, 2, 0, 2], "d": "Terrains nus de gestion et construction liés à la gare"}, {"n": "Terrains nus non G&C", "l": [1, 1, 2, 0, 2], "d": "Terrains nus hors périmètre gare ou centre"}, {"n": "TGBT / TGBTR", "l": [4, 4, 4, 4, 2], "d": "Tableau Général Basse Tension (et secouru réseau)"}, {"n": "Traversée de voie piétonne (TVP)", "l": [4, 3, 3, 4, 1], "d": "Passage piéton traversant les voies au niveau du sol"}, {"n": "Ventilation", "l": [2, 2, 1, 4, 1], "d": "Ventilation des locaux, halls et passages"}];
@@ -150,7 +150,7 @@ const EQUIP_FREQ = ['Local technique','TGBT / TGBTR','Ensemble local technique T
 
 /* ---------- Aléas & effets (mémoire méthodo ACC PAZ) ---------- */
 const ALEAS = [['CHA','Fortes chaleurs'],['PLU','Inondation pluviale'],['FLU','Crue / inond. fluviale'],['NAP','Remontée de nappe'],
-  ['VEN','Vents forts'],['SEC','Sécheresse'],['RGA','RGA (argiles)'],['GEL','Froid / gel']];
+  ['VEN','Vents forts'],['SEC','Sécheresse'],['RGA','RGA (argiles)'],['GLI','Glissement de terrain'],['FEU','Feux de végétation'],['TDC','Recul trait de côte'],['GEL','Froid / gel']];
 const EFFETS = [['att','Atténuant'],['agg','Aggravant'],['eva','À évaluer']];
 
 /* ---------- Niveaux & zones Paris-Austerlitz (plans 005348S zones thermiques + Géoprism) ---------- */
@@ -655,9 +655,9 @@ ${plans}${body}<p style="color:#6b7682;font-size:12px">GARÉo Photo ${esc(VERSIO
 /* =====================================================================
    EXPORT : synthèse HTML autonome, prête à imprimer / partager
    ===================================================================== */
-const AL_COL = {CHA:'#D9480F', PLU:'#1C7ED6', FLU:'#1864AB', NAP:'#0B7285', VEN:'#6741D9', SEC:'#B08900', RGA:'#8B5E34', GEL:'#4DABF7'};
+const AL_COL = {CHA:'#D9480F', PLU:'#1C7ED6', FLU:'#1864AB', NAP:'#0B7285', VEN:'#6741D9', SEC:'#B08900', RGA:'#8B5E34', GLI:'#6D4C41', FEU:'#E8590C', TDC:'#3B5BDB', GEL:'#4DABF7'};
 const EF_COL = {agg:'#C8102E', att:'#1D5E3A', eva:'#C77800'};
-const X = {src:null, all:true, busy:null, last:null, zipSyn:true, zipLog:null};
+const X = {src:null, all:true, busy:null, last:null, zipSyn:true, zipLog:null, crAll:false, crLog:null};
 function viewExport() {
   const locals = Object.values(S.visites).filter(v => v.photos.length).sort((a, b) => b.debut - a.debut);
   const srcs = locals.map(v => ({k:v.id, lb:`${v.gare} · ${ymd(v.debut)} · ${v.photos.length} prises (ce téléphone/navigateur)`}));
@@ -671,6 +671,12 @@ function viewExport() {
     <div style="margin-top:12px"><button class="btn big yel" style="width:100%" data-act="zip" ${X.busy ? 'disabled' : ''}>📦 Télécharger le ZIP classé</button></div>
     ${X.zipLog ? `<div class="banner ok" style="margin-top:10px">${X.zipLog}</div>` : ''}
     <p class="small mute">Sur le téléphone, le ZIP arrive dans Téléchargements : envoie-le sur ton PC (câble, OneDrive, Teams). Au-delà de 3,5 Go il est découpé en plusieurs parties.</p></div>` : ''}
+  ${srcs.length ? `<div class="card"><h2>📄 Compte rendu Word</h2>
+    <p class="small mute" style="margin-top:0">Le CR au format AREP (modèle ACC) : une fiche par photo, colorée selon l'effet, avec les pictos d'aléa et la note ; points clés et éléments à clarifier pré-remplis ; synthèse par aléa avec les plans annotés ; index des photos. On finit dans Word (participants, échange en salle, relecture).</p>
+    <label class="row small"><input type="checkbox" id="xCrAll" ${X.crAll ? 'checked' : ''}> Une fiche pour toutes les photos (sinon : seulement celles avec effet, aléa, note ou ★ — les autres restent dans l'index)</label>
+    <div style="margin-top:12px"><button class="btn big yel" style="width:100%" data-act="cr" ${X.busy ? 'disabled' : ''}>📄 Générer le CR Word</button></div>
+    ${X.busy && /^CR/.test(X.busy.lb) ? `<div class="small" style="margin-top:8px">${esc(X.busy.lb)} ${X.busy.done} / ${X.busy.total}</div><div class="prog"><div style="width:${100 * X.busy.done / Math.max(1, X.busy.total)}%"></div></div>` : ''}
+    ${X.crLog ? `<div class="banner ok" style="margin-top:10px">${X.crLog}</div>` : ''}</div>` : ''}
   ${autoCard(v)}
   <div class="card"><h2>Synthèse de visite</h2>
     <p class="small mute" style="margin-top:0">Un document prêt à l'emploi : couverture, aléas surlignés, tableau zones × aléas, points d'attention, plans avec les photos numérotées et leur direction, puis une fiche par zone. Fichier HTML autonome (s'ouvre partout), à imprimer en PDF.</p>
@@ -913,6 +919,315 @@ function plan_rangement(r) {
     g.items.forEach(p => { const dir = zdir + '/' + (p.eqs.length ? short(p.eqs[0], 48) : '_Vues-generales'); out.push({p, dir, fname:fileName(p, v), zdir}); }); });
   return {groups, out};
 }
+/* =====================================================================
+   EXPORT : compte rendu Word (.docx) au format du modèle CR ACC AREP
+   - fiches colorées par effet, pictos d'aléa, photos intégrées, zones
+   - points clés / éléments à clarifier pré-remplis depuis les notes
+   - synthèse par aléa : plans annotés + tableau, index des photos
+   Le squelette (styles AREP, pied de page, pictos) est dans cr/base.json.
+   ===================================================================== */
+const CRW = (() => {
+  const TEAL = '0A6A87', TEAL_L = 'EAF3F6', GREY_L = 'F4F3EF', LINE = 'D9D7D0', INK = '1F1F1E', MUTED = '8C8A84';
+  const EFF = {agg:['Aggravant', 'C0392B', 'FBE4E1', 'augmente la vulnérabilité'], att:['Atténuant', '2E8B57', 'E2F2E7', 'réduit la vulnérabilité'],
+    eva:['À évaluer', 'A67C00', 'FFF4CC', 'impact à préciser'], inf:['Information', TEAL, TEAL_L, 'élément de contexte']};
+  const ALN = {CHA:'Fortes chaleurs', PLU:'Inondation pluviale', FLU:'Inondation fluviale (crue)', NAP:'Remontée de nappe', RGA:'Retrait-gonflement des argiles',
+    GLI:'Glissement de terrain', VEN:'Vents forts', SEC:'Sécheresse', FEU:'Feux de végétation', TDC:'Recul du trait de côte', GEL:'Froid / gel'};
+  const AL_ORDER = Object.keys(ALN);
+  const EMU = 914400, W = 9218;
+  const xe = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;'}[c])).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '');
+  const sz = n => `<w:sz w:val="${n}"/><w:szCs w:val="${n}"/>`, col = c => `<w:color w:val="${c}"/>`;
+  const FM = '<w:rFonts w:ascii="Lato Medium" w:hAnsi="Lato Medium"/>', B = '<w:b/><w:bCs/>', GREY = col('9A988F');
+  const CORE = "xmlns:ns0='http://purl.org/dc/elements/1.1/' xmlns:ns1='http://schemas.openxmlformats.org/package/2006/metadata/core-properties'";
+  const bind = f => `<w:dataBinding w:prefixMappings="${CORE}" w:xpath="/ns1:coreProperties[1]/ns0:${f}[1]" w:storeItemID="{6C3C8BC8-F283-45AE-878A-BAB7291924A1}"/>`;
+  const dmy = t => { const d = new Date(t); return pad(d.getDate()) + '/' + pad(d.getMonth() + 1) + '/' + d.getFullYear(); };
+
+  function make(base) {
+    let id = 900000, dp = 9000; const nid = () => ++id;
+    const media = [];           // {rid, path, bytes}
+    const iconRid = {};
+    const addMedia = (bytes, ext) => { const rid = 'rIdM' + (media.length + 1); media.push({rid, path:`media/m${media.length + 1}.${ext}`, bytes}); return rid; };
+    const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+    const icon = c => iconRid[c] || (iconRid[c] = base.icons[c] ? addMedia(b64(base.icons[c]), 'png') : null);
+    const phRid = {}; const ph = k => phRid[k] || (phRid[k] = addMedia(b64(base.ph[k]), 'png'));
+
+    const r = (t, rpr = '') => String(t).split('\n').map((l, i) => `<w:r><w:rPr>${rpr}</w:rPr>${i ? '<w:br/>' : ''}<w:t xml:space="preserve">${xe(l)}</w:t></w:r>`).join('');
+    const drawing = (rid, cx, cy, name = 'Image') => { const i = ++dp;
+      return `<w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${cx}" cy="${cy}"/><wp:effectExtent l="0" t="0" r="0" b="0"/><wp:docPr id="${i}" name="${xe(name)} ${i}"/>`
+        + '<wp:cNvGraphicFramePr><a:graphicFrameLocks xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" noChangeAspect="1"/></wp:cNvGraphicFramePr>'
+        + '<a:graphic xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture">'
+        + `<pic:nvPicPr><pic:cNvPr id="0" name="${xe(name)} ${i}"/><pic:cNvPicPr><a:picLocks noChangeAspect="1"/></pic:cNvPicPr></pic:nvPicPr>`
+        + `<pic:blipFill><a:blip r:embed="${rid}"/><a:srcRect/><a:stretch><a:fillRect/></a:stretch></pic:blipFill>`
+        + `<pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${cx}" cy="${cy}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing>`; };
+    const imgRun = (rid, wIn, hIn, name, pos) => rid ? `<w:r><w:rPr><w:noProof/>${pos != null ? `<w:position w:val="${pos}"/>` : ''}</w:rPr>${drawing(rid, Math.round(wIn * EMU), Math.round(hIn * EMU), name)}</w:r>` : '';
+    const pic = (c, h, pos = -5) => imgRun(icon(c), h, h, c, pos);
+    const fit = (im, bw, bh) => { const k = Math.min(bw / im.w, bh / im.h); return [im.w * k, im.h * k]; };
+
+    const ccText = (tag, val, rpr = '', binding = '', isPh = true) => `<w:sdt><w:sdtPr><w:rPr>${rpr}</w:rPr><w:alias w:val="${xe(tag)}"/><w:tag w:val="${xe(tag)}"/><w:id w:val="${nid()}"/>${binding}<w:text/></w:sdtPr><w:sdtContent>${r(val, rpr + (isPh ? GREY : ''))}</w:sdtContent></w:sdt>`;
+    const ccRich = (tag, ph, rpr = '') => `<w:sdt><w:sdtPr><w:alias w:val="${xe(tag)}"/><w:tag w:val="${xe(tag)}"/><w:id w:val="${nid()}"/></w:sdtPr><w:sdtContent>${r(ph, rpr + GREY)}</w:sdtContent></w:sdt>`;
+    const ccDrop = (tag, items, val, rpr = '') => `<w:sdt><w:sdtPr><w:rPr>${rpr}</w:rPr><w:alias w:val="${xe(tag)}"/><w:tag w:val="${xe(tag)}"/><w:id w:val="${nid()}"/><w:dropDownList>${items.map(i => `<w:listItem w:displayText="${xe(i)}" w:value="${xe(i)}"/>`).join('')}</w:dropDownList></w:sdtPr><w:sdtContent>${r(val, rpr)}</w:sdtContent></w:sdt>`;
+    const ccPic = (rid, w, h, tag = 'Photo') => `<w:sdt><w:sdtPr><w:alias w:val="${tag}"/><w:tag w:val="photo"/><w:id w:val="${nid()}"/><w:picture/></w:sdtPr><w:sdtContent>${imgRun(rid, w, h, tag)}</w:sdtContent></w:sdt>`;
+    const rep = (items, title) => `<w:sdt><w:sdtPr><w:alias w:val="${title}"/><w:tag w:val="${title}"/><w:id w:val="${nid()}"/><w15:repeatingSection><w15:sectionTitle w:val="${title}"/></w15:repeatingSection></w:sdtPr><w:sdtContent>`
+      + items.map(x => `<w:sdt><w:sdtPr><w:id w:val="${nid()}"/><w15:repeatingSectionItem/></w:sdtPr><w:sdtContent>${x}</w:sdtContent></w:sdt>`).join('') + '</w:sdtContent></w:sdt>';
+
+    const para = (inner, ppr = '', style = 'Corpsdetexte') => `<w:p><w:pPr><w:pStyle w:val="${style}"/>${ppr}</w:pPr>${inner}</w:p>`;
+    const jl = (b = 60, a = 60, line = 264, l = 120, rr = 120, jc = 'left') => `<w:spacing w:before="${b}" w:after="${a}" w:line="${line}" w:lineRule="auto"/><w:ind w:left="${l}" w:right="${rr}"/><w:jc w:val="${jc}"/>`;
+    const gap = (h = 180) => para('', `<w:spacing w:before="0" w:after="0" w:line="${h}" w:lineRule="exact"/>`);
+    const bd = (side, v = 'single', s = 4, c = LINE) => `<w:${side} w:val="${v}" w:sz="${s}" w:space="0" w:color="${c}"/>`;
+    const borders = (top = ['single', 4, LINE], left = ['single', 4, LINE], other = ['single', 4, LINE], iv = ['nil', 0, 'auto']) =>
+      '<w:tblBorders>' + bd('top', ...top) + bd('left', ...left) + bd('bottom', ...other) + bd('right', ...other) + bd('insideH', ...other) + bd('insideV', ...iv) + '</w:tblBorders>';
+    const NOB = borders(['nil', 0, 'auto'], ['nil', 0, 'auto'], ['nil', 0, 'auto']), GRID = borders(undefined, undefined, undefined, ['single', 4, LINE]);
+    const WH = ['single', 24, 'FFFFFF'], WHB = borders(WH, WH, WH, WH);
+    const table = (ws, rows, brd = GRID) => `<w:tbl><w:tblPr><w:tblW w:w="${ws.reduce((a, b) => a + b, 0)}" w:type="dxa"/><w:tblInd w:w="1" w:type="dxa"/>${brd}<w:tblLayout w:type="fixed"/>`
+      + '<w:tblCellMar><w:top w:w="0" w:type="dxa"/><w:left w:w="57" w:type="dxa"/><w:bottom w:w="0" w:type="dxa"/><w:right w:w="57" w:type="dxa"/></w:tblCellMar>'
+      + `<w:tblLook w:val="0000"/></w:tblPr><w:tblGrid>${ws.map(w => `<w:gridCol w:w="${w}"/>`).join('')}</w:tblGrid>${rows.join('')}</w:tbl>`;
+    const cell = (w, content, o = {}) => `<w:tc><w:tcPr><w:tcW w:w="${w}" w:type="dxa"/>${o.span > 1 ? `<w:gridSpan w:val="${o.span}"/>` : ''}${o.brd ? `<w:tcBorders>${o.brd}</w:tcBorders>` : ''}`
+      + `${o.shade ? `<w:shd w:val="clear" w:color="auto" w:fill="${o.shade}"/>` : ''}<w:vAlign w:val="${o.va || 'top'}"/></w:tcPr>${content}</w:tc>`;
+    const row = (cells, o = {}) => `<w:tr><w:trPr>${o.split ? '' : '<w:cantSplit/>'}${o.hdr ? '<w:tblHeader/>' : ''}</w:trPr>${cells.join('')}</w:tr>`;
+    const thead = (ws, labs) => row(ws.map((w, i) => cell(w, para(r(labs[i], sz(16) + B + col('FFFFFF')), jl(60, 60, 240, 100, 60)), {shade:TEAL})), {hdr:true});
+    const H1 = (t, pb = true) => para(r(t), `<w:keepNext/>${pb ? '<w:pageBreakBefore/>' : ''}<w:numPr><w:ilvl w:val="0"/><w:numId w:val="4"/></w:numPr>`, 'Titre1');
+    const H2 = (t, pb = false) => para(r(t), `<w:keepNext/>${pb ? '<w:pageBreakBefore/>' : ''}`, 'Titre2');
+    const P = (t, o = {}) => para(r(t, o.rpr || ''), (o.num ? `<w:numPr><w:ilvl w:val="0"/><w:numId w:val="${o.num}"/></w:numPr>` : '') + (o.ppr || ''));
+    const intro = t => para(r(t, sz(19) + col('5F5D57') + '<w:i/>'), '<w:spacing w:before="0" w:after="200"/>');
+    const label = t => r(t.toUpperCase(), FM + sz(14) + col(MUTED) + '<w:spacing w:val="12"/>');
+    const TAG = FM + B + sz(17) + col(TEAL);
+    const chip = c => pic(c, 0.2) + r(' ' + (ALN[c] || c), TAG);
+    return {nid, addMedia, icon, ph, r, imgRun, pic, fit, ccText, ccRich, ccDrop, ccPic, rep, para, jl, gap, bd, borders, NOB, GRID, WHB, table, cell, row, thead, H1, H2, P, intro, label, TAG, chip, media, bind};
+  }
+
+  async function build(r0, o) {
+    const base = o.base, v = r0.visite, K = make(base);
+    const {r, para, jl, gap, bd, borders, table, cell, row, thead, H1, H2, P, intro, label, TAG, chip, pic, imgRun, fit, ccText, ccRich, ccDrop, ccPic, rep} = K;
+    const photos = [...r0.photos].sort((a, b) => a.n - b.n);
+    const groups = groupByZone(photos);
+    const keep = p => o.all || p.star || p.ef || p.note || (p.al && p.al.length);
+    const used = AL_ORDER.filter(k => photos.some(p => (p.al || []).includes(k)));
+    const imgs = {}; let done = 0;
+    for (const p of photos) { if (keep(p) || p.star) { try { const im = await o.getImg(p); if (im) imgs[p.id] = {...im, rid:K.addMedia(im.bytes, 'jpeg')}; } catch (e) {} }
+      done++; o.progress && o.progress('Photos', done, photos.length); }
+    const out = []; const add = x => out.push(x);
+    const date = dmy(v.debut);
+
+    /* ---------- couverture ---------- */
+    add(para(label('AREP · Management de projet AMO · Adaptation au changement climatique'), '<w:spacing w:before="0" w:after="320"/>'));
+    add(para(r('Compte rendu de visite de site', FM + sz(30) + col(INK)), '<w:spacing w:before="0" w:after="80"/>'));
+    add(para(r('Vulnérabilité climatique de la gare de', sz(24) + col(TEAL)), '<w:spacing w:before="0" w:after="0"/>'));
+    const GARE = rpr => ccText('Nom de la gare', v.gare, rpr, K.bind('title'), false);
+    add(para(GARE(FM + B + sz(52) + col(TEAL)), '<w:spacing w:before="0" w:after="300"/>'));
+    const cov = photos.find(p => p.star && p.type !== 'video' && imgs[p.id]) || photos.find(p => p.type !== 'video' && imgs[p.id]);
+    if (cov) { const [w, h] = fit(imgs[cov.id], 6.4, 3.6); add(para(K.ccPic(imgs[cov.id].rid, w, h, 'Photo de couverture'), '<w:spacing w:before="0" w:after="300"/><w:jc w:val="center"/>')); }
+    else add(para(K.ccPic(K.ph('cover'), 6.4, 3.6, 'Photo de couverture'), '<w:spacing w:before="0" w:after="300"/><w:jc w:val="center"/>'));
+    const info = (l, val) => para(label(l), jl(80, 0, 240, 140, 60)) + para(val, jl(20, 100, 240, 140, 60));
+    const VAL = FM + sz(20), iw = Math.floor(W / 4), LB = bd('left', 'single', 18, TEAL);
+    const ic = (w, l, val) => cell(w, info(l, val), {brd:LB});
+    add(table([iw, iw, iw, W - 3 * iw], [
+      row([ic(iw, 'Date de la visite', ccText('Date de la visite', date, VAL, K.bind('subject'), false)), ic(iw, 'Heure', ccText('Heure', hm(v.debut).replace(':', 'h'), VAL, '', false)),
+           ic(iw, 'Indice', ccText('Indice', 'V1', VAL, '', false)), ic(W - 3 * iw, 'Date d’envoi', ccText('Date d’envoi', 'jj/mm/aaaa', VAL))]),
+      row([ic(iw, 'Rédigé par', ccText('Rédigé par', v.auteur || 'Prénom NOM', VAL, '', !v.auteur)), ic(iw, 'Vérifié par', ccText('Vérifié par', 'Prénom NOM', VAL)),
+           ic(iw, 'N° d’affaire', ccText('N° d’affaire', '1021xxx-00', VAL)), ic(W - 3 * iw, 'Maîtrise d’ouvrage', ccText('MOA', 'SNCF Gares & Connexions', VAL, '', false))])], K.NOB));
+
+    /* ---------- participants ---------- */
+    add(H2('Participants', true));
+    const PW = [2000, 2300, 1800, 2318, 800];
+    const prow = () => row([...PW.slice(0, 4).map((w, i) => cell(w, para(ccText(['Rôle', 'Direction', 'Nom', 'Contact'][i], '…', sz(16)), jl(60, 60, 240, 100, 60)))),
+      cell(PW[4], para(ccDrop('Présence', ['P', 'A', 'D'], '▾', sz(16) + B), jl(60, 60, 240, 60, 60, 'center')))]);
+    add(table(PW, [thead(PW, ['Rôle', 'Direction / service', 'Nom Prénom', 'Tél. / e-mail', 'Prés.*']), ...Array.from({length:10}, prow)]));
+    add(para(r('* P : présent(e) · A : absent(e) excusé(e) · D : diffusion uniquement', sz(15) + col('7F7F7F')), '<w:spacing w:before="80"/>'));
+
+    /* ---------- 1. contexte ---------- */
+    add(H1('Contexte de la visite'));
+    add(para(r('Évaluation de la résilience de la gare de ') + GARE('') + r(' face aux risques climatiques. Celle-ci intègrera les installations bâtimentaires et les équipements qui assurent les fonctions de gare.')));
+    add(P('La mission se décompose en 5 volets :'));
+    ['Identification des aléas climatiques et analyse de l’exposition', 'Identification des actifs et fonctions essentiels', 'Caractérisation de la sensibilité',
+     'Synthèse des vulnérabilités', 'Mesures d’adaptation'].forEach(t => add(P(t, {num:12})));
+    add(P(''));
+    add(para(r('La visite de site permet d’identifier les installations essentielles à l’exploitation de la gare de ') + GARE('') + r(' et d’évaluer leur vulnérabilité face aux phénomènes climatiques susceptibles de s’intensifier dans les prochaines années sous l’effet du changement climatique.')));
+    add(P(`Les investigations ont porté sur (${groups.length} zones, ${photos.length} prises de vue relevées avec GARÉo Photo) :`));
+    add(rep(groups.map((g, i) => P(`${g.zone || 'Sans zone'} (${nivOf(g.niv).label})${i === groups.length - 1 ? '.' : ' ;'}`, {num:7})), 'Zone visitée'));
+    add(H2('Comment lire ce compte rendu'));
+    add(P('Chaque constat est une fiche. Sa couleur indique son effet sur la vulnérabilité de la gare ; son en-tête, le ou les aléas concernés. Les numéros renvoient aux photos (index en annexe).'));
+    const LW4 = [2304, 2304, 2304, 2306];
+    add(table(LW4, [row(['agg', 'att', 'eva', 'inf'].map((e, i) => { const [lab, s, soft, sub] = EFF[e];
+      return cell(LW4[i], para(pic(e, 0.24) + r('  ' + lab.toUpperCase(), FM + B + sz(16) + col(s)), jl(110, 20, 240, 140, 60)) + para(r(sub, sz(15) + col('6F6D66')), jl(0, 110, 240, 140, 60)),
+        {shade:soft, brd:bd('top', 'single', 18, s)}); }))], K.WHB));
+    add(gap(160));
+    const legA = used.length ? used : AL_ORDER.slice(0, 10); const AW = Math.floor(W / 5);
+    const lrows = []; for (let i = 0; i < legA.length; i += 5) { const sl = legA.slice(i, i + 5);
+      lrows.push(row(Array.from({length:5}, (_, j) => sl[j] ? cell(AW, para(pic(sl[j], 0.42, 0), jl(120, 30, 240, 0, 0, 'center')) + para(r(ALN[sl[j]], sz(15) + col(INK)), jl(0, 120, 230, 60, 60, 'center')), {shade:GREY_L}) : cell(AW, para('')))));
+    }
+    add(table(Array(5).fill(AW), lrows, K.WHB));
+
+    /* ---------- 2. points clés ---------- */
+    add(H1('Points clés de la visite'));
+    add(intro('Pré-rempli depuis les notes des photos (★ et aggravantes d’abord, 3 par aléa) : à reformuler et réduire à l’essentiel.'));
+    const KW = [640, 1860, W - 2500];
+    const BUL = '<w:numPr><w:ilvl w:val="0"/><w:numId w:val="7"/></w:numPr><w:spacing w:before="90" w:after="90" w:line="264" w:lineRule="auto"/><w:jc w:val="left"/>';
+    const shortTxt = (s, n = 200) => { s = String(s).replace(/\s+/g, ' ').trim(); return s.length > n ? s.slice(0, n - 1).replace(/\s\S*$/, '') + '…' : s; };
+    const kRows = (used.length ? used : AL_ORDER.slice(0, 10)).map(k => {
+      const ps = photos.filter(p => (p.al || []).includes(k) && p.note && (p.ef === 'agg' || p.ef === 'eva' || p.star))
+        .sort((a, b) => (b.star ? 2 : 0) + (b.ef === 'agg' ? 1 : 0) - (a.star ? 2 : 0) - (a.ef === 'agg' ? 1 : 0) || a.n - b.n).slice(0, 3);
+      const bul = ps.length ? ps.map(p => para(r((p.zone ? p.zone.split(' — ')[0] + ' : ' : ''), B) + r(shortTxt(p.note, 150)) + r(` (n° ${p.n})`, col(MUTED)), BUL))
+        : [para(ccRich('Point clé', 'Constat principal : une phrase.'), BUL)];
+      return row([cell(KW[0], para(pic(k, 0.32, 0), jl(90, 90, 240, 0, 0, 'center')), {shade:TEAL_L, va:'center', brd:bd('right', 'nil', 0, 'auto')}),
+                  cell(KW[1], para(r(ALN[k], FM + sz(18) + col(TEAL)), jl(90, 90, 240, 40, 60)), {shade:TEAL_L, va:'center', brd:bd('left', 'nil', 0, 'auto')}),
+                  cell(KW[2], rep(bul, 'Point clé'), {va:'center'})], {split:true}); });
+    add(table(KW, kRows));
+
+    /* ---------- 3. éléments à clarifier ---------- */
+    add(H1('Éléments à clarifier et suites à donner'));
+    const QW = [2600, 4618, 2000], TYPES = ['Périmètre / propriété', 'Point technique', 'Document à transmettre', 'Suite à donner (AREP)'];
+    const evas = photos.filter(p => p.ef === 'eva' && p.note && (p.star || /\?|vérifi|confirm|précis|à voir|demander|inconnu/i.test(p.note))).slice(0, 12);
+    const qrow = p => row([cell(QW[0], para(ccDrop('Type', TYPES, p ? 'Point technique' : '▾ Type', FM + sz(17) + col(TEAL)), jl(70, 70))),
+      cell(QW[1], para(p ? r(shortTxt(p.note, 260), sz(18)) + r(` (n° ${p.n}, ${p.zone ? p.zone.split(' — ')[0] : 'sans zone'})`, sz(16) + col(MUTED)) : ccRich('Question', 'Point à clarifier ou document attendu', sz(18)), jl(70, 70))),
+      cell(QW[2], para(ccText('Qui', 'MOA / AREP / mainteneur', sz(17)), jl(70, 70)))]);
+    add(table(QW, [thead(QW, ['Type', 'Question / document attendu', 'Qui ?']), ...evas.map(qrow), qrow(), qrow()]));
+    add(para(r('Ajouter une ligne : se placer en fin de dernière ligne et appuyer sur Tab.', sz(15) + col('7F7F7F')), '<w:spacing w:before="80"/>'));
+
+    /* ---------- fiches ---------- */
+    const card = (p, eff) => { const [lab, s, soft] = EFF[eff];
+      const brd = borders(['single', 18, s], ['single', 18, s], ['single', 4, LINE]);
+      let head = pic(eff, 0.2) + r('  ' + lab.toUpperCase(), FM + B + sz(16) + col(s) + '<w:spacing w:val="12"/>');
+      if (p) { const al = (p.al || []).slice().sort((a, b) => AL_ORDER.indexOf(a) - AL_ORDER.indexOf(b));
+        head += al.length ? r('     ', sz(16)) + al.map(chip).join(r('   ', sz(16))) : r('     ', sz(16)) + ccDrop('Aléa', [...Object.values(ALN), 'Autre aléa (préciser)'], '▾ Aléa', TAG);
+        head += '<w:r><w:tab/></w:r>' + (p.star ? r('★ ', sz(17) + col('C99A06')) : '') + r(`Photo n° ${p.n}${p.type === 'video' ? ' (vidéo)' : ''}`, sz(15) + col('6F6D66'));
+      } else head += r('     ', sz(16)) + ccDrop('Aléa', [...Object.values(ALN), 'Autre aléa (préciser)'], '▾ Aléa', TAG);
+      const hp = para(head, '<w:keepNext/><w:tabs><w:tab w:val="right" w:pos="8880"/></w:tabs>' + jl(80, 80, 240, 100, 100));
+      const title = p ? r(p.eqs && p.eqs.length ? p.eqs.join(' · ') : 'Vue générale', FM + B + sz(20) + col(INK)) : ccText('Titre du constat', 'Titre court du constat', FM + B + sz(20) + col(INK));
+      const desc = p && p.note ? r(p.note, sz(19)) : ccRich('Description', p ? 'Constat à rédiger.' : 'Ce qui a été vu ou dit, en deux ou trois phrases courtes. Source si besoin (témoignage, document).', sz(19));
+      const text = para(title, jl(120, 40, 260, 170, 140)) + para(desc, jl(40, 120, 288, 170, 140));
+      const im = p && imgs[p.id];
+      if (p && !im) return table([W], [row([cell(W, hp, {shade:soft})]), row([cell(W, text)])], brd);
+      const LW = 4100; let pc;
+      if (im) { const [w, h] = fit(im, 2.62, 1.96); pc = K.ccPic(im.rid, w, h); } else pc = K.ccPic(K.ph('paysage'), 2.62, 1.96);
+      return table([LW, W - LW], [row([cell(W, hp, {shade:soft, span:2})]),
+        row([cell(LW, para(pc, '<w:spacing w:before="100" w:after="100"/><w:ind w:left="0" w:right="0"/><w:jc w:val="center"/>'), {shade:GREY_L, va:'center'}), cell(W - LW, text, {va:'center'})])], brd); };
+    const fiche = (p, eff) => card(p, eff) + gap(200);
+
+    /* ---------- 4. échange en salle ---------- */
+    add(H1('Échange en salle'));
+    add(intro('Retours de la maîtrise d’ouvrage et des mainteneurs, à l’échelle de la gare.'));
+    add(rep(['inf', 'agg', 'att'].map(e => { const [lab, s, soft] = EFF[e];
+      return table([W], [row([cell(W, para(pic(e, 0.2) + r('  ' + lab.toUpperCase(), FM + B + sz(16) + col(s)) + r('     ', sz(16)) + ccDrop('Aléa', [...Object.values(ALN), 'Autre aléa (préciser)'], '▾ Aléa', TAG), jl(80, 80, 240, 100, 100)), {shade:soft})]),
+        row([cell(W, para(ccText('Titre du constat', 'Titre court du constat', FM + B + sz(20) + col(INK)), jl(120, 40, 260, 170, 140)) + para(ccRich('Description', 'Ce qui a été dit, en deux ou trois phrases courtes.', sz(19)), jl(40, 120, 288, 170, 140)))])],
+        borders(['single', 18, s], ['single', 18, s], ['single', 4, LINE])) + gap(200); }), 'Fiche'));
+
+    /* ---------- 5. visite du site ---------- */
+    add(H1('Visite du site'));
+    add(intro('Une fiche par prise de vue renseignée (effet, aléa, note ou ★). Le bouton + sous une fiche ou une zone en ajoute une vierge.'));
+    const zones = groups.map((g, gi) => { const items = g.items.filter(keep); if (!items.length) return '';
+      const hd = para(r(`Zone ${pad(gi + 1)} – `, FM + sz(28) + col(TEAL)) + r(g.zone || 'Sans zone', FM + sz(28) + col(TEAL)),
+        `<w:keepNext/><w:pBdr><w:bottom w:val="single" w:sz="6" w:space="4" w:color="${TEAL}"/></w:pBdr><w:spacing w:before="360" w:after="60"/>`, 'Titre2');
+      const sub = para(r(`${nivOf(g.niv).label} · ${g.items.length} prise${g.items.length > 1 ? 's' : ''} · n° ${g.items[0].n}${g.items.length > 1 ? '–' + g.items[g.items.length - 1].n : ''}`, sz(17) + col(MUTED)), '<w:keepNext/><w:spacing w:before="0" w:after="200"/>');
+      return hd + sub + rep(items.map(p => fiche(p, p.ef || 'inf')), 'Fiche'); }).filter(Boolean);
+    add(rep(zones, 'Zone'));
+
+    /* ---------- 6. synthèse par aléa ---------- */
+    add(H1('Synthèse par aléa'));
+    add(intro('Localisation des prises de vue par niveau (couleur = effet, flèche = direction de prise de vue), puis les constats par aléa.'));
+    const levels = [...new Set(photos.filter(p => p.pt).map(p => p.pt.n))];
+    for (const pl of levels) { let im = null; try { im = await o.planImg(pl, photos.filter(p => p.pt && p.pt.n === pl)); } catch (e) {}
+      if (!im) continue; const rid = K.addMedia(im.bytes, 'jpeg'); const [w, h] = fit(im, 6.4, 5.2);
+      add(para(r(o.planTitle ? o.planTitle(pl) : pl, FM + sz(18) + col(TEAL)), '<w:keepNext/><w:spacing w:before="200" w:after="80"/>'));
+      add(para(imgRun(rid, w, h, 'Plan ' + pl), '<w:spacing w:before="0" w:after="60"/><w:jc w:val="center"/>')); }
+    add(para(pic('agg', 0.16) + r(' aggravant   ', sz(15)) + pic('att', 0.16) + r(' atténuant   ', sz(15)) + pic('eva', 0.16) + r(' à évaluer   ', sz(15)) + r('●', sz(15) + col('1A1A1A')) + r(' sans effet   ', sz(15)) + r('contour doré = ★', sz(15) + col(MUTED)), '<w:spacing w:before="0" w:after="200"/><w:jc w:val="center"/>'));
+    const SW = [640, 1860, 4318, 2400];
+    const sRows = used.map(k => { const ps = photos.filter(p => (p.al || []).includes(k));
+      const n = e => ps.filter(p => p.ef === e).length;
+      const zs = [...new Set(ps.map(p => (p.zone || 'Sans zone').split(' — ')[0]))];
+      const cnt = [['agg', 'aggravant'], ['att', 'atténuant'], ['eva', 'à évaluer']].filter(([e]) => n(e)).map(([e, l]) => r(`${n(e)} ${l}${n(e) > 1 ? 's' : ''}`, B + sz(16) + col(EFF[e][1]))).join(r(' · ', sz(16)));
+      const thumbs = ps.filter(p => imgs[p.id] && p.type !== 'video').sort((a, b) => (b.ef === 'agg') - (a.ef === 'agg') || (b.star ? 1 : 0) - (a.star ? 1 : 0)).slice(0, 2)
+        .map(p => { const [w, h] = fit(imgs[p.id], 1.05, 0.8); return imgRun(imgs[p.id].rid, w, h, 'n' + p.n); }).join(r(' '));
+      return row([cell(SW[0], para(pic(k, 0.3, 0), jl(90, 90, 240, 0, 0, 'center')), {shade:TEAL_L, va:'center', brd:bd('right', 'nil', 0, 'auto')}),
+        cell(SW[1], para(r(ALN[k], FM + sz(17) + col(TEAL)), jl(90, 90, 240, 40, 60)), {shade:TEAL_L, va:'center', brd:bd('left', 'nil', 0, 'auto')}),
+        cell(SW[2], para(r(`${ps.length} prise${ps.length > 1 ? 's' : ''}`, B + sz(17)) + (cnt ? r(' — ', sz(16)) + cnt : ''), jl(90, 30)) + para(r(zs.join(' · '), sz(16) + col('4A4843')), jl(30, 30))
+          + para(r('n° ' + ps.map(p => p.n).join(', '), sz(15) + col(MUTED)), jl(30, 90))),
+        cell(SW[3], para(thumbs || r('—', col(MUTED)), jl(90, 90, 240, 60, 60, 'center')), {va:'center'})]); });
+    add(table(SW, [row([cell(SW[0] + SW[1], para(r('Aléa', sz(16) + B + col('FFFFFF')), jl(60, 60, 240, 100, 60)), {shade:TEAL, span:2}),
+      cell(SW[2], para(r('Constats et zones concernées', sz(16) + B + col('FFFFFF')), jl(60, 60, 240, 100, 60)), {shade:TEAL}),
+      cell(SW[3], para(r('Photos', sz(16) + B + col('FFFFFF')), jl(60, 60, 240, 100, 60)), {shade:TEAL})], {hdr:true}), ...sRows]));
+    if (!used.length) add(P('Aucun aléa renseigné sur les photos.'));
+
+    /* ---------- annexe : index ---------- */
+    add(H1('Annexe – Index des prises de vue'));
+    const IW = [520, 700, 2300, 2300, 1100, 2298];
+    const t = (s, rpr = '') => para(r(s, sz(14) + rpr), jl(30, 30, 220, 60, 40));
+    add(table(IW, [row(['N°', 'Heure', 'Zone', 'Équipements', 'Effet', 'Aléas · note'].map((x, i) => cell(IW[i], para(r(x, sz(14) + B + col('FFFFFF')), jl(40, 40, 220, 60, 40)), {shade:TEAL})), {hdr:true}),
+      ...photos.map(p => row([cell(IW[0], t(String(p.n) + (p.star ? ' ★' : ''), B)), cell(IW[1], t(hm(p.t))), cell(IW[2], t((p.zone || '—') + ' · ' + nivOf(p.niv).label)),
+        cell(IW[3], t(p.eqs && p.eqs.length ? p.eqs.join(' · ') : 'Vue générale')), cell(IW[4], p.ef ? t(EFF[p.ef][0], B + col(EFF[p.ef][1])) : t('—')),
+        cell(IW[5], t([(p.al || []).map(k => ALN[k] || k).join(', '), p.note ? shortTxt(p.note, 160) : ''].filter(Boolean).join(' — ') || '—'))]))]));
+
+    /* ---------- paquet ---------- */
+    const body = base.head + out.join('') + base.sect + '</w:body></w:document>';
+    const zw = zipWriter(); const enc = s => new Blob([s], {type:'application/xml'});
+    const core = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dcmitype="http://purl.org/dc/dcmitype/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><dc:title>${xe(v.gare)}</dc:title><dc:subject>${date}</dc:subject><dc:creator>${xe(v.auteur || 'AREP')}</dc:creator><dcterms:created xsi:type="dcterms:W3CDTF">${new Date().toISOString().slice(0, 19)}Z</dcterms:created></cp:coreProperties>`;
+    await zw.add('[Content_Types].xml', enc(base.files['[Content_Types].xml']));
+    await zw.add('_rels/.rels', enc(base.files['_rels/.rels']));
+    await zw.add('docProps/core.xml', enc(core));
+    for (const [pth, s] of Object.entries(base.files)) if (!['[Content_Types].xml', '_rels/.rels'].includes(pth)) await zw.add(pth, enc(s));
+    for (const [pth, s] of Object.entries(base.bin)) await zw.add(pth, new Blob([Uint8Array.from(atob(s), c => c.charCodeAt(0))]));
+    await zw.add('word/document.xml', enc(body));
+    await zw.add('word/_rels/document.xml.rels', enc('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">' + base.rels
+      + K.media.map(m => `<Relationship Id="${m.rid}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="${m.path}"/>`).join('') + '</Relationships>'));
+    for (const m of K.media) await zw.add('word/' + m.path, new Blob([m.bytes]));
+    return zw.finish();
+  }
+  return {build};
+})();
+
+/* --- côté navigateur : images réduites, plans annotés, interface --- */
+async function crImage(blob, isVid, max = 1280) {
+  let src = isVid ? await videoFrame(blob) : await createImageBitmap(blob);
+  if (!src) return null;
+  const w0 = isVid ? src.videoWidth : src.width, h0 = isVid ? src.videoHeight : src.height; const k = Math.min(1, max / Math.max(w0, h0));
+  const c = document.createElement('canvas'); c.width = Math.round(w0 * k); c.height = Math.round(h0 * k); c.getContext('2d').drawImage(src, 0, 0, c.width, c.height);
+  if (src.close) src.close(); if (isVid && src._u) URL.revokeObjectURL(src._u);
+  const b = await new Promise(res => c.toBlob(res, 'image/jpeg', 0.8));
+  return {bytes:new Uint8Array(await b.arrayBuffer()), w:c.width, h:c.height};
+}
+async function crPlan(pl, pts) {
+  if (!PLANS[pl]) return null; const bm = await createImageBitmap(await (await fetch(PLANS[pl].f)).blob());
+  const xs = pts.map(p => p.pt.x * PLAN_W), ys = pts.map(p => p.pt.y * PLAN_H);
+  let x0 = Math.min(...xs) - 300, x1 = Math.max(...xs) + 300, y0 = Math.min(...ys) - 240, y1 = Math.max(...ys) + 240;
+  let w = Math.max(x1 - x0, 1300), h = Math.max(y1 - y0, 900); if (w / h > 1.4) h = w / 1.4; else w = h * 1.4;
+  w = Math.min(w, PLAN_W); h = Math.min(h, PLAN_H);
+  const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2; x0 = Math.max(0, Math.min(PLAN_W - w, cx - w / 2)); y0 = Math.max(0, Math.min(PLAN_H - h, cy - h / 2));
+  const OUTW = 2000, k = OUTW / w, c = document.createElement('canvas'); c.width = OUTW; c.height = Math.round(h * k);
+  const g = c.getContext('2d'); g.fillStyle = '#fff'; g.fillRect(0, 0, c.width, c.height);
+  g.drawImage(bm, x0 * bm.width / PLAN_W, y0 * bm.height / PLAN_H, w * bm.width / PLAN_W, h * bm.height / PLAN_H, 0, 0, c.width, c.height);
+  g.fillStyle = 'rgba(255,255,255,0.35)'; g.fillRect(0, 0, c.width, c.height);
+  const COL = {agg:'#C0392B', att:'#2E8B57', eva:'#D4A017'}; const sc = Math.max(0.9, Math.min(1.6, 1300 / w * 1.1));
+  const grp = new Map(); pts.forEach(p => { const kk = p.pt.x.toFixed(3) + '|' + p.pt.y.toFixed(3); if (!grp.has(kk)) grp.set(kk, []); grp.get(kk).push(p); });
+  const marks = [...grp.values()].map(ps => ({ps, x:(ps[0].pt.x * PLAN_W - x0) * k, y:(ps[0].pt.y * PLAN_H - y0) * k}));
+  g.lineCap = 'round';
+  for (const m of marks) for (const p of m.ps) if (p.pt.dir != null) { const d = p.pt.dir * Math.PI / 180, L = 70 * sc;
+    const ex = m.x + L * Math.cos(d), ey = m.y + L * Math.sin(d); g.strokeStyle = '#C8102E'; g.lineWidth = 6 * sc; g.beginPath(); g.moveTo(m.x, m.y); g.lineTo(ex, ey); g.stroke();
+    g.fillStyle = '#C8102E'; g.beginPath(); g.moveTo(ex + 14 * sc * Math.cos(d), ey + 14 * sc * Math.sin(d)); g.lineTo(ex + 10 * sc * Math.cos(d + 2.2), ey + 10 * sc * Math.sin(d + 2.2)); g.lineTo(ex + 10 * sc * Math.cos(d - 2.2), ey + 10 * sc * Math.sin(d - 2.2)); g.fill(); }
+  g.font = `800 ${Math.round(24 * sc)}px system-ui, sans-serif`; g.textAlign = 'center'; g.textBaseline = 'middle';
+  for (const m of marks) { const ps = m.ps; const lab = ps.length === 1 ? String(ps[0].n) : ps[0].n + '–' + ps[ps.length - 1].n;
+    const ef = ps.some(p => p.ef === 'agg') ? 'agg' : ps.some(p => p.ef === 'att') ? 'att' : ps.some(p => p.ef === 'eva') ? 'eva' : '';
+    const bw = Math.max(44, g.measureText(lab).width + 22 * sc), bh = 40 * sc, rr = bh / 2;
+    g.beginPath(); g.moveTo(m.x - bw / 2 + rr, m.y - bh / 2); g.arcTo(m.x + bw / 2, m.y - bh / 2, m.x + bw / 2, m.y + bh / 2, rr); g.arcTo(m.x + bw / 2, m.y + bh / 2, m.x - bw / 2, m.y + bh / 2, rr);
+    g.arcTo(m.x - bw / 2, m.y + bh / 2, m.x - bw / 2, m.y - bh / 2, rr); g.arcTo(m.x - bw / 2, m.y - bh / 2, m.x + bw / 2, m.y - bh / 2, rr); g.closePath();
+    g.fillStyle = ef ? COL[ef] : '#1A1A1A'; g.fill(); g.lineWidth = (ps.some(p => p.star) ? 7 : 4) * sc; g.strokeStyle = ps.some(p => p.star) ? '#F2B705' : '#fff'; g.stroke();
+    g.fillStyle = '#fff'; g.fillText(lab, m.x, m.y + 1); }
+  if (bm.close) bm.close();
+  const b = await new Promise(res => c.toBlob(res, 'image/jpeg', 0.85));
+  return {bytes:new Uint8Array(await b.arrayBuffer()), w:c.width, h:c.height};
+}
+async function crExport() {
+  let r, getFile;
+  if (X.src === 'bureau') { r = B.rel; getFile = async p => B.files[p.id] ? B.files[p.id].file : null; }
+  else { r = JSON.parse(JSON.stringify(relevePayload(S.visites[X.src]))); getFile = async p => { const b = await DB.get('blobs', bk(p)).catch(() => null); return b || null; }; }
+  X.busy = {lb:'CR Word : préparation…', done:0, total:1}; render();
+  const base = await (await fetch('cr/base.json')).json();
+  let last = 0;
+  const blob = await CRW.build(r, {base, all:X.crAll,
+    getImg:async p => { const f = await getFile(p); return f ? crImage(f, p.type === 'video') : null; },
+    planImg:crPlan, planTitle:pl => PLANS[pl] ? 'Plan · ' + PLANS[pl].t : pl,
+    progress:(lb, d, t) => { X.busy = {lb:'CR Word : ' + lb.toLowerCase() + '…', done:d, total:t}; if (Date.now() - last > 300) { last = Date.now(); render(); } }});
+  const v = r.visite; const name = `${ymd(v.debut).replace(/-/g, '_')}_CR_Visite_${ascii(v.gare)}.docx`;
+  download(name, blob); X.busy = null; X.crLog = `✔ <b>${esc(name)}</b> téléchargé (${(blob.size / 1e6).toFixed(1)} Mo). À ouvrir dans Word : relire les points clés pré-remplis, compléter participants et échange en salle.`; render();
+}
+
 async function zipExport() {
   let r, getFile;
   if (X.src === 'bureau') { r = B.rel; getFile = async p => B.files[p.id] ? B.files[p.id].file : null; }
@@ -1162,6 +1477,7 @@ document.addEventListener('click', async ev => {
     case 'end': { const v = V();
       if (!confirm('Terminer la visite ? Le relevé (.json + .csv) sera exporté dans Téléchargements. Tu pourras encore modifier les fiches et faire le ZIP depuis l\'onglet Export.')) break;
       v.fin = Date.now(); exportReleve(v); S.current = null; save(); render(); break; }
+    case 'cr': try { await crExport(); } catch (e) { console.error(e); X.busy = null; toast('Erreur CR Word : ' + e.message, 'err'); render(); } break;
     case 'zip': try { await zipExport(); } catch (e) { console.error(e); X.busy = null; toast('Erreur ZIP : ' + e.message, 'err'); render(); } break;
     case 'applyRel': $('#fApply').click(); break;
     case 'undoRel': try { await undoLast(); } catch (e) { alert('Annulation impossible : ' + e.message); } break;
@@ -1196,6 +1512,7 @@ document.addEventListener('change', ev => {
   if (t.id === 'xSrc') { X.src = t.value; X.last = null; X.zipLog = null; render(); }
   if (t.id === 'xAll') { X.all = t.checked; }
   if (t.id === 'xZipSyn') { X.zipSyn = t.checked; }
+  if (t.id === 'xCrAll') { X.crAll = t.checked; }
   if (t.id === 'fJson' && t.files[0]) { t.files[0].text().then(txt => { try { const j = JSON.parse(txt); if (!j.photos || !j.visite) throw 0; Object.assign(B, {rel:j, local:false, files:{}, unknown:[], log:null}); render(); }
     catch (e) { alert('Ce fichier n\'est pas un relevé GARÉo Photo.'); } t.value = ''; }); }
   if (t.id === 'fZip' && t.files[0]) { const f = t.files[0]; t.value = ''; openZip(f); }

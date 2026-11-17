@@ -23,3 +23,6 @@ Onglet **Export** → **✨ Générer la synthèse** : un fichier HTML autonome 
 Chrome ou Edge sur PC → onglet **Bureau** → charger le relevé `PAZ_releve_….json` → choisir les fichiers `PAZ_0001_…` du dossier `Download` du téléphone (copié par câble USB) → **Exporter le dossier trié**.
 
 Résultat : `PAZ_AAAA-MM-JJ_releve-photo/` avec des dossiers par zone (ordre de prise) puis par équipement, `PAZ_inventaire_photos.csv` (Excel), `_planche/planche.html` (photos numérotées sur le plan), GeoJSON. Les originaux ne sont jamais modifiés.
+
+## Compte rendu Word
+Onglet **Export → 📄 Générer le CR Word** : un .docx au format du modèle CR ACC AREP. Une fiche par photo renseignée (couleur = effet, pictos d'aléa, note, photo intégrée), rangée par zone ; points clés et éléments à clarifier pré-remplis depuis les notes ; synthèse par aléa avec les plans annotés ; index des photos. Les styles AREP et les pictos sont dans `cr/base.json` (à mettre en ligne avec le reste). Fonctionne sur téléphone et sur PC (onglet Bureau).
