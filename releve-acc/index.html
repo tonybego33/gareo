@@ -4,67 +4,134 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#1A1A1A">
+<meta name="theme-color" content="#1B1F24">
 <title>GARÉo Relevé ACC</title>
 <link rel="manifest" href="manifest.webmanifest?v=5">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
 <link rel="icon" href="gareo-192.png">
 <link rel="apple-touch-icon" href="gareo-apple-180.png">
-<style>
-:root{--navy:#1A1A1A;--ink:#1A1A1A;--mute:#8B8680;--line:#D9D3C4;--bg:#F5F2EB;--yel:#C8102E;--red:#C8102E;--grn:#1D5E3A;--org:#C77800;--blue:#2C7E9C;--paper:#FAF8F3;--tint:#FBEAEC}
+<style>:root{--ink:#1B1F24;--ink2:#3A4048;--mute:#6B7280;--line:#E2E5E9;--bg:#F2F3F5;--paper:#FFFFFF;--acc:#0A6A87;--acc2:#E6F1F5;--red:#C8102E;--grn:#2E8B57;--org:#C98A00;--blue:#0A6A87;--tint:#E6F1F5;--yel:#0A6A87;--navy:#1B1F24}
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.4 "Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 Lato,-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
 button,input,select,textarea{font:inherit;color:inherit}
 button{cursor:pointer}
-header{position:sticky;top:0;z-index:20;background:#1A1A1A;color:#fff;display:flex;align-items:center;gap:8px;padding:8px 10px;padding-top:calc(8px + env(safe-area-inset-top))}
-header .home{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;color:#FAF8F3;background:rgba(250,248,243,.1);flex-shrink:0;text-decoration:none}header .home:active{background:rgba(250,248,243,.22)}
-header .brand{font-weight:700;margin-right:auto;display:flex;align-items:center;gap:7px}
+a{color:var(--acc)}
+header{position:sticky;top:0;z-index:20;background:#1B1F24;color:#fff;display:flex;align-items:center;gap:10px;padding:8px 12px;padding-top:calc(8px + env(safe-area-inset-top));min-height:56px}
+.ib{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;border:0;background:rgba(255,255,255,.08);color:#fff;flex-shrink:0;text-decoration:none}
+.ib svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ib:hover{background:rgba(255,255,255,.16)}.ib.dark{background:#F2F3F5;color:var(--ink)}
+header .brand{display:flex;align-items:center;gap:10px;margin-right:auto;font-weight:700;font-size:16px}
 header .glogo{height:30px;width:auto;display:block}
-header .bsub{font-weight:600;font-size:15px;opacity:.9}
-@media (max-width:460px){header .bsub,#hdrGare{display:none}.tabs button{padding:5px 8px;font-size:12.5px}header .glogo{height:26px}}
-header .brand small{font-weight:400;opacity:.7;margin-left:6px}
-.tabs button{background:transparent;border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:999px;padding:5px 11px;font-size:13px}
-.tabs button.on{background:var(--red);color:#fff;border-color:var(--red);font-weight:700}
-main{max-width:1180px;margin:0 auto;padding:10px 10px 90px}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:10px}
-h2{font-size:17px;margin:0 0 8px}
-h3{font-size:15px;margin:4px 0 8px}
-.mute{color:var(--mute)}.small{font-size:12.5px}
+header .ttl{display:flex;flex-direction:column;line-height:1.15;margin-right:auto;min-width:0}
+header .ttl b{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}header .ttl small{font-size:12px;opacity:.65}
+header .tabs{display:flex;gap:4px;background:rgba(255,255,255,.06);border-radius:12px;padding:4px}
+header .tabs button,#bnav button{display:flex;align-items:center;gap:7px;border:0;background:transparent;color:rgba(255,255,255,.75);border-radius:9px;padding:7px 14px;font-weight:700;font-size:14px}
+header .tabs button svg,#bnav button svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+header .tabs button.on{background:#fff;color:var(--ink)}
+#bnav{display:none}
+@media (max-width:760px){header .tabs{display:none}
+  body.in-gare #bnav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom))}
+  #bnav button{flex:1;flex-direction:column;gap:2px;color:var(--mute);font-size:12px;padding:6px 0}#bnav button.on{color:var(--acc)}
+  body.in-gare main{padding-bottom:100px}}
+main{max-width:1180px;margin:0 auto;padding:14px 12px 90px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+.card.empty{text-align:center;padding:40px 20px}
+h1{font-size:24px;font-weight:900;margin:6px 0 16px;letter-spacing:-.01em}
+h2{font-size:17px;margin:0 0 8px;font-weight:900}
+h3{font-size:15px;margin:4px 0 8px;font-weight:700}
+.mute{color:var(--mute)}.small{font-size:13px}
 .row{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 12px;min-height:44px;text-align:center;color:var(--ink)}
-.btn.big{min-height:64px;font-size:16px;font-weight:600}
-.btn.huge{min-height:96px;font-size:20px;font-weight:700}
-.btn.pri{background:var(--navy);color:#fff;border-color:var(--navy)}
-.btn.yel{background:var(--red);border-color:var(--red);color:#fff;font-weight:800}
-.btn.red{color:var(--red);border-color:var(--red)}
-.btn:disabled{opacity:.4}
-.chip{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 11px;font-size:13.5px;min-height:36px;color:var(--ink)}
-.chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;min-height:44px;text-align:center;color:var(--ink);font-weight:700}
+.btn:hover{border-color:#C9CED4}
+.btn.big{min-height:56px;font-size:16px}
+.btn.huge{min-height:104px;font-size:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.btn.huge svg{width:34px;height:34px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.btn.huge .big{font-size:26px;line-height:1}
+.btn.pri{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn.yel{background:var(--acc);border-color:var(--acc);color:#fff}
+.btn.red{color:var(--red);border-color:#F1C7CE}
+.btn:disabled{opacity:.4;cursor:default}
+.lnk{border:0;background:none;color:var(--acc);font-weight:700;padding:4px 0}
+.chip{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 12px;font-size:13.5px;min-height:36px;color:var(--ink)}
+.chip small{color:var(--mute);font-weight:700}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}.chip.on small{color:rgba(255,255,255,.7)}
 .chip.att.on{background:var(--grn);border-color:var(--grn)}.chip.agg.on{background:var(--red);border-color:var(--red)}.chip.eva.on{background:var(--org);border-color:var(--org)}
 .chip.star.on{background:var(--org);color:#fff;border-color:var(--org)}
-.chip.sel{background:var(--tint);border-color:var(--red);color:var(--ink);font-weight:600}
+.chip.sel{background:var(--acc2);border-color:var(--acc);color:var(--ink);font-weight:700}
 .chip .x{font-weight:700;opacity:.6;margin-left:2px}
-input[type=text],input[type=number],input[type=search],select,textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px;background:#fff;min-height:44px}
-textarea{min-height:70px;resize:vertical}
-label.f{display:block;font-size:12.5px;color:var(--mute);margin:10px 0 4px}
-.banner{background:#FAEFD9;border:1px solid #E8D3A8;border-radius:10px;padding:9px 11px;margin-bottom:10px;font-size:13.5px}
-.banner.ok{background:#e8f5ec;border-color:#b8dec5}.banner.err{background:#fde9e5;border-color:#f2b7ab}
+input[type=text],input[type=number],input[type=search],select,textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#fff;min-height:44px}
+input:focus,textarea:focus{outline:2px solid var(--acc);outline-offset:-1px;border-color:var(--acc)}
+textarea{min-height:80px;resize:vertical}
+label.f{display:block;font-size:13px;color:var(--mute);margin:12px 0 5px;font-weight:700}
+.banner{background:#FFF7E0;border:1px solid #F0DDA0;border-radius:10px;padding:9px 12px;margin:10px 0;font-size:13.5px}
+.banner.ok{background:#EAF6EF;border-color:#BFE3CE}.banner.err{background:#FDECEE;border-color:#F4BEC6}
 .imp{font-size:10.5px;font-weight:700;border-radius:5px;padding:1px 5px;white-space:nowrap}
-.imp4{background:#fbe1dc;color:#a8321f}.imp3{background:#fdebd7;color:#a5591a}.imp2{background:#eef0d6;color:#6a6a1d}.imp1{background:#eef1f4;color:#55606b}
+.imp4{background:#FBE1E4;color:#A8102A}.imp3{background:#FDEBD7;color:#A5591A}.imp2{background:#EEF0D6;color:#6A6A1D}.imp1{background:#EEF1F4;color:#55606B}
+/* mes gares */
+.home{max-width:760px;margin:0 auto}.home.narrow{max-width:620px}
+.glist{display:grid;gap:12px}
+.gcard{display:flex;align-items:center;gap:16px;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px;transition:border-color .15s,box-shadow .15s}
+.gcard:hover{border-color:var(--acc);box-shadow:0 6px 18px rgba(10,106,135,.12)}
+.gcard .cv{width:104px;height:78px;border-radius:11px;overflow:hidden;flex-shrink:0;background:var(--acc2);display:flex;align-items:center;justify-content:center}
+.gcard .cv img{width:100%;height:100%;object-fit:cover}.gcard .cv img.pl{object-fit:cover;object-position:40% 45%;transform:scale(1.6)}
+.gcard .cv .ph{font-size:34px;color:var(--acc);font-weight:300}.gcard .cv .ph svg{width:32px;height:32px;fill:none;stroke:currentColor;stroke-width:1.8}
+.gcard .gi{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+.gcard .gc{font-size:11px;font-weight:900;letter-spacing:.12em;color:var(--acc)}
+.gcard b{font-size:19px;font-weight:900}.gcard .gm{font-size:13px;color:var(--mute)}
+.gcard .go{font-size:28px;color:#B8BEC6;padding:0 6px}
+.gcard.add{border-style:dashed;border-width:2px;background:transparent}.gcard.add .cv{background:#fff;border:1px dashed #C9CED4}
+.plrow{display:flex;gap:10px;align-items:center;margin-bottom:8px}.plrow img{width:84px;height:60px;object-fit:cover;border-radius:8px;border:1px solid var(--line);flex-shrink:0;background:#fff}
+/* terrain */
+.cap{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px}
+.hint{margin:10px 2px 12px}
+/* export */
+.xgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px}
+.xc{display:flex;flex-direction:column;gap:10px;margin:0}.xc h2{margin:0}.xc p{margin:0;flex:1}.xc .xi{font-size:28px}
+/* bureau */
+.bw{display:grid;grid-template-columns:360px 1fr;gap:14px;align-items:start}
+.bw.narrow{grid-template-columns:1fr}
+.bl{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px;position:sticky;top:70px;max-height:calc(100vh - 84px);display:flex;flex-direction:column}
+.bw.narrow .bl{position:static;max-height:none}
+.bfil{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}.bfil .chip{min-height:32px;padding:4px 10px;font-size:13px}
+.seg2{display:grid;grid-template-columns:1fr 1fr;background:var(--bg);border-radius:10px;padding:3px;margin-bottom:8px}
+.seg2 button{border:0;background:transparent;border-radius:8px;padding:7px;font-weight:700;font-size:13px;color:var(--mute)}.seg2 button.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.bscroll{overflow:auto;flex:1}
+.bz{margin-bottom:10px}.bzh{display:flex;justify-content:space-between;gap:8px;font-size:13px;padding:6px 2px;border-bottom:1px solid var(--line);margin-bottom:6px}.bzh span{color:var(--mute);white-space:nowrap}
+.bth{display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:5px}
+.bth .t{position:relative;border:2px solid transparent;border-radius:8px;padding:0;overflow:hidden;background:#DDE1E6;aspect-ratio:1}
+.bth .t img{width:100%;height:100%;object-fit:cover;display:block}.bth .t.sel{border-color:var(--acc);box-shadow:0 0 0 2px var(--acc2)}
+.bth .n{position:absolute;left:3px;bottom:3px;background:rgba(0,0,0,.62);color:#fff;font-size:10.5px;font-weight:700;border-radius:4px;padding:0 4px}
+.bth .ef{position:absolute;right:3px;top:3px;width:10px;height:10px;border-radius:50%;box-shadow:0 0 0 2px #fff}.ef.agg{background:var(--red)}.ef.att{background:var(--grn)}.ef.eva{background:var(--org)}
+.bth .td{position:absolute;left:3px;top:3px;width:9px;height:9px;border-radius:2px;background:#fff;box-shadow:inset 0 0 0 2px var(--org)}
+.bth .st{position:absolute;right:3px;bottom:2px;color:#F2B705;font-style:normal;font-size:13px;text-shadow:0 0 3px #000}
+.bmapw{overflow:auto;border:1px solid var(--line);border-radius:10px;background:#fff;height:min(56vh,520px)}.bmap{position:relative}.bmap img{width:100%;display:block}
+.bmap .mk{position:absolute;transform:translate(-50%,-50%);min-width:22px;height:20px;border-radius:10px;border:2px solid #fff;background:#1B1F24;color:#fff;font-size:10px;font-weight:900;padding:0 4px;line-height:16px;box-shadow:0 1px 4px rgba(0,0,0,.35)}
+.bmap .mk.agg{background:var(--red)}.bmap .mk.att{background:var(--grn)}.bmap .mk.eva{background:var(--org)}.bmap .mk.sel{outline:3px solid var(--acc);z-index:2;transform:translate(-50%,-50%) scale(1.25)}
+.br{min-width:0}
+.bnav{display:flex;align-items:center;gap:10px;margin-bottom:10px}.bnav .bt{flex:1;text-align:center;display:flex;flex-direction:column}.bnav .bt span{font-size:12.5px;color:var(--mute)}
+.bph{background:#111;border-radius:14px;overflow:hidden;margin-bottom:12px;cursor:zoom-in;display:flex;align-items:center;justify-content:center;min-height:200px}
+.bph img{max-width:100%;max-height:52vh;display:block}.bph .ph0{color:#fff;padding:60px 20px;font-weight:700}
+/* paramètres */
+.sheet-bg{position:fixed;inset:0;background:rgba(15,18,22,.45);z-index:60}
+.sheet{position:fixed;z-index:61;right:0;top:0;bottom:0;width:min(440px,100%);background:#fff;display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(0,0,0,.2)}
+.sheet .sh{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;padding-top:calc(14px + env(safe-area-inset-top));border-bottom:1px solid var(--line)}.sheet .sh b{font-size:18px;font-weight:900}
+.sheet .sb{overflow:auto;padding:4px 16px 30px}
+.sheet section{padding:14px 0;border-bottom:1px solid var(--line)}.sheet section:last-child{border-bottom:0}.sheet h3{margin:0 0 8px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute)}
+.vrow{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--line);border-radius:10px;margin-bottom:6px}.vrow.on{border-color:var(--acc);background:var(--acc2)}
+.vrow .btn{min-height:36px;padding:6px 10px}
 /* galerie */
 .gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:6px}
-.gal .it{position:relative;border-radius:9px;overflow:hidden;background:#dde2e8;border:2px solid transparent;cursor:pointer}
+.gal .it{position:relative;border-radius:10px;overflow:hidden;background:#DDE1E6;border:2px solid transparent;cursor:pointer}
 .gal .it img,.gal .it .ph0{display:block;width:100%;aspect-ratio:1;object-fit:cover}
 .gal .it .ph0{display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;background:#2a3440}
 .gal .it .lb{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff;font-size:10.5px;padding:12px 5px 4px;line-height:1.15}
 .gal .it .bd{position:absolute;top:4px;left:4px;background:rgba(0,0,0,.6);color:#fff;font-size:10.5px;border-radius:5px;padding:1px 5px}
 .gal .it .todo{position:absolute;top:4px;right:4px;background:var(--org);color:#fff;font-size:10.5px;font-weight:700;border-radius:5px;padding:1px 5px}
-.gal .it.sel{border-color:var(--red)}
+.gal .it.sel{border-color:var(--acc)}
 /* overlay fiche */
 .ov{position:fixed;inset:0;z-index:50;background:var(--bg);display:flex;flex-direction:column}
-.ov .top{background:#1A1A1A;color:#fff;display:flex;align-items:center;gap:8px;padding:9px 10px;padding-top:calc(9px + env(safe-area-inset-top))}
+.ov .top{background:#1B1F24;color:#fff;display:flex;align-items:center;gap:8px;padding:9px 10px;padding-top:calc(9px + env(safe-area-inset-top))}
 .ov .top b{margin-right:auto;font-size:15px;font-weight:800}
 .ov .top button{background:rgba(255,255,255,.15);border:0;color:#fff;border-radius:8px;padding:8px 11px}
 .ov .body{flex:1;overflow:auto;padding:10px}
@@ -73,13 +140,13 @@ label.f{display:block;font-size:12.5px;color:var(--mute);margin:10px 0 4px}
 .prev{display:flex;gap:10px;align-items:center;margin-bottom:10px}
 .prev img,.prev .ph0{width:112px;height:84px;object-fit:cover;border-radius:9px;background:#dde2e8;flex:0 0 auto}
 .prev .ph0{display:flex;align-items:center;justify-content:center;font-size:30px;background:#2a3440;color:#fff}
-.sec{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px;margin-bottom:10px}
+.sec{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:12px}
 .nivtabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px}
 .nivtabs .chip{flex:0 0 auto}
 .planbox{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
 .planwrap{position:relative;overflow:auto;height:40vh;min-height:230px;background:#fff}
 .planwrap img{display:block;max-width:none;user-select:none;-webkit-user-drag:none}
-.pctl{display:flex;gap:6px;padding:6px;border-top:1px solid var(--line);background:#f8f9fb;align-items:center;flex-wrap:wrap}
+.pctl{display:flex;gap:6px;padding:6px;border-top:1px solid var(--line);background:#F7F8FA;align-items:center;flex-wrap:wrap}
 .pctl .chip{min-height:34px;padding:5px 10px}
 .pin{position:absolute;width:0;height:0;pointer-events:none}
 .pin i{position:absolute;left:-9px;top:-9px;width:18px;height:18px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px #fff,0 1px 6px rgba(0,0,0,.5)}
@@ -89,35 +156,28 @@ label.f{display:block;font-size:12.5px;color:var(--mute);margin:10px 0 4px}
 .full{position:fixed;inset:0;z-index:80;background:#000;display:flex;align-items:center;justify-content:center}
 .full img,.full video{max-width:100%;max-height:100%}
 .full button{position:absolute;top:calc(10px + env(safe-area-inset-top));right:10px;background:rgba(255,255,255,.2);color:#fff;border:0;border-radius:8px;padding:9px 13px}
-.ver{position:fixed;right:6px;bottom:4px;font-size:10.5px;color:var(--mute);z-index:5;background:rgba(245,242,235,.9);padding:1px 5px;border-radius:4px}
+.ver{display:none;padding:1px 5px;border-radius:4px}
 .stat{display:inline-block;margin-right:14px}.stat b{font-size:18px}
-.prog{height:8px;background:#e3e7ec;border-radius:9px;overflow:hidden;margin-top:6px}.prog>div{height:100%;background:var(--navy);width:0}
+.prog{height:8px;background:#E3E7EC;border-radius:9px;overflow:hidden;margin-top:6px}.prog>div{height:100%;background:var(--acc);width:0}
 .lbl{font-size:11.5px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:var(--mute);margin:12px 0 6px}
 .lbl:first-child{margin-top:0}
 .chip.alc.on{background:color-mix(in srgb,var(--c) 15%,#fff);color:var(--c);border-color:var(--c);font-weight:800}
 .seg3{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
 .seg3 button{border:0;border-right:1px solid var(--line);background:#fff;padding:10px 4px;min-height:48px;font-weight:700;font-size:14px;color:var(--ink)}
-.seg3 button:last-child{border-right:0}.seg3 .agg b{color:#C8102E}.seg3 .att b{color:#1D5E3A}.seg3 .eva b{color:#C77800}
-.seg3 .agg.on{background:#C8102E;color:#fff}.seg3 .att.on{background:#1D5E3A;color:#fff}.seg3 .eva.on{background:#C77800;color:#fff}.seg3 .on b{color:#fff}
-.srch{display:flex;align-items:center;gap:6px;border:2px solid var(--ink);border-radius:10px;background:#fff;padding:0 8px}
+.seg3 button:last-child{border-right:0}.seg3 .agg b{color:#C8102E}.seg3 .att b{color:#2E8B57}.seg3 .eva b{color:#C98A00}
+.seg3 .agg.on{background:#C8102E;color:#fff}.seg3 .att.on{background:#2E8B57;color:#fff}.seg3 .eva.on{background:#C98A00;color:#fff}.seg3 .on b{color:#fff}
+.srch{display:flex;align-items:center;gap:6px;border:2px solid var(--line);border-radius:10px;background:#fff;padding:0 8px}
 .srch span{font-size:17px}.srch input{border:0 !important;min-height:46px;font-size:16px;padding:8px 2px;background:transparent;outline:none}
 .zgrp{margin-bottom:12px}.zgrp h3{margin:10px 0 6px}
 .help li{margin:4px 0}
 </style>
 </head>
 <body>
-<header>
-  <a class="home" href="../" title="Accueil GARÉo" aria-label="Accueil GARÉo"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg></a>
-  <div class="brand"><svg class="glogo" role="img" aria-label="GARÉo" viewBox="0 28 352 130"><polyline points="-12,152 249.54,152 275.54,92.6" fill="none" stroke="#C8102E" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/><g stroke-width="6" stroke-linecap="round"><line x1="261.64" y1="68.52" x2="244.64" y2="39.08" stroke="#FF2A43"/><line x1="279.41" y1="65.07" x2="282.19" y2="45.27" stroke="#268A52"/><line x1="295.54" y1="73.29" x2="316.40" y2="53.14" stroke="#2C7E9C"/><line x1="303.07" y1="88.73" x2="342.68" y2="83.16" stroke="#FF2A43"/><line x1="299.62" y1="106.50" x2="319.53" y2="118.00" stroke="#268A52"/><line x1="285.05" y1="118.72" x2="296.33" y2="149.73" stroke="#2C7E9C"/></g><text x="8" y="122" font-family="Manrope,system-ui,sans-serif" font-weight="800" font-size="96" letter-spacing="-4.5" fill="#FAF8F3">GARÉ</text><circle cx="275.54" cy="92.6" r="23.8" fill="#C8102E"/><circle cx="275.54" cy="92.6" r="8.57" fill="#FAF8F3"/><circle cx="244.64" cy="39.08" r="4.5" fill="#FF2A43"/><circle cx="282.19" cy="45.27" r="4.5" fill="#268A52"/><circle cx="316.40" cy="53.14" r="4.5" fill="#2C7E9C"/><circle cx="342.68" cy="83.16" r="4.5" fill="#FF2A43"/><circle cx="319.53" cy="118.00" r="4.5" fill="#268A52"/><circle cx="296.33" cy="149.73" r="4.5" fill="#2C7E9C"/></svg><span class="bsub">Relevé ACC</span><small id="hdrGare"></small></div>
-  <div class="tabs row" id="tabs">
-    <button data-act="mode" data-v="terrain">Terrain</button>
-    <button data-act="mode" data-v="bureau">Bureau</button>
-    <button data-act="mode" data-v="export">Export</button>
-    <button data-act="mode" data-v="aide">À propos</button>
-  </div>
-</header>
+<header id="hdr"></header>
 <main id="app"></main>
 <div id="ov"></div>
+<div id="set"></div>
+<nav id="bnav"></nav>
 <div class="ver" id="ver"></div>
 <input type="file" id="capP" accept="image/*" capture="environment" hidden>
 <input type="file" id="capV" accept="video/*" capture="environment" hidden>
@@ -127,6 +187,7 @@ label.f{display:block;font-size:12.5px;color:var(--mute);margin:10px 0 4px}
 <input type="file" id="fApply" accept=".json,application/json" hidden>
 <input type="file" id="fMedia" accept="image/*,video/*" multiple hidden>
 <input type="file" id="fDir" webkitdirectory multiple hidden>
+<input type="file" id="fPlanImg" accept="image/*" multiple hidden>
 
 <script>
 'use strict';
@@ -135,7 +196,7 @@ label.f{display:block;font-size:12.5px;color:var(--mute);margin:10px 0 4px}
    plan, on la range (zone libre, équipements, aléas, note).
    Fichier unique, aucune dépendance externe, fonctionne hors-ligne.
    ===================================================================== */
-const VERSION = 'v2026-11-17 · 15';
+const VERSION = 'v2026-11-17 · 16';
 const STORE_KEY = 'gareoPhoto.v2';
 
 const EQUIP = [{"n": "Abri vélo", "l": [1, 2, 1, 3, 2], "d": "Abri / structure légère de stationnement et protection des vélos"}, {"n": "Abris de quais/marquise", "l": [3, 3, 2, 4, 1], "d": "Abris ou marquises protégeant les voyageurs sur les quais"}, {"n": "AEP (Adduction eau potable)", "l": [2, 2, 2, 4, 4], "d": "Réseau d’alimentation en eau potable de la gare (sanitaires, robinets, usages courants)"}, {"n": "Alimentation SNCF Réseau", "l": [3, 3, 4, 4, 3], "d": "Alimentation électrique dédiée aux équipements ferroviaires de SNCF Réseau en gare (signalisation, aiguillages, postes, etc.)"}, {"n": "Armoire de climatisation", "l": [1, 2, 3, 1, 1], "d": "Armoire de traitement d’air / climatisation alimentant principalement des locaux techniques ou équipements sensibles"}, {"n": "Armoire élévatique", "l": [3, 2, 2, 4, 1], "d": "Armoire de commande et de puissance des ascenseurs et escaliers mécaniques"}, {"n": "ART PMR", "l": [0, 2, 2, 4, 4], "d": "Dispositif d’aide et d’information dédié aux PMR"}, {"n": "ART/AMT/BLS (Automate de vente)", "l": [0, 2, 2, 4, 0], "d": "Automates de vente de titres de transport"}, {"n": "Ascenseur de service / Monte charge", "l": [1, 2, 3, 1, 1], "d": "Ascenseur dédié aux flux logistiques et manutention"}, {"n": "Ascenseur non secouru", "l": [3, 2, 1, 4, 1], "d": "Ascenseur voyageurs non intégré au dispositif d'évacuation"}, {"n": "Ascenseur secouru", "l": [4, 2, 1, 4, 1], "d": "Ascenseur intégré au dispositif d'évacuation de sécurité"}, {"n": "Assise quais", "l": [2, 1, 0, 4, 1], "d": "Sièges ou bancs installés sur les quais"}, {"n": "BAES", "l": [4, 0, 1, 1, 1], "d": "Blocs autonomes d'éclairage de sécurité"}, {"n": "Baie CFA", "l": [4, 3, 4, 1, 1], "d": "Baie courants faibles pour réseaux et systèmes numériques"}, {"n": "Baie Sono", "l": [4, 1, 2, 3, 1], "d": "Baie de diffusion sonore de sécurité et d'exploitation"}, {"n": "Baie Sono commerciale", "l": [0, 2, 2, 2, 0], "d": "Baie de diffusion sonore à usage commercial/confort"}, {"n": "Balise sonore", "l": [2, 0, 1, 2, 1], "d": "Balise d'orientation sonore pour déficients visuels"}, {"n": "Bandes détection à la canne", "l": [4, 0, 1, 3, 3], "d": "Bandes au sol détectables à la canne des malvoyants"}, {"n": "Bandes pododactiles", "l": [4, 0, 1, 3, 1], "d": "Bandes en relief d'alerte au sol (ex. bord de quai)"}, {"n": "Barrières et clôtures fixes", "l": [4, 2, 3, 1, 1], "d": "Clôtures rigides séparant zones publiques et zones dangereuses"}, {"n": "Barrières extérieurs levantes", "l": [4, 2, 3, 1, 1], "d": "Barrières motorisées de contrôle d'accès véhicules"}, {"n": "Borne d'appel d'urgence", "l": [4, 2, 1, 1, 1], "d": "Borne permettant aux usagers d'alerter en cas d'urgence"}, {"n": "Bureaux", "l": [1, 3, 4, 1, 4], "d": "Locaux administratifs et de travail"}, {"n": "Caméras", "l": [1, 1, 3, 1, 1], "d": "Caméras de vidéosurveillance générales"}, {"n": "Caméras ascenseurs", "l": [4, 1, 1, 3, 1], "d": "Caméras dédiées à la surveillance des cabines d'ascenseurs"}, {"n": "Caméras pour téléopération", "l": [1, 1, 3, 1, 1], "d": "Caméras nécessaires au pilotage à distance d'équipements"}, {"n": "Caméras vente billetterie", "l": [1, 1, 1, 3, 1], "d": "Caméras de surveillance zones de vente/guichets"}, {"n": "Centrale GTC/GTB", "l": [4, 4, 4, 4, 4], "d": "Système centralisé de gestion technique/énergétique du bâtiment"}, {"n": "Centrale SSI", "l": [4, 4, 1, 1, 1], "d": "Unité centrale du Système de Sécurité Incendie"}, {"n": "Chambre froide", "l": [1, 3, 3, 2, 1], "d": "Chambre à froid pour usages commerciaux/restauration"}, {"n": "Château d’eau", "l": [4, 3, 3, 3, 3], "d": "Ouvrage de stockage et de mise en pression de l'eau du site"}, {"n": "Chaudière et circuit d'eau chaude", "l": [1, 4, 1, 3, 3], "d": "Production et distribution d'eau chaude de chauffage"}, {"n": "Clim locaux techniques", "l": [1, 2, 4, 1, 1], "d": "Climatisation des locaux abritant des équipements sensibles"}, {"n": "Cœur de réseau télécoms", "l": [4, 4, 4, 4, 2], "d": "Noyau des infrastructures réseau et télécoms de la gare"}, {"n": "Désenfumage mécanique", "l": [4, 2, 1, 1, 1], "d": "Système motorisé d'extraction des fumées en cas d'incendie"}, {"n": "Désenfumage naturel", "l": [4, 2, 1, 1, 1], "d": "Trappes ou ouvrants pour évacuation naturelle des fumées"}, {"n": "Détecteur incendie", "l": [4, 1, 4, 1, 1], "d": "Capteurs de détection précoce de départ de feu"}, {"n": "Eau chaude sanitaire", "l": [1, 2, 1, 3, 3], "d": "Production d'ECS pour sanitaires et usages courants"}, {"n": "Eclairage", "l": [3, 1, 2, 4, 2], "d": "Éclairage général des espaces gare et accès"}, {"n": "Eclairage de sécurité sur source centrale", "l": [4, 1, 1, 1, 1], "d": "Éclairage de sécurité alimenté par une source centralisée"}, {"n": "Eclairage indispensable à l'ouverture d'un espace", "l": [1, 1, 4, 1, 1], "d": "Éclairage minimal réglementaire conditionnant l'ouverture au public"}, {"n": "Ecran TFT PMR", "l": [1, 2, 2, 3, 4], "d": "Écran d'information adapté aux besoins des PMR"}, {"n": "Ecrans TFT/TIM", "l": [1, 2, 2, 4, 1], "d": "Écrans d'information voyageurs (horaires, voies, messages)"}, {"n": "Emetteur de chaleur ERP", "l": [1, 2, 1, 3, 2], "d": "Radiateurs ou terminaux de chauffage en zones voyageurs"}, {"n": "Emetteur de chaleur ERT", "l": [1, 2, 1, 1, 4], "d": "Radiateurs ou terminaux de chauffage en zones techniques"}, {"n": "Ensemble local technique Transformateur", "l": [4, 4, 4, 4, 4], "d": "Local abritant le transformateur principal d'alimentation de la gare"}, {"n": "Ensemble local technique Transformateur de secours avec Source secours BT/HT", "l": [4, 4, 4, 4, 2], "d": "Local abritant transformateur et source électrique de secours"}, {"n": "Enveloppe", "l": [4, 4, 4, 3, 3], "d": "Façades, toitures, menuiseries, étanchéité du bâtiment"}, {"n": "Equipement ferroviaire réseau", "l": [4, 4, 4, 1, 1], "d": "Équipements d'infrastructure ferroviaire (signalisation, voie, aiguillage…)"}, {"n": "Equipement médical de premiers secours", "l": [4, 1, 1, 1, 1], "d": "\""}, {"n": "Escalier Mécanique", "l": [1, 4, 1, 3, 1], "d": "Escalier motorisé pour le transport de voyageurs"}, {"n": "Escalier Mécanique secouru", "l": [4, 4, 1, 3, 1], "d": "Escalier mécanique intégré aux cheminements de sécurité"}, {"n": "Espace commercial", "l": [1, 4, 3, 3, 1], "d": "Locaux dédiés aux commerces et services en gare"}, {"n": "Espace d'attente", "l": [1, 4, 3, 4, 1], "d": "Zones de salle d'attente et assises voyageurs"}, {"n": "Espace de circulation", "l": [2, 4, 3, 4, 1], "d": "Couloirs, halls et zones de déplacement voyageurs"}, {"n": "Extinction incendie par gaz argon", "l": [4, 3, 4, 1, 1], "d": "Système d'extinction automatisé par gaz en locaux sensibles"}, {"n": "Extinction incendie par sprinklage", "l": [4, 3, 4, 1, 1], "d": "Réseau de sprinklers automatiques contre l'incendie"}, {"n": "Fondation", "l": [4, 4, 4, 1, 1], "d": "Ouvrages de fondation du bâtiment ou de l'ouvrage"}, {"n": "Fontaine à eau", "l": [0, 2, 0, 4, 3], "d": "Fontaines de distribution d'eau potable aux usagers"}, {"n": "Groupe de production de froid", "l": [1, 3, 3, 1, 2], "d": "Production centralisée de froid pour la climatisation"}, {"n": "Haut-parleur", "l": [4, 2, 3, 3, 0], "d": "Diffuseurs sonores dans les espaces voyageurs et techniques"}, {"n": "Interphonie Ascenseur", "l": [4, 2, 1, 3, 1], "d": "Système d'appel et de communication en cabine d'ascenseur"}, {"n": "Interphonie CAB", "l": [1, 1, 2, 2, 1], "d": "Système d'interphonie intégré aux portillons automatiques de contrôle d'accès et de billettique"}, {"n": "Ligne CAB/PEC", "l": [1, 3, 4, 3, 1], "d": "Ligne de portillons de contrôle d'accès ou billettique"}, {"n": "Lignes de vie ou autres dispositifs fixes pour l'entretien", "l": [4, 1, 3, 1, 4], "d": "Dispositifs de protection contre les chutes pour interventions en hauteur"}, {"n": "Local technique", "l": [1, 4, 4, 1, 2], "d": "Local abritant des équipements techniques (élec, CVC, IT…)"}, {"n": "Ouvrage d'assainissement ou technique", "l": [2, 4, 2, 1, 4], "d": "Ouvrages de collecte et gestion des eaux usées/pluviales"}, {"n": "Panneaux photovoltaïques", "l": [1, 3, 3, 1, 4], "d": "Installation de production d'électricité solaire"}, {"n": "Panneaux solaires thermiques", "l": [1, 3, 3, 1, 4], "d": "Capteurs solaires pour production de chaleur ou d'ECS"}, {"n": "Paratonnerre", "l": [4, 3, 2, 1, 1], "d": "Dispositif de protection contre la foudre"}, {"n": "Parking", "l": [1, 3, 1, 4, 1], "d": "Parking voyageurs accolé à la gare"}, {"n": "Parking exploitants", "l": [1, 3, 4, 1, 3], "d": "Parking réservé aux personnels et prestataires"}, {"n": "Passage souterrain", "l": [1, 4, 4, 4, 0], "d": "Ouvrage souterrain pour accéder aux quais et aux espaces"}, {"n": "Passerelle", "l": [4, 4, 4, 4, 0], "d": "Ouvrage aérien piéton pour franchir les voies"}, {"n": "Petit ouvrage sous voie", "l": [1, 4, 2, 1, 1], "d": "Petit ouvrage (buse, dalot) traversant sous la voie ferrée"}, {"n": "Pneumatique", "l": [1, 3, 2, 1, 1], "d": "Réseau d'air comprimé pour automatismes et équipements"}, {"n": "Pompe de relevage", "l": [1, 3, 4, 1, 3], "d": "Pompe évacuant les eaux de locaux bas ou souterrains"}, {"n": "Ponts rails", "l": [4, 4, 4, 1, 1], "d": "Ponts supportant les voies ferrées"}, {"n": "Ponts route", "l": [4, 4, 4, 1, 1], "d": "Ponts routiers associés à la gare ou franchissant la voie"}, {"n": "Portail mécanique de secours téléopéré", "l": [4, 3, 3, 1, 1], "d": "Portail motorisé de secours commandable à distance"}, {"n": "Portes auto", "l": [1, 3, 3, 3, 1], "d": "Portes automatiques d'accès aux bâtiments et espaces"}, {"n": "Pupitre téléopération", "l": [4, 4, 4, 1, 2], "d": "Poste de commande et de supervision centralisé permettant à un opérateur (agent ou centre de téléopération) de contrôler et piloter à distan"}, {"n": "Quai", "l": [1, 4, 4, 4, 2], "d": "Plateforme voyageurs au bord des voies"}, {"n": "Réseaux de plomberies", "l": [1, 3, 4, 3, 3], "d": "Réseaux d'eau, évacuation et raccordements sanitaires"}, {"n": "Rideau mécanique", "l": [4, 2, 3, 1, 1], "d": "Rideau de fermeture manuel ou localement motorisé"}, {"n": "Rideau métallique téléopéré", "l": [4, 2, 3, 1, 1], "d": "Rideau métallique motorisé commandable à distance"}, {"n": "Sanitaire ERP", "l": [1, 3, 1, 4, 2], "d": "Sanitaires accessibles au public voyageurs"}, {"n": "Sanitaires ERT", "l": [1, 3, 1, 1, 4], "d": "Sanitaires pour personnels et zones techniques"}, {"n": "Sirène d'évacuation et diffuseur lumineux", "l": [4, 1, 1, 1, 1], "d": "Dispositifs sonores et visuels d'alarme générale"}, {"n": "Sirène évacuation", "l": [4, 1, 1, 1, 1], "d": "Dispositifs sonores d'alarme incendie et d'évacuation"}, {"n": "Source centrale de secours", "l": [4, 3, 4, 4, 1], "d": "Source électrique centralisée pour circuits de secours"}, {"n": "SSI - Diffuseurs lumineux", "l": [4, 1, 1, 1, 1], "d": "Diffuseurs lumineux contrôlés par le SSI"}, {"n": "Structure", "l": [4, 4, 4, 1, 1], "d": "Ossature porteuse du bâtiment ou de l'ouvrage"}, {"n": "Tableau Divisionnaire", "l": [4, 2, 3, 3, 1], "d": "Tableau électrique distribuant l'électricité à une zone ou un usage"}, {"n": "Tableau divisionnaire de bâtiment", "l": [4, 2, 4, 4, 2], "d": "Tableau électrique dédié à un bâtiment ou une entité"}, {"n": "Tableau Général Secouru", "l": [4, 2, 4, 4, 2], "d": "Tableau alimentant les circuits électriques secourus"}, {"n": "Tarif Jaune/bleu", "l": [4, 3, 4, 4, 1], "d": "Point de livraison électrique du réseau public (comptage HTA/BT)"}, {"n": "téléphone", "l": [1, 1, 2, 1, 1], "d": "Téléphonie fixe interne et externe de la gare"}, {"n": "Terrains nus G&C", "l": [1, 1, 2, 0, 2], "d": "Terrains nus de gestion et construction liés à la gare"}, {"n": "Terrains nus non G&C", "l": [1, 1, 2, 0, 2], "d": "Terrains nus hors périmètre gare ou centre"}, {"n": "TGBT / TGBTR", "l": [4, 4, 4, 4, 2], "d": "Tableau Général Basse Tension (et secouru réseau)"}, {"n": "Traversée de voie piétonne (TVP)", "l": [4, 3, 3, 4, 1], "d": "Passage piéton traversant les voies au niveau du sol"}, {"n": "Ventilation", "l": [2, 2, 1, 4, 1], "d": "Ventilation des locaux, halls et passages"}];
@@ -157,7 +218,7 @@ const ALEAS = [['CHA','Fortes chaleurs'],['PLU','Inondation pluviale'],['FLU','C
 const EFFETS = [['att','Atténuant'],['agg','Aggravant'],['eva','À évaluer']];
 
 /* ---------- Niveaux & zones Paris-Austerlitz (plans 005348S zones thermiques + Géoprism) ---------- */
-const NIVEAUX = [
+let NIVEAUX = [
   {id:'N0', label:'RDC · quais', plan:'N00', zones:[
     'GHV — Grande Halle Voyageurs (B025)','GHV transverse (B006)','Quai voies 14-15 (B029)','Quai voies 16-17 (B028)',
     'Quai voies 18-19 (B027)','Quai voies 20-21 (B026)','Voie 21 (batardeau)','Petite Halle Voyageurs (PHV)','Hall Seine',
@@ -177,10 +238,10 @@ const NIVEAUX = [
   {id:'N3', label:'R+3 · combles', plan:'N03', zones:['Aile d\'Orléans R+3','Pavillon de l\'Horloge R+3','Combles Hall Seine','Combles embarcadère d\'Orléans']},
   {id:'TOIT', label:'Toitures', plan:'N03', zones:['Toiture / verrière GHV','Toiture Aile Muséum','Toiture commerces','Toiture centre de transit','Toiture Petite Halle','Marquise','Rejet CVC embarcadère Orléans','Toiture Hall Seine']},
 ];
-const PLANS = {N00:{f:'plans/N00.jpg',t:'Niveau 0 · RDC / quais'},N01:{f:'plans/N01.jpg',t:'Niveau 1'},N02:{f:'plans/N02.jpg',t:'Niveau 2'},N03:{f:'plans/N03.jpg',t:'Niveau 3 · toitures'}};
+let PLANS = {N00:{f:'plans/N00.jpg',t:'Niveau 0 · RDC / quais'},N01:{f:'plans/N01.jpg',t:'Niveau 1'},N02:{f:'plans/N02.jpg',t:'Niveau 2'},N03:{f:'plans/N03.jpg',t:'Niveau 3 · toitures'}};
 
 
-const PLAN_W = 2948, PLAN_H = 2124;
+let PLAN_W = 2948, PLAN_H = 2124;
 
 /* ---------- Utilitaires ---------- */
 const $ = (s, r=document) => r.querySelector(s);
@@ -214,8 +275,8 @@ function download(name, data, type='application/octet-stream') {
 const DB = {
   _db:null,
   open() { if (this._db) return Promise.resolve(this._db);
-    return new Promise((res, rej) => { const r = indexedDB.open('gareoPhoto', 2);
-      r.onupgradeneeded = () => { const d = r.result; if (!d.objectStoreNames.contains('blobs')) d.createObjectStore('blobs'); if (!d.objectStoreNames.contains('thumbs')) d.createObjectStore('thumbs'); if (!d.objectStoreNames.contains('snaps')) d.createObjectStore('snaps'); };
+    return new Promise((res, rej) => { const r = indexedDB.open('gareoPhoto', 3);
+      r.onupgradeneeded = () => { const d = r.result; if (!d.objectStoreNames.contains('blobs')) d.createObjectStore('blobs'); if (!d.objectStoreNames.contains('thumbs')) d.createObjectStore('thumbs'); if (!d.objectStoreNames.contains('snaps')) d.createObjectStore('snaps'); if (!d.objectStoreNames.contains('plans')) d.createObjectStore('plans'); };
       r.onsuccess = () => { this._db = r.result; res(this._db); }; r.onerror = () => rej(r.error); }); },
   async tx(store, mode, fn) { const d = await this.open(); return new Promise((res, rej) => { const t = d.transaction(store, mode); const s = t.objectStore(store);
     let out; const q = fn(s); if (q) q.onsuccess = () => { out = q.result; }; t.oncomplete = () => res(out); t.onerror = () => rej(t.error); t.onabort = () => rej(t.error); }); },
@@ -275,6 +336,250 @@ const P = id => { const cv = V(); const c = cv && cv.photos.find(x => x.id === i
 const visitOf = p => Object.values(S.visites).find(x => x.photos.includes(p));
 
 /* =====================================================================
+   GARES : Paris-Austerlitz (plans intégrés) + gares créées sur l'appareil
+   ===================================================================== */
+const PAZ_NIV = NIVEAUX, PAZ_PLANS = PLANS, PAZ_W = PLAN_W, PAZ_H = PLAN_H;
+const GARES_BUILTIN = {PAZ:{code:'PAZ', nom:'Paris-Austerlitz', builtin:true, plans:Object.keys(PAZ_PLANS).map(id => ({id, label:PAZ_PLANS[id].t}))}};
+if (!S.gares) S.gares = {};
+if (!S.activeV) S.activeV = {};
+function allGares() {
+  const out = {...GARES_BUILTIN, ...S.gares};
+  for (const v of Object.values(S.visites)) if (!out[v.code]) out[v.code] = {code:v.code, nom:v.gare || v.code, custom:true, inferred:true, plans:[]};
+  return out;
+}
+const gareOf = code => allGares()[code] || null;
+const visitsOf = code => Object.values(S.visites).filter(v => v.code === code);
+function activeVisit(code) {
+  const vs = visitsOf(code); if (!vs.length) return null;
+  if (S.activeV[code] && S.visites[S.activeV[code]]) return S.visites[S.activeV[code]];
+  return vs.sort((a, b) => b.photos.length - a.photos.length || b.debut - a.debut)[0];
+}
+const planUrls = {};
+async function useGare(code) {
+  const g = gareOf(code);
+  if (!g || g.builtin) { NIVEAUX = PAZ_NIV; PLANS = PAZ_PLANS; PLAN_W = PAZ_W; PLAN_H = PAZ_H; return; }
+  PLANS = {};
+  for (const pl of g.plans || []) {
+    const key = code + '/' + pl.id;
+    if (!planUrls[key]) { const b = await DB.get('plans', key).catch(() => null); if (b) planUrls[key] = URL.createObjectURL(b); }
+    if (planUrls[key]) PLANS[pl.id] = {f:planUrls[key], t:pl.label};
+  }
+  const pls = (g.plans || []).filter(pl => PLANS[pl.id]);
+  NIVEAUX = [...pls.map(pl => ({id:pl.id, label:pl.label, plan:pl.id, zones:(g.zones && g.zones[pl.id]) || []})),
+    {id:'EXT', label:'Extérieur', plan:pls.length ? pls[0].id : null, zones:[]}, {id:'NA', label:'Sans plan', plan:null, zones:[]}];
+  PLAN_W = g.W || 1000; PLAN_H = g.H || 1000;
+}
+async function enterGare(code, mode) {
+  await useGare(code);
+  UI.screen = 'gare'; UI.gare = code; if (mode) UI.mode = mode;
+  if (!['terrain', 'bureau', 'export'].includes(UI.mode)) UI.mode = 'terrain';
+  const v = activeVisit(code); S.current = v ? v.id : null;
+  if (S.last && S.last.code !== code) S.last = null;
+  BU.sel = null; save(); persistNav(); render(); showQuota();
+}
+function goHome() { UI.screen = 'home'; UI.gare = null; S.current = null; save(); persistNav(); render(); }
+function persistNav() { localStorage.setItem('gareoPhoto.nav', JSON.stringify({screen:UI.screen, gare:UI.gare, mode:UI.mode})); }
+function ensureVisit() {
+  let v = V(); if (v) return v;
+  const g = gareOf(UI.gare); startVisite(g.nom, g.code, localStorage.getItem('gareoPhoto.aut') || '');
+  S.activeV[g.code] = S.current; save(); return V();
+}
+/* plans : la 1re image fixe la taille de la gare, les suivantes sont posées dedans (fond blanc), pour garder des coordonnées homogènes */
+async function processPlan(file, W, H) {
+  const bm = await createImageBitmap(file);
+  let w = bm.width, h = bm.height;
+  if (!W) { const k = Math.min(1, 3000 / Math.max(w, h)); W = Math.round(w * k); H = Math.round(h * k); }
+  const c = document.createElement('canvas'); c.width = W; c.height = H; const x = c.getContext('2d');
+  x.fillStyle = '#fff'; x.fillRect(0, 0, W, H);
+  const k = Math.min(W / w, H / h); const dw = w * k, dh = h * k; x.drawImage(bm, (W - dw) / 2, (H - dh) / 2, dw, dh); if (bm.close) bm.close();
+  const blob = await new Promise(r => c.toBlob(r, 'image/jpeg', 0.86));
+  return {blob, W, H, url:URL.createObjectURL(blob)};
+}
+const NG = {nom:'', code:'', plans:[], W:0, H:0, busy:false};
+function resetNG() { NG.plans.forEach(p => URL.revokeObjectURL(p.url)); Object.assign(NG, {nom:'', code:'', plans:[], W:0, H:0, busy:false, codeTouched:false}); }
+const autoCode = nom => { const w = ascii(nom).toUpperCase().split('-').filter(Boolean); if (!w.length) return '';
+  return (w.length === 1 ? w[0].slice(0, 3) : w.map(x => x[0]).join('').slice(0, 4)).replace(/[^A-Z0-9]/g, ''); };
+async function createGare() {
+  const nom = NG.nom.trim(); let code = ascii(NG.code || autoCode(nom)).toUpperCase().replace(/-/g, '').slice(0, 6);
+  if (!nom) { toast('Donne un nom à la gare'); return; }
+  if (!code) code = 'GARE';
+  if (allGares()[code]) { toast(`Le code ${code} existe déjà : choisis-en un autre`, 'err'); return; }
+  if (!NG.plans.length && !confirm('Aucun plan ajouté : tu pourras prendre des photos mais pas les pointer sur un plan. Créer la gare quand même ?')) return;
+  const plans = NG.plans.map((p, i) => ({id:'P' + (i + 1), label:p.label.trim() || 'Plan ' + (i + 1)}));
+  for (const [i, p] of NG.plans.entries()) await DB.put('plans', code + '/' + plans[i].id, p.blob);
+  S.gares[code] = {code, nom, custom:true, plans, W:NG.W, H:NG.H, created:Date.now()}; save(); resetNG();
+  await enterGare(code, 'terrain'); toast('✔ Gare créée : prends ta première photo');
+}
+async function addPlansTo(code, files) {
+  const g = S.gares[code]; if (!g) return;
+  for (const f of files) { const r = await processPlan(f, g.W, g.H); if (!g.W) { g.W = r.W; g.H = r.H; }
+    const id = 'P' + (Math.max(0, ...g.plans.map(p => +p.id.slice(1) || 0)) + 1);
+    await DB.put('plans', code + '/' + id, r.blob); URL.revokeObjectURL(r.url);
+    g.plans.push({id, label:f.name.replace(/\.[^.]+$/, '').slice(0, 40)}); }
+  save(); await useGare(code); render();
+}
+
+/* =====================================================================
+   EN-TÊTE, NAVIGATION
+   ===================================================================== */
+const ICO = {
+  home:'<svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/><path d="M10 19.5v-5h4v5"/></svg>',
+  back:'<svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>',
+  gear:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>',
+  terrain:'<svg viewBox="0 0 24 24"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2.2l1.5-2h5.6l1.5 2h2.2A1.5 1.5 0 0 1 20 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5z"/><circle cx="12" cy="13" r="3.5"/></svg>',
+  bureau:'<svg viewBox="0 0 24 24"><path d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3z"/><path d="M13.5 8.5l3 3"/></svg>',
+  export:'<svg viewBox="0 0 24 24"><path d="M12 4v11"/><path d="M7.5 10.5 12 15l4.5-4.5"/><path d="M5 19h14"/></svg>',
+};
+const LOGO_SM = '<svg class="glogo" role="img" aria-label="GARÉo" viewBox="0 28 352 130"><polyline points="-12,152 249.54,152 275.54,92.6" fill="none" stroke="#C8102E" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/><g stroke-width="6" stroke-linecap="round"><line x1="261.64" y1="68.52" x2="244.64" y2="39.08" stroke="#FF2A43"/><line x1="279.41" y1="65.07" x2="282.19" y2="45.27" stroke="#268A52"/><line x1="295.54" y1="73.29" x2="316.40" y2="53.14" stroke="#2C7E9C"/><line x1="303.07" y1="88.73" x2="342.68" y2="83.16" stroke="#FF2A43"/><line x1="299.62" y1="106.50" x2="319.53" y2="118.00" stroke="#268A52"/><line x1="285.05" y1="118.72" x2="296.33" y2="149.73" stroke="#2C7E9C"/></g><text x="8" y="122" font-family="Lato,system-ui,sans-serif" font-weight="900" font-size="96" letter-spacing="-3" fill="#FFFFFF">GARÉ</text><circle cx="275.54" cy="92.6" r="23.8" fill="#C8102E"/><circle cx="275.54" cy="92.6" r="8.57" fill="#FFFFFF"/><circle cx="244.64" cy="39.08" r="4.5" fill="#FF2A43"/><circle cx="282.19" cy="45.27" r="4.5" fill="#268A52"/><circle cx="316.40" cy="53.14" r="4.5" fill="#2C7E9C"/><circle cx="342.68" cy="83.16" r="4.5" fill="#FF2A43"/><circle cx="319.53" cy="118.00" r="4.5" fill="#268A52"/><circle cx="296.33" cy="149.73" r="4.5" fill="#2C7E9C"/></svg>';
+const TABS = [['terrain', 'Terrain'], ['bureau', 'Bureau'], ['export', 'Export']];
+function renderHeader() {
+  const h = $('#hdr'); const g = UI.screen === 'gare' ? gareOf(UI.gare) : null;
+  if (UI.screen === 'gare' && g) {
+    h.innerHTML = `<button class="ib" data-act="goHome" title="Mes gares" aria-label="Mes gares">${ICO.back}</button>
+      <div class="ttl"><b>${esc(g.nom)}</b><small>${esc(g.code)}${V() ? ' · visite du ' + esc(dfr(V().debut)) : ''}</small></div>
+      <nav class="tabs">${TABS.map(([k, l]) => `<button class="${UI.mode === k ? 'on' : ''}" data-act="tab" data-v="${k}">${ICO[k]}<span>${l}</span></button>`).join('')}</nav>
+      <button class="ib" data-act="settings" title="Paramètres" aria-label="Paramètres">${ICO.gear}</button>`;
+    $('#bnav').innerHTML = TABS.map(([k, l]) => `<button class="${UI.mode === k ? 'on' : ''}" data-act="tab" data-v="${k}">${ICO[k]}<span>${l}</span></button>`).join('');
+    document.body.classList.add('in-gare');
+  } else {
+    h.innerHTML = `<a class="ib" href="../" title="Accueil GARÉo" aria-label="Accueil GARÉo">${ICO.home}</a>
+      <div class="brand">${LOGO_SM}<span>Relevé ACC</span></div>
+      <button class="ib" data-act="settings" title="Paramètres" aria-label="Paramètres">${ICO.gear}</button>`;
+    $('#bnav').innerHTML = ''; document.body.classList.remove('in-gare');
+  }
+}
+const dfr = t => new Date(t).toLocaleDateString('fr-FR', {day:'2-digit', month:'2-digit', year:'numeric'});
+
+/* =====================================================================
+   ÉCRAN : MES GARES
+   ===================================================================== */
+function viewHome() {
+  const gs = Object.values(allGares()).sort((a, b) => (b.builtin ? 1 : 0) - (a.builtin ? 1 : 0) || (a.created || 0) - (b.created || 0));
+  const card = g => { const vs = visitsOf(g.code); const v = activeVisit(g.code); const n = v ? v.photos.length : 0;
+    const zones = v ? new Set(v.photos.map(p => p.zone).filter(Boolean)).size : 0;
+    const cov = v && ([...v.photos].reverse().find(p => p.star && p.type !== 'video') || [...v.photos].reverse().find(p => p.type !== 'video'));
+    const img = cov ? `<img data-th="${bk(cov)}" alt="">` : g.builtin ? `<img src="${PAZ_PLANS.N00.f}" alt="" class="pl">` : `<span class="ph">${ICO.terrain}</span>`;
+    return `<button class="gcard" data-act="openGare" data-v="${esc(g.code)}">
+      <span class="cv">${img}</span>
+      <span class="gi"><span class="gc">${esc(g.code)}</span><b>${esc(g.nom)}</b>
+        <span class="gm">${n ? `${n} prise${n > 1 ? 's' : ''} · ${zones} zone${zones > 1 ? 's' : ''} · visite du ${dfr(v.debut)}${vs.length > 1 ? ` · ${vs.length} visites` : ''}` : 'Aucune prise sur cet appareil'}</span>
+        <span class="gm">${(g.plans || []).length ? `${g.plans.length} plan${g.plans.length > 1 ? 's' : ''}` : 'sans plan'}</span></span>
+      <span class="go">›</span></button>`; };
+  return `<div class="home"><h1>Mes gares</h1>
+    <div class="glist">${gs.map(card).join('')}
+      <button class="gcard add" data-act="newGare"><span class="cv"><span class="ph">+</span></span><span class="gi"><b>Ajouter une gare</b><span class="gm">Nom, code et plans de la gare, puis relevé</span></span><span class="go">›</span></button>
+    </div>
+    <p class="small mute" style="margin-top:18px">Les relevés restent sur cet appareil. Pour travailler sur PC sur une visite faite au téléphone : ⚙ Paramètres → Importer une visite.</p></div>`;
+}
+function viewNewGare() {
+  return `<div class="home narrow"><button class="lnk" data-act="goHome">‹ Mes gares</button><h1>Ajouter une gare</h1>
+    <div class="card"><label class="f">Nom de la gare</label><input type="text" id="ngNom" value="${esc(NG.nom)}" placeholder="ex. Clermont-Ferrand" autocomplete="off">
+      <label class="f">Code <span class="mute">(début des noms de photos : CLF_0001…)</span></label><input type="text" id="ngCode" value="${esc(NG.code)}" maxlength="6" placeholder="CLF" autocomplete="off" style="text-transform:uppercase"></div>
+    <div class="card"><h2>Plans</h2>
+      <p class="small mute" style="margin-top:0">Un plan par niveau (image JPG ou PNG ; pour un PDF, exporte d'abord la page en image). Les photos seront pointées dessus. Tu pourras en ajouter plus tard dans ⚙ Paramètres.</p>
+      <div id="ngPlans">${NG.plans.map((p, i) => `<div class="plrow"><img src="${p.url}" alt=""><input type="text" data-ngl="${i}" value="${esc(p.label)}" placeholder="Nom du niveau"><button class="btn red" data-act="ngRm" data-v="${i}" title="Retirer">✕</button></div>`).join('')}</div>
+      <button class="btn" style="width:100%;margin-top:8px" data-act="ngAdd" ${NG.busy ? 'disabled' : ''}>${NG.busy ? 'Préparation du plan…' : '＋ Ajouter un plan'}</button></div>
+    <button class="btn big pri" style="width:100%" data-act="ngCreate" ${NG.busy ? 'disabled' : ''}>Créer la gare et commencer le relevé</button></div>`;
+}
+
+/* =====================================================================
+   BUREAU : reprendre les fiches, naviguer entre les photos
+   ===================================================================== */
+const BU = {sel:null, filter:'all', view:'list', plan:null, url:null, z:2.5};
+const isWide = () => matchMedia('(min-width: 900px)').matches;
+const incomplete = p => !p.zone || (!p.pt && !!nivOf(p.niv).plan) || !(p.eqs.length || p.note);
+const BF = [['all', 'Toutes'], ['todo', 'À compléter'], ['star', '★ Importantes'], ['agg', '▲ Aggravant'], ['eva', '? À évaluer']];
+const bOk = p => BU.filter === 'all' || (BU.filter === 'todo' && incomplete(p)) || (BU.filter === 'star' && p.star) || (BU.filter === p.ef);
+function bGroups(v) { return groupByZone(v.photos).map(g => ({...g, items:g.items.filter(bOk)})).filter(g => g.items.length); }
+function bOrder(v) { return bGroups(v).flatMap(g => g.items); }
+function viewBureau(v) {
+  if (!v || !v.photos.length) return `<div class="card empty"><h2>Pas encore de photo</h2><p class="mute">Prends des photos dans l'onglet Terrain. Visite faite sur un autre appareil : ⚙ Paramètres → Importer une visite.</p></div>`;
+  const ord = bOrder(v); if (!BU.sel || !v.photos.some(p => p.id === BU.sel)) BU.sel = isWide() ? (ord[0] || v.photos[0]).id : null;
+  const cnt = k => v.photos.filter(p => k === 'all' || (k === 'todo' && incomplete(p)) || (k === 'star' && p.star) || p.ef === k).length;
+  const left = `<div class="bl">
+    <div class="bfil">${BF.map(([k, l]) => `<button class="chip ${BU.filter === k ? 'on' : ''}" data-act="bFil" data-v="${k}">${l} <small>${cnt(k)}</small></button>`).join('')}</div>
+    <div class="seg2"><button class="${BU.view === 'list' ? 'on' : ''}" data-act="bView" data-v="list">Liste par zone</button><button class="${BU.view === 'plan' ? 'on' : ''}" data-act="bView" data-v="plan">Sur le plan</button></div>
+    <div class="bscroll">${BU.view === 'plan' ? bPlanNav(v) : bList(v)}</div></div>`;
+  if (!isWide()) return `<div class="bw narrow">${left}</div>`;
+  return `<div class="bw">${left}<div class="br" id="bEd">${bEditor(v)}</div></div>`;
+}
+function bList(v) {
+  const gs = bGroups(v); if (!gs.length) return '<div class="mute small" style="padding:10px">Aucune photo pour ce filtre.</div>';
+  return gs.map(g => `<div class="bz"><div class="bzh"><b>${esc(g.zone || 'Sans zone')}</b><span>${esc(nivOf(g.niv).label)} · ${g.items.length}</span></div>
+    <div class="bth">${g.items.map(p => `<button class="t ${p.id === BU.sel ? 'sel' : ''}" data-act="bSel" data-v="${p.id}" title="n°${p.n}${p.eqs.length ? ' · ' + esc(p.eqs.join(', ')) : ''}">
+      <img data-th="${bk(p)}" alt="" src="data:image/gif;base64,R0lGODlhAQABAAAAACw="><span class="n">${p.type === 'video' ? '▶ ' : ''}${p.n}</span>
+      ${p.ef ? `<i class="ef ${p.ef}"></i>` : ''}${incomplete(p) ? '<i class="td" title="à compléter"></i>' : ''}${p.star ? '<i class="st">★</i>' : ''}</button>`).join('')}</div></div>`).join('');
+}
+function bPlanNav(v) {
+  const used = [...new Set(v.photos.filter(p => p.pt && PLANS[p.pt.n]).map(p => p.pt.n))];
+  const sel = P(BU.sel); if (!BU.plan || !used.includes(BU.plan)) BU.plan = sel && sel.pt && used.includes(sel.pt.n) ? sel.pt.n : used[0];
+  if (!used.length) return '<div class="mute small" style="padding:10px">Aucune photo pointée sur un plan.</div>';
+  const pts = v.photos.filter(p => p.pt && p.pt.n === BU.plan && bOk(p));
+  return `<div class="row" style="margin:2px 0 8px">${used.map(pl => `<button class="chip ${pl === BU.plan ? 'on' : ''}" data-act="bPlan" data-v="${pl}">${esc(PLANS[pl].t)}</button>`).join('')}</div>
+    <div class="bmapw" id="bmw"><div class="bmap" style="width:${BU.z * 100}%"><img src="${PLANS[BU.plan].f}" alt="">${pts.map(p => `<button class="mk ${p.ef || ''} ${p.id === BU.sel ? 'sel' : ''}" style="left:${p.pt.x * 100}%;top:${p.pt.y * 100}%" data-act="bSel" data-v="${p.id}" title="n°${p.n}${p.eqs.length ? ' · ' + esc(p.eqs[0]) : ''}">${p.n}</button>`).join('')}</div></div>
+    <div class="row" style="margin-top:6px"><button class="chip" data-act="bZoom" data-v="-1">−</button><button class="chip" data-act="bZoom" data-v="1">+</button><span class="small mute">Touche un numéro pour ouvrir la photo.</span></div>`;
+}
+function bEditor(v) {
+  const p = P(BU.sel); if (!p) return '';
+  const ord = bOrder(v); const i = ord.findIndex(x => x.id === p.id);
+  return `<div class="bnav"><button class="btn" data-act="bPrev" ${i <= 0 ? 'disabled' : ''}>‹ Préc.</button>
+      <div class="bt"><b>${p.type === 'video' ? 'Vidéo' : 'Photo'} n°${p.n}</b><span>${dfr(p.t)} · ${hm(p.t)}${i >= 0 ? ` · ${i + 1} / ${ord.length}` : ''}</span></div>
+      <button class="btn" data-act="bNext" ${i < 0 || i >= ord.length - 1 ? 'disabled' : ''}>Suiv. ›</button></div>
+    <div class="bph" data-act="full">${p.type === 'video' ? '<div class="ph0">▶ Vidéo : cliquer pour lire</div>' : '<img id="bImg" alt="">'}</div>
+    ${ficheSections(p)}
+    <div class="row" style="justify-content:space-between;margin:4px 0 30px"><span class="small mute">Enregistré automatiquement · ← → pour changer de photo</span><button class="btn red" data-act="delPhoto">Supprimer la photo</button></div>`;
+}
+function bCenter() { const w = $('#bmw'); const m = w && w.querySelector('.mk.sel'); if (!m) return; const img = w.querySelector('img');
+  const go = () => { w.scrollLeft = m.offsetLeft - w.clientWidth / 2; w.scrollTop = m.offsetTop - w.clientHeight / 2; }; if (img.complete) go(); else img.onload = go; }
+async function bMount() {
+  bCenter(); const p = P(BU.sel); if (!p || !$('#bEd')) return; UI.fiche = p.id;
+  renderPlan(p); renderZoneSug(p); renderEq(p); renderTags(p);
+  const im = $('#bImg'); if (im) { const b = await DB.get('blobs', bk(p)).catch(() => null);
+    if (BU.url) URL.revokeObjectURL(BU.url); BU.url = b ? URL.createObjectURL(b) : null;
+    if (BU.url && P(BU.sel) === p) im.src = BU.url; else { const u = await thumbUrl(bk(p)); if (u) im.src = u; } }
+}
+function bSelect(id) {
+  const v = V(); BU.sel = id;
+  if (!isWide()) { UI.navList = bOrder(v).map(p => p.id); openFiche(id); return; }
+  const ed = $('#bEd'); if (!ed) { render(); return; }
+  ed.innerHTML = bEditor(v); ed.scrollTop = 0; bMount();
+  if (BU.view === 'plan') { const pp = P(id); if (pp && pp.pt && pp.pt.n !== BU.plan && PLANS[pp.pt.n]) { BU.plan = pp.pt.n; render(); return; } }
+  document.querySelectorAll('.bl [data-act=bSel]').forEach(b => b.classList.toggle('sel', b.dataset.v === id));
+  const t = document.querySelector(`.bl .t[data-v="${id}"]`); if (t) t.scrollIntoView({block:'nearest'});
+}
+function bStep(d) { const v = V(); const ord = bOrder(v); const i = ord.findIndex(x => x.id === BU.sel); const n = ord[i + d]; if (n) bSelect(n.id); }
+
+/* =====================================================================
+   PARAMÈTRES (roue dentée)
+   ===================================================================== */
+function renderSettings() {
+  const o = $('#set'); if (!UI.set) { o.innerHTML = ''; return; }
+  const g = UI.screen === 'gare' ? gareOf(UI.gare) : null; const vs = g ? visitsOf(g.code).sort((a, b) => b.debut - a.debut) : []; const av = g ? activeVisit(g.code) : null;
+  o.innerHTML = `<div class="sheet-bg" data-act="closeSet"></div><div class="sheet"><div class="sh"><b>Paramètres</b><button class="ib dark" data-act="closeSet" aria-label="Fermer">✕</button></div><div class="sb">
+    <section><h3>Relevé</h3>
+      <label class="f">Photographe (nom repris dans les exports)</label><input type="text" id="sAut" value="${esc(localStorage.getItem('gareoPhoto.aut') || '')}" placeholder="Prénom NOM">
+      <label class="row" style="margin-top:12px"><input type="checkbox" id="cDl" ${S.prefs.dlCopy ? 'checked' : ''}> Copie de secours de chaque photo dans Téléchargements</label>
+      <div class="small mute" id="quota" style="margin-top:8px"></div></section>
+    ${g ? `<section><h3>${esc(g.nom)} · visites</h3>
+      ${vs.length ? vs.map(v => `<div class="vrow ${av && v.id === av.id ? 'on' : ''}"><div><b>Visite du ${dfr(v.debut)}</b><span class="small mute"> · ${v.photos.length} prise${v.photos.length > 1 ? 's' : ''}${av && v.id === av.id ? ' · en cours' : ''}</span></div>
+        <div class="row">${av && v.id === av.id ? '' : `<button class="btn" data-act="setVisit" data-v="${v.id}">Ouvrir</button>`}<button class="btn" data-act="xRelOf" data-v="${v.id}" title="Sauvegarde .json + .csv">💾</button><button class="btn red" data-act="delVisite" data-id="${v.id}" title="Supprimer">🗑</button></div></div>`).join('') : '<p class="small mute">Pas encore de visite : elle démarre à la première photo.</p>'}
+      <button class="btn" style="width:100%;margin-top:8px" data-act="newVisit">＋ Nouvelle visite (autre jour)</button>
+      ${av ? autoCard(av) : ''}</section>` : ''}
+    ${g && g.custom && !g.inferred ? `<section><h3>Plans de la gare</h3>
+      ${(g.plans || []).map(pl => `<div class="plrow"><img src="${PLANS[pl.id] ? PLANS[pl.id].f : ''}" alt=""><input type="text" data-pll="${pl.id}" value="${esc(pl.label)}"></div>`).join('') || '<p class="small mute">Aucun plan.</p>'}
+      <button class="btn" style="width:100%;margin-top:8px" data-act="addPlan">＋ Ajouter un plan</button>
+      <button class="btn red" style="width:100%;margin-top:8px" data-act="delGare">Supprimer la gare</button></section>` : ''}
+    <section><h3>Importer une visite</h3>
+      <p class="small mute" style="margin-top:0">Pour travailler sur PC sur une visite faite au téléphone : sur le téléphone, Export → ZIP classé, puis ouvre ce ZIP ici (pas besoin de le décompresser).</p>
+      <div class="grid2"><button class="btn pri" data-act="pickZip">📦 Ouvrir un ZIP de visite</button><button class="btn" data-act="pickDir">📁 Dossier (relevé .json + photos)</button></div>
+      ${B.loading ? `<div class="small" style="margin-top:8px">Import… ${B.loading.done} / ${B.loading.total}</div><div class="prog"><div style="width:${100 * B.loading.done / Math.max(1, B.loading.total)}%"></div></div>` : ''}</section>
+    <section><h3>À propos</h3><p class="small"><b>GARÉo Relevé ACC</b> · prototype · usage interne exclusivement. Dérivé de GARÉo (mission SERM Hauts-de-France). <a href="../">Accueil GARÉo</a></p>
+      <p class="small mute">Version ${esc(VERSION)}</p></section>
+  </div></div>`;
+  showQuota();
+}
+
+/* =====================================================================
    PRISE DE VUE
    ===================================================================== */
 function startVisite(gare, code, auteur) {
@@ -284,14 +589,14 @@ function startVisite(gare, code, auteur) {
 }
 let captureNext = false;
 async function onCapture(files, how) {
-  const v = V(); if (!v || !files.length) return;
+  if (!files.length) return; const v = ensureVisit(); if (!v) return;
   const created = [];
   for (const f of files) {
     const isVid = /^video\//.test(f.type) || /\.(mp4|mov|3gp|webm)$/i.test(f.name);
     v.seq++; const id = v.code + '_' + pad(v.seq, 4);
     const L = (how === 'import' ? null : S.last) || {};
     const p = {id, bk:v.id + '/' + id, n:v.seq, t:Date.now(), type:isVid ? 'video' : 'photo', how, name:f.name, size:f.size, mime:f.type,
-      niv:L.niv || 'N0', zone:L.zone || '', pt:L.pt ? {n:L.pt.n, x:L.pt.x, y:L.pt.y} : null, eqs:[...(L.eqs || [])],
+      niv:L.niv || (NIVEAUX[0] && NIVEAUX[0].id) || 'N0', zone:L.zone || '', pt:L.pt ? {n:L.pt.n, x:L.pt.x, y:L.pt.y} : null, eqs:[...(L.eqs || [])],
       al:[], ef:'', star:false, note:'', dl:null, gps:null, exT:null, exGps:null, stored:false};
     v.photos.push(p); save();
     try { await DB.put('blobs', p.bk, f); p.stored = true; }
@@ -327,54 +632,32 @@ async function dlCopy(p) {
 /* =====================================================================
    RENDU
    ===================================================================== */
-const UI = {mode: localStorage.getItem('gareoPhoto.mode') || (matchMedia('(min-width: 900px)').matches ? 'bureau' : 'terrain'),
+const NAV0 = (() => { try { return JSON.parse(localStorage.getItem('gareoPhoto.nav')) || {}; } catch (e) { return {}; } })();
+const UI = {screen:'home', gare:null, mode:NAV0.mode || 'terrain', set:false, navList:null,
   ov:null, fiche:null, filtre:'all', eqQ:'', eqAll:false, dirMode:false, zoom:2.2, full:null};
 function render() {
-  document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.v === UI.mode));
-  $('#ver').textContent = VERSION; const v = V(); $('#hdrGare').textContent = v ? '· ' + v.code : '';
-  if (UI.mode === 'terrain') { $('#app').innerHTML = v ? viewTerrain(v) : viewAccueil(); if (v) fillThumbs(); }
-  else if (UI.mode === 'bureau') { $('#app').innerHTML = viewBureau(); fillThumbs(); }
-  else if (UI.mode === 'export') $('#app').innerHTML = viewExport();
-  else $('#app').innerHTML = viewAide();
+  renderHeader(); $('#ver').textContent = VERSION;
+  const v = V(); const app = $('#app'); app.className = UI.screen === 'gare' ? 'm-' + UI.mode : 's-' + UI.screen;
+  if (UI.screen === 'home') { app.innerHTML = viewHome(); fillThumbs(app); }
+  else if (UI.screen === 'newGare') app.innerHTML = viewNewGare();
+  else if (UI.mode === 'terrain') { app.innerHTML = viewTerrain(v); fillThumbs(app); }
+  else if (UI.mode === 'bureau') { app.innerHTML = viewBureau(v); fillThumbs(app); bMount(); }
+  else { X.src = v ? v.id : null; app.innerHTML = viewExport(v); }
+  renderSettings();
 }
 function fillThumbs(root=document) { root.querySelectorAll('img[data-th]').forEach(async im => { const u = await thumbUrl(im.dataset.th); if (u) im.src = u; }); }
 
-function viewAccueil() {
-  const old = Object.values(S.visites).sort((a, b) => b.debut - a.debut);
-  return `<div class="card"><h2>Nouvelle visite</h2>
-    <label class="f">Gare</label><input type="text" id="iGare" value="Paris-Austerlitz">
-    <div class="grid2"><div><label class="f">Code (noms de fichiers)</label><input type="text" id="iCode" value="PAZ"></div>
-    <div><label class="f">Photographe</label><input type="text" id="iAut" value="${esc(localStorage.getItem('gareoPhoto.aut') || '')}" placeholder="Prénom Nom"></div></div>
-    <div style="margin-top:12px"><button class="btn big pri" style="width:100%" data-act="start">▶ Démarrer la visite</button></div></div>
-    ${old.length ? `<div class="card"><h2>Visites sur ce téléphone</h2>${old.map(o => `
-      <div class="row" style="border-top:1px solid var(--line);padding:8px 0">
-        <div style="flex:1"><b>${esc(o.gare)}</b> · ${ymd(o.debut)} ${hm(o.debut)}${o.fin ? '–' + hm(o.fin) : ' <span class="mute">(en cours)</span>'}<br>
-        <span class="small mute">${o.photos.length} photos/vidéos</span></div>
-        <button class="btn" data-act="resume" data-id="${o.id}">${o.fin ? 'Ouvrir' : 'Reprendre'}</button>
-        <button class="btn red" data-act="delVisite" data-id="${o.id}" title="Supprimer cette visite">🗑</button>
-      </div>`).join('')}</div>` : ''}`;
-}
 function viewTerrain(v) {
-  const notDl = S.prefs.dlCopy ? v.photos.filter(p => !p.dl).length : 0;
   const L = S.last;
-  return `${S.repairV8 && S.repairV8.dup && !S.repairV8.seen ? `<div class="banner ok">🔧 Réparation faite : ${S.repairV8.fixed} fiche(s) qui s'étaient enregistrées dans une autre visite (mêmes n° de photo) ont été remises dans la bonne. Vérifie quelques fiches. <a href="#" data-act="repSeen">OK</a></div>` : ''}
-  <div class="grid3" style="grid-template-columns:2fr 1fr 1fr">
-    <button class="btn huge yel" data-act="capP">📷 Photo</button>
-    <button class="btn huge pri" data-act="capV">🎥<br><span style="font-size:15px">Vidéo</span></button>
-    <button class="btn huge" data-act="imp" style="font-size:15px">🖼<br>Galerie</button>
+  return `<div class="cap">
+    <button class="btn huge yel" data-act="capP">${ICO.terrain}<span>Photo</span></button>
+    <button class="btn huge pri" data-act="capV"><span class="big">▶</span><span>Vidéo</span></button>
+    <button class="btn huge" data-act="imp"><span class="big">🖼</span><span>Galerie</span></button>
   </div>
-  <div class="small mute" style="margin:7px 2px 10px">${L && L.zone ? `Lieu repris pour la prochaine photo : <b>${esc(nivOf(L.niv).id)} · ${esc(L.zone)}</b>${L.pt ? ' · 📍' : ''}${L.eqs && L.eqs.length ? ' · ' + esc(L.eqs.join(', ')) : ''}` : 'Prends une photo : tu la pointes ensuite sur le plan.'}</div>
-  ${notDl ? `<div class="banner">${notDl} photo(s) pas encore copiée(s) dans Téléchargements. <a href="#" data-act="dlMissing">Copier maintenant</a></div>` : ''}
-  <div class="card">
-    <div class="row" style="margin-bottom:8px"><b style="margin-right:auto">${v.photos.length} prises</b><span class="small mute">touche une photo pour la modifier</span></div>
-    <div id="gal">${galHtml(v)}</div>
-  </div>
-  <div class="grid3">
-    <button class="btn" data-act="exportRel">💾 Exporter le relevé</button>
-    <button class="btn" data-act="shareRel">📤 Envoyer</button>
-    <button class="btn red" data-act="end">■ Fin de visite</button>
-  </div>
-  <div class="small mute" id="quota" style="margin-top:8px"></div>`;
+  <div class="small mute hint">${L && L.zone ? `Lieu repris pour la prochaine photo : <b>${esc(nivOf(L.niv).label)} · ${esc(L.zone)}</b>${L.pt ? ' · 📍' : ''}${L.eqs && L.eqs.length ? ' · ' + esc(L.eqs.join(', ')) : ''}` : v ? 'Prends une photo, puis pointe-la sur le plan.' : 'Prends la première photo : la visite du jour démarre toute seule.'}</div>
+  ${v ? `<div class="card">
+    <div class="row" style="margin-bottom:8px"><b style="margin-right:auto">${v.photos.length} prise${v.photos.length > 1 ? 's' : ''}</b><span class="small mute">enregistré automatiquement · touche une photo pour la modifier</span></div>
+    <div id="gal">${galHtml(v)}</div></div>` : ''}`;
 }
 function galHtml(v) {
   const list = [...v.photos].reverse();
@@ -390,22 +673,13 @@ async function showQuota() { const q = $('#quota'); if (!q || !navigator.storage
 
 /* ---------- FICHE PHOTO ---------- */
 function openFiche(id) { UI.ov = 'fiche'; UI.fiche = id; UI.eqQ = ''; UI.eqAll = false; UI.dirMode = false; renderOv(); }
-function closeOv() { UI.ov = null; UI.fiche = null; $('#ov').innerHTML = ''; render(); }
-function renderOv() {
-  const o = $('#ov'); if (UI.ov !== 'fiche') { o.innerHTML = ''; return; }
-  const p = P(UI.fiche); if (!p) { closeOv(); return; }
-  const v = Object.values(S.visites).find(x => x.photos.includes(p));
-  o.innerHTML = `<div class="ov"><div class="top"><b>${esc(p.id)} · ${hms(p.t)}</b><button data-act="delPhoto">🗑</button><button data-act="closeFiche">Fermer</button></div>
-  <div class="body">
-    <div class="prev"><span id="prevBox">${p.type === 'video' ? '<div class="ph0">🎬</div>' : `<img data-th="${bk(p)}" alt="" data-act="full">`}</span>
-      <div class="small"><b>${p.type === 'video' ? 'Vidéo' : 'Photo'} n°${p.n}</b><br>${hms(p.t)}
-      ${p.gps ? `<br>GPS ±${p.gps.acc} m` : ''}${p.stored ? '' : '<br><span style="color:var(--red)">non stockée dans l\'appli</span>'}
-      <br><a href="#" data-act="full">voir en grand</a> · <a href="#" data-act="clearAll">tout effacer</a></div></div>
-    <div class="sec"><h3>1 · Où ?</h3>
+function closeOv() { UI.ov = null; UI.fiche = null; UI.navList = null; $('#ov').innerHTML = ''; render(); }
+function ficheSections(p) {
+  return `<div class="sec"><h3>1 · Où ?</h3>
       <div class="nivtabs" id="fNiv">${nivTabs(p)}</div>
       <div id="fPlan"></div>
       <label class="f">Zone (texte libre)</label>
-      <input type="text" id="fZone" value="${esc(p.zone)}" placeholder="ex. GHV quai 18-19, local CTA n°3…" autocomplete="off">
+      <input type="text" id="fZone" value="${esc(p.zone)}" placeholder="ex. hall, quai 3, local technique n°2…" autocomplete="off">
       <div class="row" id="fZoneSug" style="margin-top:6px"></div>
     </div>
     <div class="sec"><h3>2 · Quoi ? <span class="small mute">(plusieurs possibles)</span></h3>
@@ -415,9 +689,22 @@ function renderOv() {
     </div>
     <div class="sec"><h3>3 · Constat</h3><div id="fTags"></div>
       <label class="f">Note (texte libre, dictée 🎤 possible)</label><textarea id="fNote" placeholder="ce qu'on voit, ce qu'a dit l'exploitant…">${esc(p.note)}</textarea>
-    </div>
+    </div>`;
+}
+function renderOv() {
+  const o = $('#ov'); if (UI.ov !== 'fiche') { o.innerHTML = ''; return; }
+  const p = P(UI.fiche); if (!p) { closeOv(); return; }
+  const nl = UI.navList; const i = nl ? nl.indexOf(p.id) : -1;
+  o.innerHTML = `<div class="ov"><div class="top"><b>${p.type === 'video' ? 'Vidéo' : 'Photo'} n°${p.n} · ${hm(p.t)}</b>${nl ? `<span class="small" style="opacity:.7">${i + 1} / ${nl.length}</span>` : ''}<button data-act="delPhoto" aria-label="Supprimer">🗑</button><button data-act="closeFiche">Fermer</button></div>
+  <div class="body">
+    <div class="prev"><span id="prevBox">${p.type === 'video' ? '<div class="ph0">▶</div>' : `<img data-th="${bk(p)}" alt="" data-act="full">`}</span>
+      <div class="small"><b>${p.type === 'video' ? 'Vidéo' : 'Photo'} n°${p.n}</b><br>${dfr(p.t)} · ${hms(p.t)}
+      ${p.gps ? `<br>GPS ±${p.gps.acc} m` : ''}${p.stored ? '' : '<br><span style="color:var(--red)">fichier absent de cet appareil</span>'}
+      <br><a href="#" data-act="full">voir en grand</a> · <a href="#" data-act="clearAll">tout effacer</a></div></div>
+    ${ficheSections(p)}
   </div>
-  <div class="foot"><button class="btn big" data-act="saveFiche">✓ Enregistrer</button><button class="btn big yel" data-act="saveNext">✓ + 📷 suivante</button></div></div>`;
+  <div class="foot">${nl ? `<button class="btn big" data-act="ovPrev" ${i <= 0 ? 'disabled' : ''}>‹ Préc.</button><button class="btn big pri" data-act="closeFiche">✓ OK</button><button class="btn big" data-act="ovNext" ${i < 0 || i >= nl.length - 1 ? 'disabled' : ''}>Suiv. ›</button>`
+    : `<button class="btn big" data-act="saveFiche">✓ Enregistrer</button><button class="btn big yel" data-act="saveNext">✓ + 📷 suivante</button>`}</div></div>`;
   fillThumbs(o); renderPlan(p); renderZoneSug(p); renderEq(p); renderTags(p);
 }
 function refreshPrev() { const p = P(UI.fiche); const b = $('#prevBox'); if (p && b && p.type !== 'video') { b.innerHTML = `<img data-th="${bk(p)}" alt="" data-act="full">`; fillThumbs(b); } }
@@ -504,7 +791,7 @@ function renderTags(p) {
 function commitFiche(p) {
   const z = $('#fZone'); if (z) p.zone = z.value.trim(); const n = $('#fNote'); if (n) p.note = n.value.trim();
   p.mod = Date.now(); p.auto = false;
-  S.last = {niv:p.niv, zone:p.zone, pt:p.pt ? {n:p.pt.n, x:p.pt.x, y:p.pt.y} : null, eqs:[...p.eqs], al:[...p.al], ef:p.ef};
+  S.last = {code:(visitOf(p) || {}).code, niv:p.niv, zone:p.zone, pt:p.pt ? {n:p.pt.n, x:p.pt.x, y:p.pt.y} : null, eqs:[...p.eqs], al:[...p.al], ef:p.ef};
   save();
 }
 
@@ -532,31 +819,6 @@ function csv(rows) { const q = x => { const s = String(x ?? ''); return /[;"\n\r
    BUREAU : relevé + fichiers → dossier trié, inventaire, planche
    ===================================================================== */
 const B = {rel:null, local:false, files:{}, loading:null, unknown:[], log:null};
-function viewBureau() {
-  const r = B.rel; const locals = Object.values(S.visites).filter(v => v.photos.length).sort((a, b) => b.debut - a.debut);
-  let h = `<div class="card"><h2>1 · Relevé</h2>${r ? `<div class="banner ok">✔ ${esc(r.visite.gare)} · ${ymd(r.visite.debut)} · ${r.photos.length} photos/vidéos${B.local ? ' · <b>fichiers de ce navigateur</b>' : ''} <a href="#" data-act="bReset">changer</a></div>`
-    : `<div class="row"><button class="btn big yel" data-act="pickZip">📦 Ouvrir le ZIP de la visite</button>
-       <button class="btn" data-act="pickDir">📁 Dossier décompressé</button><button class="btn" data-act="pickJson">📄 Relevé .json seul</button></div>
-       ${B.loading ? `<div class="small" style="margin-top:8px">Lecture…</div>` : ''}
-       <p class="small mute">Sur le téléphone : onglet Export → 📦 ZIP classé, puis copie le ZIP sur le PC (câble USB → dossier Download, ou OneDrive / Teams). Pas besoin de le décompresser.</p>
-       ${locals.length ? `<div class="row" style="margin-top:6px">${locals.map(v => `<button class="btn" data-act="bLocal" data-id="${v.id}">Visite ${esc(v.code)} ${ymd(v.debut)} déjà dans ce navigateur (${v.photos.length})</button>`).join('')}</div>` : ''}`}</div>`;
-  if (r && !B.local) {
-    const found = r.photos.filter(p => B.files[p.id]).length;
-    if (found) h += `<div class="card" style="border:2px solid var(--red)"><h2>✏️ Modifier sur ce PC</h2>
-      <p class="small" style="margin-top:0">Importe la visite dans ce navigateur : tu retrouves la liste des photos et les fiches (plan, zone, équipements, aléas, note) comme sur le téléphone, tu modifies, puis tu refais le ZIP ou la synthèse depuis l'onglet Export.</p>
-      <button class="btn big yel" data-act="importLocal" ${B.loading ? 'disabled' : ''}>✏️ Importer ${found} fichier(s) et modifier</button>
-      ${B.loading && B.loading.total > 1 ? `<div class="small" style="margin-top:8px">Import… ${B.loading.done} / ${B.loading.total}</div><div class="prog"><div style="width:${100 * B.loading.done / Math.max(1, B.loading.total)}%"></div></div>` : ''}
-      <p class="small mute">Les modifications restent sur ce PC (elles ne reviennent pas sur le téléphone).</p></div>`;
-    h += `<div class="card"><h2>2 · Fichiers photo/vidéo</h2><div class="row"><button class="btn pri" data-act="pickMedia">🖼 Choisir les fichiers</button>
-      <button class="btn" data-act="pickDir2">📁 Choisir un dossier</button></div>
-      ${B.loading ? `<div class="small" style="margin-top:8px">Lecture… ${B.loading.done} / ${B.loading.total}</div><div class="prog"><div style="width:${100 * B.loading.done / Math.max(1, B.loading.total)}%"></div></div>` : ''}
-      <p class="small mute">Câble USB → copie le dossier <code>Download</code> du téléphone (copies <code>PAZ_0001_…</code>). Les photos importées depuis la galerie sont aussi retrouvées dans <code>DCIM/Camera</code>.</p>
-      ${found || B.unknown.length ? `<div><span class="stat"><b>${found}</b> / ${r.photos.length} retrouvées</span>${B.unknown.length ? `<span class="stat mute"><b>${B.unknown.length}</b> fichiers ignorés (hors relevé)</span>` : ''}</div>` : ''}
-      ${found && found < r.photos.length ? `<div class="small" style="color:var(--red)">Manquantes : ${r.photos.filter(p => !B.files[p.id]).map(p => p.id).join(', ')}</div>` : ''}</div>`;
-  }
-  if (r && (B.local || Object.keys(B.files).length)) h += viewSynth(r);
-  return h;
-}
 function viewSynth(r) {
   const groups = groupByZone(r.photos);
   let h = `<div class="card"><h2>3 · Rangement</h2><div class="row"><span class="stat"><b>${groups.length}</b> zones</span>
@@ -572,7 +834,7 @@ function viewSynth(r) {
 function groupByZone(photos) {
   const map = new Map();
   [...photos].sort((a, b) => a.n - b.n).forEach(p => { const k = p.niv + '|' + (p.zone || ''); if (!map.has(k)) map.set(k, {k, niv:p.niv, zone:p.zone || '', items:[]}); map.get(k).items.push(p); });
-  const NO = ['EXT', 'N-1', 'N0', 'N1', 'N2', 'N3', 'TOIT']; const oi = n => { const i = NO.indexOf(n); return i < 0 ? 99 : i; };
+  const NO = NIVEAUX === PAZ_NIV ? ['EXT', 'N-1', 'N0', 'N1', 'N2', 'N3', 'TOIT'] : NIVEAUX.map(n => n.id); const oi = n => { const i = NO.indexOf(n); return i < 0 ? 99 : i; };
   return [...map.values()].sort((a, b) => oi(a.niv) - oi(b.niv) || a.items[0].n - b.items[0].n);
 }
 async function addFiles(files) {
@@ -659,40 +921,28 @@ ${plans}${body}<p style="color:#6b7682;font-size:12px">GARÉo Relevé ACC ${esc(
    EXPORT : synthèse HTML autonome, prête à imprimer / partager
    ===================================================================== */
 const AL_COL = {CHA:'#D9480F', PLU:'#1C7ED6', FLU:'#1864AB', NAP:'#0B7285', VEN:'#6741D9', SEC:'#B08900', RGA:'#8B5E34', GLI:'#6D4C41', FEU:'#E8590C', TDC:'#3B5BDB', GEL:'#4DABF7'};
-const EF_COL = {agg:'#C8102E', att:'#1D5E3A', eva:'#C77800'};
+const EF_COL = {agg:'#C8102E', att:'#2E8B57', eva:'#C98A00'};
 const X = {src:null, all:true, busy:null, last:null, zipSyn:true, zipLog:null, crAll:false, crLog:null};
-function viewExport() {
-  const locals = Object.values(S.visites).filter(v => v.photos.length).sort((a, b) => b.debut - a.debut);
-  const srcs = locals.map(v => ({k:v.id, lb:`${v.gare} · ${ymd(v.debut)} · ${v.photos.length} prises (ce téléphone/navigateur)`}));
-  if (B.rel && !B.local && Object.keys(B.files).length) srcs.push({k:'bureau', lb:`Relevé chargé dans Bureau · ${B.rel.visite.gare} · ${Object.keys(B.files).length} fichiers`});
-  if (!X.src || !srcs.some(s => s.k === X.src)) X.src = srcs.length ? srcs[0].k : null;
-  const v = X.src && X.src !== 'bureau' ? S.visites[X.src] : null;
-  return `${srcs.length ? `<div class="card"><h2>📦 ZIP classé</h2>
-    <p class="small mute" style="margin-top:0">Toutes les photos et vidéos, rangées <b>dossier par zone → sous-dossier par équipement</b>, avec des noms explicites (<code>PAZ_0012_094210_N0_GHV_Abris-de-quais.jpg</code>), l'inventaire Excel et le relevé. À ouvrir sur PC, à déposer sur SharePoint.</p>
-    <label class="f">Visite</label><select id="xSrc">${srcs.map(s => `<option value="${s.k}" ${s.k === X.src ? 'selected' : ''}>${esc(s.lb)}</option>`).join('')}</select>
-    <label class="row small" style="margin-top:10px"><input type="checkbox" id="xZipSyn" ${X.zipSyn ? 'checked' : ''}> Ajouter la synthèse dans le ZIP</label>
-    <div style="margin-top:12px"><button class="btn big yel" style="width:100%" data-act="zip" ${X.busy ? 'disabled' : ''}>📦 Télécharger le ZIP classé</button></div>
-    ${X.zipLog ? `<div class="banner ok" style="margin-top:10px">${X.zipLog}</div>` : ''}
-    <p class="small mute">Sur le téléphone, le ZIP arrive dans Téléchargements : envoie-le sur ton PC (câble, OneDrive, Teams). Au-delà de 3,5 Go il est découpé en plusieurs parties.</p></div>` : ''}
-  ${srcs.length ? `<div class="card"><h2>📄 Compte rendu Word</h2>
-    <p class="small mute" style="margin-top:0">Le CR au format AREP (modèle ACC) : une fiche par photo, colorée selon l'effet, avec les pictos d'aléa et la note ; points clés et éléments à clarifier pré-remplis ; synthèse par aléa avec les plans annotés ; index des photos. On finit dans Word (participants, échange en salle, relecture).</p>
-    <label class="row small"><input type="checkbox" id="xCrAll" ${X.crAll ? 'checked' : ''}> Une fiche pour toutes les photos (sinon : seulement celles avec effet, aléa, note ou ★ — les autres restent dans l'index)</label>
-    <div style="margin-top:12px"><button class="btn big yel" style="width:100%" data-act="cr" ${X.busy ? 'disabled' : ''}>📄 Générer le CR Word</button></div>
-    ${X.busy && /^CR/.test(X.busy.lb) ? `<div class="small" style="margin-top:8px">${esc(X.busy.lb)} ${X.busy.done} / ${X.busy.total}</div><div class="prog"><div style="width:${100 * X.busy.done / Math.max(1, X.busy.total)}%"></div></div>` : ''}
-    ${X.crLog ? `<div class="banner ok" style="margin-top:10px">${X.crLog}</div>` : ''}</div>` : ''}
-  ${autoCard(v)}
-  <div class="card"><h2>Synthèse de visite</h2>
-    <p class="small mute" style="margin-top:0">Un document prêt à l'emploi : couverture, aléas surlignés, tableau zones × aléas, points d'attention, plans avec les photos numérotées et leur direction, puis une fiche par zone. Fichier HTML autonome (s'ouvre partout), à imprimer en PDF.</p>
-    ${srcs.length ? `<label class="row small" style="margin-top:4px"><input type="checkbox" id="xAll" ${X.all ? 'checked' : ''}> Toutes les photos dans les fiches de zone (sinon : ★, aggravant et notes d'abord, 8 max par zone)</label>
-    <div style="margin-top:12px"><button class="btn big yel" style="width:100%" data-act="synth" ${X.busy ? 'disabled' : ''}>✨ Générer la synthèse</button></div>
-    ${X.busy ? `<div class="small" style="margin-top:8px">${esc(X.busy.lb)} ${X.busy.done} / ${X.busy.total}</div><div class="prog"><div style="width:${100 * X.busy.done / Math.max(1, X.busy.total)}%"></div></div>` : ''}
-    ${X.last ? `<div class="banner ok" style="margin-top:10px">✔ <b>${esc(X.last.name)}</b> téléchargé (${(X.last.size / 1e6).toFixed(1)} Mo). <a href="${X.last.url}" target="_blank">Ouvrir l'aperçu</a> · pour un PDF : menu ⋮ → Partager → Imprimer (téléphone) ou Ctrl+P (PC).</div>` : ''}`
-    : '<div class="mute">Aucune visite avec des photos sur cet appareil. Sur PC : charge d\'abord le relevé et les fichiers dans l\'onglet Bureau.</div>'}
-  </div>
-  ${v ? `<div class="card"><h2>Données de la visite</h2><div class="grid2">
-    <button class="btn" data-act="xRel">💾 Relevé .json + tableau .csv</button>
-    <button class="btn" data-act="xDl">⬇ Copier les photos manquantes dans Téléchargements (${v.photos.filter(q => !q.dl).length})</button></div>
-    <p class="small mute">Le relevé .json sert à l'onglet Bureau (dossier trié). Le .csv s'ouvre dans Excel.</p></div>` : ''}`;
+function viewExport(v) {
+  if (!v || !v.photos.length) return `<div class="card empty"><h2>Rien à exporter pour l'instant</h2><p class="mute">Les exports apparaissent dès la première photo.</p></div>`;
+  const busy = re => X.busy && re.test(X.busy.lb) ? `<div class="small" style="margin-top:8px">${esc(X.busy.lb)} ${X.busy.done} / ${X.busy.total}</div><div class="prog"><div style="width:${100 * X.busy.done / Math.max(1, X.busy.total)}%"></div></div>` : '';
+  return `<div class="xgrid">
+  <div class="card xc"><div class="xi">📄</div><h2>Compte rendu Word</h2>
+    <p class="small mute">Le CR au format AREP : une fiche par photo renseignée (couleur = effet, pictos d'aléa, note), points clés et éléments à clarifier pré-remplis, synthèse par aléa avec les plans annotés, index des photos.</p>
+    <label class="row small"><input type="checkbox" id="xCrAll" ${X.crAll ? 'checked' : ''}> Une fiche pour toutes les photos</label>
+    <button class="btn big yel" data-act="cr" ${X.busy ? 'disabled' : ''}>Générer le CR Word</button>${busy(/^CR/)}
+    ${X.crLog ? `<div class="banner ok">${X.crLog}</div>` : ''}</div>
+  <div class="card xc"><div class="xi">🗺</div><h2>Synthèse de visite</h2>
+    <p class="small mute">Page web autonome : plans avec les photos numérotées, tableau zones × aléas, points d'attention, une fiche par zone. À imprimer en PDF.</p>
+    <label class="row small"><input type="checkbox" id="xAll" ${X.all ? 'checked' : ''}> Toutes les photos dans les fiches de zone</label>
+    <button class="btn big pri" data-act="synth" ${X.busy ? 'disabled' : ''}>Générer la synthèse</button>${busy(/^(Préparation|Vignettes)/)}
+    ${X.last ? `<div class="banner ok">✔ <b>${esc(X.last.name)}</b> (${(X.last.size / 1e6).toFixed(1)} Mo). <a href="${X.last.url}" target="_blank">Ouvrir l'aperçu</a></div>` : ''}</div>
+  <div class="card xc"><div class="xi">📦</div><h2>Photos classées (ZIP)</h2>
+    <p class="small mute">Toutes les photos et vidéos rangées par zone puis par équipement, noms explicites, inventaire Excel et relevé. Ce ZIP s'ouvre aussi dans GARÉo sur un autre appareil (⚙ → Importer).</p>
+    <label class="row small"><input type="checkbox" id="xZipSyn" ${X.zipSyn ? 'checked' : ''}> Ajouter la synthèse dans le ZIP</label>
+    <button class="btn big" data-act="zip" ${X.busy ? 'disabled' : ''}>Télécharger le ZIP</button>${busy(/^ZIP/)}
+    ${X.zipLog ? `<div class="banner ok">${X.zipLog}</div>` : ''}</div>
+  </div>`;
 }
 const toDataUrl = b => new Promise(res => { const r = new FileReader(); r.onload = () => res(r.result); r.onerror = () => res(''); r.readAsDataURL(b); });
 async function synthHtmlFor(r, fromBureau) {
@@ -1249,6 +1499,8 @@ async function zipExport() {
   }
   await zw.add(`${root}/${v.code}_inventaire_photos.csv`, new Blob([csv(rows)], {type:'text/csv'}));
   await zw.add(`${root}/${v.code}_releve.json`, new Blob([JSON.stringify(r, null, 1)], {type:'application/json'}));
+  const gg = S.gares[v.code]; if (gg && gg.plans && gg.plans.length) { await zw.add(`${root}/_gare/gare.json`, new Blob([JSON.stringify(gg)], {type:'application/json'}));
+    for (const pl of gg.plans) { const b = await DB.get('plans', v.code + '/' + pl.id).catch(() => null); if (b) await zw.add(`${root}/_gare/plans/${pl.id}.jpg`, b); } }
   if (X.zipSyn) { X.busy = {lb:'ZIP : synthèse…', done:0, total:1}; render();
     const html = await synthHtmlFor(r, X.src === 'bureau', Object.fromEntries(out.map(e => [e.p.id, e.dir + '/' + e.fname]))); await zw.add(`${root}/${v.code}_synthese.html`, new Blob([html], {type:'text/html'})); }
   flush(true); X.busy = null;
@@ -1290,6 +1542,7 @@ async function openZip(file) {
     const rj = ents.find(x => /_releve(_[^/]*)?\.json$/i.test(x.name)); if (!rj) throw new Error('pas de relevé (.json) dans ce ZIP');
     const j = JSON.parse(await rj.blob.text()); if (!j.photos || !j.visite) throw new Error('relevé illisible');
     Object.assign(B, {rel:j, local:false, files:{}, unknown:[], log:null, fromZip:file.name}); attachFiles(ents);
+    const gj = ents.find(x => /_gare\/gare\.json$/i.test(x.name)); B.gareZip = gj ? {json:JSON.parse(await gj.blob.text()), ents:ents.filter(x => /_gare\/plans\//i.test(x.name))} : null;
   } catch (e) { alert('Impossible d\'ouvrir ce ZIP : ' + e.message); }
   B.loading = null; render();
 }
@@ -1301,7 +1554,7 @@ async function openFolder(files) {
 }
 async function importLocal() {
   const r = B.rel; const vid = r.visite.id || uid();
-  if (S.visites[vid] && !confirm('Cette visite existe déjà dans ce navigateur. La remplacer par celle du ZIP ?')) return;
+  if (S.visites[vid] && !confirm('Cette visite existe déjà sur cet appareil. La remplacer par celle du ZIP ?')) { B.loading = null; render(); return; }
   const v = {id:vid, gare:r.visite.gare, code:r.visite.code, auteur:r.visite.auteur, debut:r.visite.debut, fin:r.visite.fin || Date.now(),
     seq:Math.max(0, ...r.photos.map(p => p.n || 0)), photos:[], lastExport:null};
   B.loading = {done:0, total:r.photos.length}; render();
@@ -1311,10 +1564,16 @@ async function importLocal() {
     if (e) { try { await DB.put('blobs', p.bk, e.file); p.stored = true; const tb = await makeThumb(e.file, p.type === 'video'); if (tb) await DB.put('thumbs', p.bk, tb); } catch (er) { console.warn(er); } }
     v.photos.push(p); B.loading.done++; if (B.loading.done % 5 === 0) render();
   }
-  S.visites[vid] = v; S.current = vid; save(); B.loading = null;
+  if (!gareOf(v.code) || gareOf(v.code).inferred) {
+    const gz = B.gareZip && B.gareZip.json && B.gareZip.json.code === v.code ? B.gareZip : null;
+    const g = {code:v.code, nom:(gz && gz.json.nom) || v.gare || v.code, custom:true, plans:[], W:gz ? gz.json.W : 0, H:gz ? gz.json.H : 0, created:Date.now()};
+    if (gz) for (const pl of gz.json.plans || []) { const e = gz.ents.find(x => x.name.endsWith('/' + pl.id + '.jpg')); if (e) { await DB.put('plans', v.code + '/' + pl.id, new Blob([e.blob], {type:'image/jpeg'})); g.plans.push(pl); } }
+    S.gares[v.code] = g;
+  }
+  S.visites[vid] = v; S.activeV[v.code] = vid; save(); B.loading = null; B.gareZip = null;
   const miss = v.photos.filter(p => !p.stored).length;
-  UI.mode = 'terrain'; localStorage.setItem('gareoPhoto.mode', 'terrain'); render();
-  toast(`✔ Visite importée (${v.photos.length - miss} fichiers${miss ? ', ' + miss + ' manquants' : ''}) : touche une photo pour modifier sa fiche`);
+  UI.set = false; await enterGare(v.code, 'bureau');
+  toast(`✔ Visite importée (${v.photos.length - miss} fichiers${miss ? ', ' + miss + ' manquants' : ''})`);
 }
 /* =====================================================================
    FICHES COMPLÉTÉES AUTOMATIQUEMENT : appliquer un relevé .json, avec
@@ -1349,11 +1608,11 @@ async function undoLast() {
   await DB.put('snaps', v.id, list); X.snaps = list; save(); X.applyLog = `↩ ${n} fiches remises comme le ${new Date(s.at).toLocaleString('fr-FR')}.`; render();
 }
 function autoCard(v) {
-  if (!v) return '';
+  if (!v) return ''; X.src = v.id;
   const sn = X.snapsFor === v.id ? X.snaps : null;
-  if (X.snapsFor !== v.id) { X.snapsFor = v.id; getSnaps(v.id).then(l => { X.snaps = l; if (UI.mode === 'export') render(); }); }
-  return `<div class="card"><h2>Mettre à jour les fiches</h2>
-    <p class="small mute" style="margin-top:0">Applique un relevé complété (.json) à cette visite. L'état actuel est sauvegardé avant chaque mise à jour.</p>
+  if (X.snapsFor !== v.id) { X.snapsFor = v.id; getSnaps(v.id).then(l => { X.snaps = l; if (UI.set) renderSettings(); }); }
+  return `<div style="margin-top:14px"><h3 style="margin:0 0 4px">Mettre à jour les fiches</h3>
+    <p class="small mute" style="margin-top:0">Avancé : applique un relevé complété (.json) à cette visite. L'état actuel est sauvegardé avant chaque mise à jour.</p>
     <div class="grid2"><button class="btn pri" data-act="applyRel">📥 Appliquer un relevé complété (.json)</button>
     <button class="btn" data-act="undoRel" ${sn && sn.length ? '' : 'disabled'}>↩ Annuler la dernière mise à jour${sn && sn.length ? ` (${new Date(sn[sn.length - 1].at).toLocaleString('fr-FR', {day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'})})` : ''}</button></div>
     ${X.applyLog ? `<div class="banner ok" style="margin-top:8px">${X.applyLog}</div>` : ''}</div>`;
@@ -1435,22 +1694,49 @@ document.addEventListener('click', async ev => {
   if (el.tagName === 'A') ev.preventDefault();
   const p = UI.fiche ? P(UI.fiche) : null;
   switch (a) {
-    case 'mode': UI.mode = el.dataset.v; localStorage.setItem('gareoPhoto.mode', UI.mode); render(); showQuota(); break;
+    case 'tab': if (UI.ov) closeOv(); UI.fiche = null; UI.mode = el.dataset.v; persistNav(); render(); window.scrollTo(0, 0); break;
+    case 'goHome': goHome(); break;
+    case 'openGare': await enterGare(el.dataset.v); break;
+    case 'newGare': resetNG(); UI.screen = 'newGare'; render(); break;
+    case 'ngAdd': $('#fPlanImg').dataset.for = ''; $('#fPlanImg').click(); break;
+    case 'ngRm': { const i = +el.dataset.v; URL.revokeObjectURL(NG.plans[i].url); NG.plans.splice(i, 1); if (!NG.plans.length) { NG.W = NG.H = 0; } render(); break; }
+    case 'ngCreate': try { NG.busy = true; await createGare(); } catch (e) { console.error(e); toast('Création impossible : ' + e.message, 'err'); } NG.busy = false; if (UI.screen === 'newGare') render(); break;
+    case 'settings': UI.set = true; renderSettings(); break;
+    case 'closeSet': UI.set = false; renderSettings(); break;
+    case 'setVisit': S.activeV[UI.gare] = el.dataset.v; S.current = el.dataset.v; save(); BU.sel = null; render(); break;
+    case 'newVisit': { const g = gareOf(UI.gare); if (!confirm('Commencer une nouvelle visite de ' + g.nom + ' ? La visite actuelle reste disponible dans les paramètres.')) break;
+      startVisite(g.nom, g.code, localStorage.getItem('gareoPhoto.aut') || ''); S.activeV[g.code] = S.current; save(); UI.set = false; UI.mode = 'terrain'; render(); break; }
+    case 'xRelOf': exportReleve(S.visites[el.dataset.v]); toast('Sauvegarde du relevé dans Téléchargements'); break;
+    case 'addPlan': $('#fPlanImg').dataset.for = UI.gare; $('#fPlanImg').click(); break;
+    case 'delGare': { const g = gareOf(UI.gare); const vs = visitsOf(g.code);
+      if (!confirm(`Supprimer la gare « ${g.nom} »${vs.length ? ` et ses ${vs.length} visite(s) (${vs.reduce((n, v) => n + v.photos.length, 0)} photos)` : ''} de cet appareil ?`)) break;
+      for (const v of vs) { for (const x of v.photos) { await DB.del('blobs', bk(x)).catch(() => {}); await DB.del('thumbs', bk(x)).catch(() => {}); } delete S.visites[v.id]; }
+      for (const pl of g.plans || []) await DB.del('plans', g.code + '/' + pl.id).catch(() => {});
+      delete S.gares[g.code]; delete S.activeV[g.code]; UI.set = false; save(); goHome(); break; }
+    case 'bFil': BU.filter = el.dataset.v; render(); break;
+    case 'bView': BU.view = el.dataset.v; render(); break;
+    case 'bPlan': BU.plan = el.dataset.v; render(); break;
+    case 'bZoom': { const w = $('#bmw'); const fx = w ? (w.scrollLeft + w.clientWidth / 2) / w.scrollWidth : .5, fy = w ? (w.scrollTop + w.clientHeight / 2) / w.scrollHeight : .5;
+      BU.z = Math.max(1, Math.min(6, BU.z * (el.dataset.v === '1' ? 1.4 : 1 / 1.4))); render(); const w2 = $('#bmw'); if (w2) { w2.scrollLeft = fx * w2.scrollWidth - w2.clientWidth / 2; w2.scrollTop = fy * w2.scrollHeight - w2.clientHeight / 2; } break; }
+    case 'bSel': bSelect(el.dataset.v); break;
+    case 'bPrev': bStep(-1); break;
+    case 'bNext': bStep(1); break;
+    case 'ovPrev': case 'ovNext': { const nl = UI.navList; const i = nl.indexOf(UI.fiche); const id = nl[i + (a === 'ovNext' ? 1 : -1)]; if (id) { UI.fiche = id; BU.sel = id; UI.eqQ = ''; UI.eqAll = false; UI.dirMode = false; renderOv(); $('#ov .body').scrollTop = 0; } break; }
     case 'start': { const g = $('#iGare').value.trim() || 'Gare', c = $('#iCode').value.trim() || 'GARE', au = $('#iAut').value.trim(); localStorage.setItem('gareoPhoto.aut', au); startVisite(g, c, au); break; }
     case 'resume': { const o = S.visites[el.dataset.id]; o.fin = null; S.current = o.id; save(); render(); showQuota(); break; }
     case 'capP': $('#capP').click(); break;
     case 'capV': $('#capV').click(); break;
     case 'imp': $('#imp').click(); break;
     case 'repSeen': S.repairV8.seen = true; save(); render(); break;
-    case 'delVisite': { const o = S.visites[el.dataset.id]; if (!o) break;
+    case 'delVisite': { const o = S.visites[el.dataset.id]; if (!o) break; if (S.activeV[o.code] === o.id) delete S.activeV[o.code];
       if (!confirm(`Supprimer définitivement la visite « ${o.gare} ${ymd(o.debut)} » (${o.photos.length} photos) de cet appareil ?\nLes copies dans Téléchargements et les ZIP déjà faits ne sont pas touchés.`)) break;
       const others = new Set(); Object.values(S.visites).filter(w => w !== o).forEach(w => w.photos.forEach(x => others.add(bk(x))));
       for (const x of o.photos) if (!others.has(bk(x))) { await DB.del('blobs', bk(x)).catch(() => {}); await DB.del('thumbs', bk(x)).catch(() => {}); }
       delete S.visites[o.id]; if (S.current === o.id) S.current = null; save(); render(); break; }
     case 'filtre': UI.filtre = el.dataset.v; render(); break;
     case 'openFiche': openFiche(el.dataset.id); break;
-    case 'closeFiche': { if (p) commitFiche(p); closeOv(); break; }
-    case 'full': { if (!p) break; const b = await DB.get('blobs', bk(p)).catch(() => null); if (!b) { toast('Fichier non disponible'); break; }
+    case 'closeFiche': { if (p && !UI.navList) commitFiche(p); else if (p) { p.mod = Date.now(); save(); } closeOv(); break; }
+    case 'full': { const p = UI.fiche ? P(UI.fiche) : (BU.sel ? P(BU.sel) : null); if (!p) break; const b = await DB.get('blobs', bk(p)).catch(() => null); if (!b) { toast('Fichier non disponible'); break; }
       const u = URL.createObjectURL(b); const d = document.createElement('div'); d.className = 'full';
       d.innerHTML = (p.type === 'video' ? `<video src="${u}" controls autoplay playsinline></video>` : `<img src="${u}">`) + '<button>Fermer</button>';
       d.querySelector('button').onclick = () => { URL.revokeObjectURL(u); d.remove(); }; document.body.appendChild(d); break; }
@@ -1472,7 +1758,7 @@ document.addEventListener('click', async ev => {
     case 'star': p.star = !p.star; save(); renderTags(p); break;
     case 'clearAll': p.zone = ''; p.pt = null; p.eqs = []; p.al = []; p.ef = ''; p.star = false; save(); renderOv(); break;
     case 'saveFiche': case 'saveNext': { commitFiche(p); closeOv(); if (a === 'saveNext') $('#capP').click(); else toast('✔ ' + p.id + ' enregistrée'); break; }
-    case 'delPhoto': { if (!confirm('Supprimer ' + p.id + ' de l\'appli ?')) break; const v = visitOf(p) || V(); v.photos = v.photos.filter(x => x !== p); save();
+    case 'delPhoto': { const p = UI.fiche ? P(UI.fiche) : null; if (!p || !confirm('Supprimer la photo n°' + p.n + ' de l\'appli ?')) break; if (BU.sel === p.id) BU.sel = null; const v = visitOf(p) || V(); v.photos = v.photos.filter(x => x !== p); save();
       if (!Object.values(S.visites).some(w => w.photos.some(x => bk(x) === bk(p)))) { DB.del('blobs', bk(p)).catch(() => {}); DB.del('thumbs', bk(p)).catch(() => {}); } closeOv(); break; }
     case 'dlMissing': { const v = V(); for (const q of v.photos.filter(x => !x.dl)) { await dlCopy(q); await new Promise(r => setTimeout(r, 400)); } render(); break; }
     case 'exportRel': exportReleve(); toast('Relevé exporté dans Téléchargements'); break;
@@ -1505,7 +1791,13 @@ document.addEventListener('input', ev => {
   if (t.id === 'fEqQ' && p) { UI.eqQ = t.value; renderEq(p); }
   if (t.id === 'fZone' && p) { p.zone = t.value; save(); renderZoneSug(p); }
   if (t.id === 'fNote' && p) { p.note = t.value; save(); }
+  if (t.id === 'ngNom') { NG.nom = t.value; if (!NG.codeTouched) { NG.code = autoCode(t.value); const c = $('#ngCode'); if (c) c.value = NG.code; } }
+  if (t.id === 'ngCode') { NG.code = t.value.toUpperCase(); NG.codeTouched = true; }
+  if (t.dataset.ngl != null) NG.plans[+t.dataset.ngl].label = t.value;
+  if (t.id === 'sAut') localStorage.setItem('gareoPhoto.aut', t.value.trim());
+  if (t.dataset.pll != null) { const g = S.gares[UI.gare]; const pl = g && g.plans.find(x => x.id === t.dataset.pll); if (pl) { pl.label = t.value; if (PLANS[pl.id]) PLANS[pl.id].t = t.value; save(); } }
 });
+document.addEventListener('keydown', ev => { if (UI.screen === 'gare' && UI.mode === 'bureau' && !UI.ov && !UI.set && !/INPUT|TEXTAREA|SELECT/.test(ev.target.tagName) && (ev.key === 'ArrowLeft' || ev.key === 'ArrowRight')) { ev.preventDefault(); bStep(ev.key === 'ArrowLeft' ? -1 : 1); } if (UI.set && ev.key === 'Escape') { UI.set = false; renderSettings(); } });
 document.addEventListener('keydown', ev => { if (ev.key === 'Enter' && ev.target.id === 'fEqQ') { ev.preventDefault(); const b = $('#fEqSug [data-act=addEq]') || $('#fEqSug [data-act=addEqNew]'); if (b) b.click(); } });
 document.addEventListener('change', ev => {
   const t = ev.target;
@@ -1518,13 +1810,17 @@ document.addEventListener('change', ev => {
   if (t.id === 'xCrAll') { X.crAll = t.checked; }
   if (t.id === 'fJson' && t.files[0]) { t.files[0].text().then(txt => { try { const j = JSON.parse(txt); if (!j.photos || !j.visite) throw 0; Object.assign(B, {rel:j, local:false, files:{}, unknown:[], log:null}); render(); }
     catch (e) { alert('Ce fichier n\'est pas un relevé GARÉo Relevé ACC.'); } t.value = ''; }); }
-  if (t.id === 'fZip' && t.files[0]) { const f = t.files[0]; t.value = ''; openZip(f); }
-  if (t.id === 'fDir' && t.files.length) { const fs = [...t.files]; t.value = ''; openFolder(fs); }
+  if (t.id === 'fZip' && t.files[0]) { const f = t.files[0]; t.value = ''; openZip(f).then(() => { if (B.rel) return importLocal(); }).catch(e => { console.error(e); B.loading = null; alert('Import impossible : ' + e.message); render(); }); }
+  if (t.id === 'fPlanImg' && t.files.length) { const fs = [...t.files]; const forG = t.dataset.for; t.value = '';
+    if (forG) { addPlansTo(forG, fs).catch(e => toast('Plan illisible : ' + e.message, 'err')); }
+    else { NG.busy = true; render(); (async () => { for (const f of fs) { try { const r = await processPlan(f, NG.W, NG.H); if (!NG.W) { NG.W = r.W; NG.H = r.H; }
+      NG.plans.push({blob:r.blob, url:r.url, label:NG.plans.length ? 'Niveau ' + NG.plans.length : 'Niveau 0 · RDC'}); } catch (e) { toast('Image illisible : ' + f.name, 'err'); } } NG.busy = false; render(); })(); } }
+  if (t.id === 'fDir' && t.files.length) { const fs = [...t.files]; t.value = ''; B.rel = null; openFolder(fs).then(() => { if (B.rel) return importLocal(); }).catch(e => { console.error(e); B.loading = null; alert('Import impossible : ' + e.message); render(); }); }
   if (t.id === 'fMedia' && t.files.length) { const fs = [...t.files]; t.value = ''; addFiles(fs); }
 });
-window.addEventListener('beforeunload', e => { if (UI.mode === 'bureau' && Object.keys(B.files).length) { e.preventDefault(); e.returnValue = ''; } });
+let _wide = isWide(); window.addEventListener('resize', () => { if (isWide() !== _wide) { _wide = isWide(); if (UI.screen === 'gare' && UI.mode === 'bureau' && !UI.ov) render(); } });
 if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
-render(); showQuota();
+if (NAV0.screen === 'gare' && NAV0.gare && gareOf(NAV0.gare)) enterGare(NAV0.gare, NAV0.mode); else render();
 </script>
 </body>
 </html>

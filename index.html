@@ -8,20 +8,20 @@
 <title>GARÉo · prototype à usage interne</title>
 <link rel="icon" href="gareo-192.png">
 <link rel="apple-touch-icon" href="gareo-apple-180.png">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#1A1A1A;--paper:#F5F2EB;--paper-l:#FAF8F3;--line:#E2DCCD;--taupe:#7D776F;--red:#C8102E;--teal:#0A6A87}
+:root{--ink:#1B1F24;--bg:#F2F3F5;--line:#E2E5E9;--mute:#6B7280;--red:#C8102E;--teal:#0A6A87}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--paper-l);color:var(--ink);-webkit-font-smoothing:antialiased}
-.hero{position:relative;background:var(--ink);color:var(--paper-l);min-height:min(58vh,520px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:64px 22px 72px;overflow:hidden}
+body{font-family:Lato,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+.hero{position:relative;background:var(--ink);color:#fff;min-height:min(58vh,520px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:64px 22px 72px;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.6;
-  background-image:radial-gradient(circle at 50% 20%,rgba(200,16,46,.22),transparent 55%),repeating-linear-gradient(90deg,rgba(245,242,235,.045) 0 1px,transparent 1px 48px),radial-gradient(rgba(245,242,235,.06) 1.2px,transparent 1.6px);
+  background-image:radial-gradient(circle at 50% 20%,rgba(200,16,46,.22),transparent 55%),repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 1px,transparent 1px 48px),radial-gradient(rgba(255,255,255,.06) 1.2px,transparent 1.6px);
   background-size:auto,auto,26px 26px}
 .hero > *{position:relative}
 .gareo-logo{height:clamp(96px,17vw,150px);width:auto;display:block}
-.kick{font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#E8475B;margin-bottom:26px}
+.kick{font-size:11.5px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:#FF5A6E;margin-bottom:26px}
 .hero p{margin-top:26px;font-size:17px;line-height:1.5;opacity:.8;max-width:520px}
-.badge{margin-top:22px;display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(250,248,243,.28);border-radius:99px;padding:7px 14px;color:#F2D9A6}
+.badge{margin-top:22px;display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:900;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(255,255,255,.25);border-radius:99px;padding:7px 14px;color:#F6DCA0}
 .badge i{width:7px;height:7px;border-radius:50%;background:#F2B705;box-shadow:0 0 0 3px rgba(242,183,5,.18)}
 /* GARÉo - logo hub animé (écran d'accès). 100% SVG + CSS, aucun JS. */
 .gareo-logo .g-wrap { animation: g-loop 4.8s linear infinite; }
@@ -40,29 +40,28 @@ body{font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;backgroun
 @keyframes g-ring { 0%, 34% { transform: scale(.5); opacity: 0; } 40% { opacity: .8; } 60% { transform: scale(2.6); opacity: 0; } 100% { opacity: 0; } }
 
 @media (prefers-reduced-motion: reduce){.gareo-logo *{animation:none!important;opacity:1!important;stroke-dashoffset:0!important;transform:none!important}.gareo-logo .g-star,.gareo-logo .g-ring{opacity:0!important}}
-main{max-width:920px;margin:0 auto;padding:52px 22px 30px}
-h2.sec{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe);text-align:center;margin-bottom:26px}
+main{flex:1;max-width:920px;width:100%;margin:0 auto;padding:56px 22px 40px}
+h2.sec{font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);text-align:center;margin-bottom:28px}
 .apps{display:flex;flex-wrap:wrap;justify-content:center;gap:34px 42px}
 .app{display:flex;flex-direction:column;align-items:center;gap:12px;text-decoration:none;color:inherit;width:150px;text-align:center}
-.app .ic{width:128px;height:128px;border-radius:30px;background:var(--c);display:flex;align-items:center;justify-content:center;
-  box-shadow:0 14px 30px -10px var(--s),inset 0 1px 0 rgba(255,255,255,.18);transition:transform .18s cubic-bezier(.34,1.4,.5,1),box-shadow .18s}
-.app .ic svg{width:66%;height:66%}
-.app:hover .ic,.app:focus-visible .ic{transform:translateY(-4px) scale(1.03);box-shadow:0 20px 38px -10px var(--s),inset 0 1px 0 rgba(255,255,255,.18)}
+.app .ic{width:124px;height:124px;border-radius:28px;display:block;box-shadow:0 16px 30px -12px var(--s);transition:transform .18s cubic-bezier(.34,1.4,.5,1),box-shadow .18s}
+.app .ic svg{width:100%;height:100%;display:block;border-radius:28px}
+.app:hover .ic,.app:focus-visible .ic{transform:translateY(-4px);box-shadow:0 22px 36px -12px var(--s)}
 .app:active .ic{transform:scale(.96)}
-.app small{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe)}
+.app small{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
 .app .nm{display:flex;flex-direction:column;align-items:center;gap:3px}
-.app small{display:block}.app b{display:block;font-size:17px;font-weight:800;letter-spacing:-.01em}
-.app.soon .ic{background:transparent;border:2px dashed #D6CFBF;box-shadow:none}
-.app.soon .ic span{font-size:44px;font-weight:300;color:#C9C1AF}
-.app.soon b{color:#A39C8F;font-weight:700}
+.app small{display:block}.app b{display:block;font-size:17px;font-weight:900}
+.app.soon .ic{background:transparent;border:2px dashed #C9CED4;box-shadow:none;display:flex;align-items:center;justify-content:center}
+.app.soon .ic span{font-size:44px;font-weight:300;color:#AEB4BC}
+.app.soon b{color:#9AA1AA;font-weight:700}
 .info{max-width:920px;margin:26px auto 0;padding:0 22px 40px}
 .info .box{border-top:1px solid var(--line);padding-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:26px 40px}
 .info h3{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;color:#4A4741}
 .info p{font-size:13.5px;line-height:1.55;color:#5C5750}
 .info .warn{grid-column:1/-1;background:#FFF6DC;border:1px solid #F0DDA0;border-radius:12px;padding:14px 18px;font-size:14px;line-height:1.5;color:#5A4600}
-footer{text-align:center;font-size:12px;color:var(--taupe);padding:0 16px 34px}
+footer{text-align:center;font-size:12px;color:var(--mute);padding:0 16px 30px}
 @media(max-width:640px){.info .box{grid-template-columns:1fr}}
-@media(max-width:520px){.hero{min-height:auto;padding:52px 18px 56px}.app{width:100px}.app .ic{width:92px;height:92px;border-radius:22px}.app b{font-size:15px}.apps{gap:26px 16px;flex-wrap:nowrap}.badge{font-size:10.5px;letter-spacing:.03em;padding:7px 12px}.kick{font-size:10.5px;letter-spacing:.12em}}
+@media(max-width:520px){.hero{min-height:auto;padding:52px 18px 56px}.app{width:100px}.app .ic{width:92px;height:92px;border-radius:21px}.app .ic svg{border-radius:21px}.app b{font-size:15px}.apps{gap:26px 16px;flex-wrap:nowrap}.badge{font-size:10.5px;letter-spacing:.03em;padding:7px 12px}.kick{font-size:10.5px;letter-spacing:.12em}}
 </style>
 </head>
 <body>
@@ -76,12 +75,12 @@ footer{text-align:center;font-size:12px;color:var(--taupe);padding:0 16px 34px}
 <line class="g-spoke" x1="303.07" y1="88.73" x2="342.68" y2="83.16" stroke="#FF2A43" stroke-width="6" stroke-linecap="round" pathLength="1"/>
 <line class="g-spoke" x1="299.62" y1="106.50" x2="319.53" y2="118.00" stroke="#268A52" stroke-width="6" stroke-linecap="round" pathLength="1"/>
 <line class="g-spoke" x1="285.05" y1="118.72" x2="296.33" y2="149.73" stroke="#2C7E9C" stroke-width="6" stroke-linecap="round" pathLength="1"/>
-<text x="8" y="122" font-family="Manrope,system-ui,sans-serif" font-weight="800" font-size="96" letter-spacing="-4.5" fill="#FAF8F3">GARÉ</text>
-<g class="g-node"><circle cx="275.54" cy="92.6" r="23.8" fill="#C8102E"/><circle cx="275.54" cy="92.6" r="8.57" fill="#FAF8F3"/></g>
+<text x="8" y="122" font-family="Lato,system-ui,sans-serif" font-weight="900" font-size="96" letter-spacing="-3" fill="#FFFFFF">GARÉ</text>
+<g class="g-node"><circle cx="275.54" cy="92.6" r="23.8" fill="#C8102E"/><circle cx="275.54" cy="92.6" r="8.57" fill="#FFFFFF"/></g>
 <circle class="g-pop" cx="244.64" cy="39.08" r="4.5" fill="#FF2A43"/><circle class="g-pop" cx="282.19" cy="45.27" r="4.5" fill="#268A52"/><circle class="g-pop" cx="316.40" cy="53.14" r="4.5" fill="#2C7E9C"/>
 <circle class="g-pop" cx="342.68" cy="83.16" r="4.5" fill="#FF2A43"/><circle class="g-pop" cx="319.53" cy="118.00" r="4.5" fill="#268A52"/><circle class="g-pop" cx="296.33" cy="149.73" r="4.5" fill="#2C7E9C"/>
 <circle class="g-ring" cx="275.54" cy="92.6" r="23.8" fill="none" stroke="#C8102E" stroke-width="3"/>
-<path class="g-star" d="M275.54,54.80 Q281.59,86.55 313.34,92.6 Q281.59,98.65 275.54,130.40 Q269.49,98.65 237.74,92.6 Q269.49,86.55 275.54,54.80 Z" fill="#FAF8F3"/>
+<path class="g-star" d="M275.54,54.80 Q281.59,86.55 313.34,92.6 Q281.59,98.65 275.54,130.40 Q269.49,98.65 237.74,92.6 Q269.49,86.55 275.54,54.80 Z" fill="#FFFFFF"/>
 </g></svg>
   <p>Relever, localiser et restituer ce qu'on observe en gare : sur le terrain au téléphone, puis au bureau jusqu'au livrable.</p>
   <div class="badge"><i></i>Prototype · usage interne exclusivement</div>
@@ -89,19 +88,21 @@ footer{text-align:center;font-size:12px;color:var(--taupe);padding:0 16px 34px}
 <main>
   <h2 class="sec">Modules</h2>
   <div class="apps">
-    <a class="app" href="serm-hdf/" style="--c:#C8102E;--s:rgba(200,16,46,.55)"><span class="ic"><svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="#fff" stroke-width="3.2" stroke-linecap="round" fill="none"><path d="M8 50 H30 L36 36"/><path d="M33 26 L28 16 M38 24 L39 13 M43 28 L51 20 M45 35 L56 34 M43 42 L50 47 M38 45 L41 55"/></g><circle cx="37" cy="35" r="8.5" fill="#fff"/><circle cx="37" cy="35" r="3.2" fill="#C8102E"/><g fill="#fff"><circle cx="28" cy="16" r="2.4"/><circle cx="39" cy="13" r="2.4"/><circle cx="51" cy="20" r="2.4"/><circle cx="56" cy="34" r="2.4"/><circle cx="50" cy="47" r="2.4"/><circle cx="41" cy="55" r="2.4"/></g></svg></span><span class="nm"><small>GARÉo</small><b>SERM HDF</b></span></a>
-    <a class="app" href="releve-acc/" style="--c:#0A6A87;--s:rgba(10,106,135,.55)"><span class="ic"><svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 23 a4 4 0 0 1 4 -4 h7 l4 -6 h12 l4 6 h7 a4 4 0 0 1 4 4 v22 a4 4 0 0 1 -4 4 H15 a4 4 0 0 1 -4 -4 Z"/><circle cx="32" cy="33" r="6.5"/><path d="M32 20.5 v2.2 M32 43.3 v2.2 M19.5 33 h2.2 M42.3 33 h2.2 M23.2 24.2 l1.6 1.6 M39.2 40.2 l1.6 1.6 M40.8 24.2 l-1.6 1.6 M24.8 40.2 l-1.6 1.6"/></g></svg></span><span class="nm"><small>GARÉo</small><b>Relevé ACC</b></span></a>
+    <a class="app" href="serm-hdf/" style="--c:#C8102E;--s:rgba(200,16,46,.55)"><span class="ic"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="gs" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8344B"/><stop offset="1" stop-color="#9E0B24"/></linearGradient></defs>
+<rect width="64" height="64" rx="15" fill="url(#gs)"/><rect width="64" height="32" rx="15" fill="#fff" opacity=".07"/>
+<g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"><path d="M9 47 H25 L30.5 38" stroke-width="3.4"/>
+<g stroke-width="2.8"><path d="M31.3 24.2 27.8 17.6"/><path d="M36.6 23.3 37.4 15.4"/><path d="M41.3 26.2 47.6 20.6"/><path d="M43.2 31.6 51.8 31"/><path d="M41.4 37 47.7 41.6"/><path d="M36.9 39.7 39.6 47.6"/></g>
+<circle cx="35" cy="31.5" r="7.6" stroke-width="3.4"/></g><circle cx="35" cy="31.5" r="2.8" fill="#fff"/>
+<g fill="#fff"><circle cx="27.2" cy="16.5" r="2.5"/><circle cx="37.5" cy="14.2" r="2.5"/><circle cx="48.5" cy="19.8" r="2.5"/><circle cx="53" cy="30.9" r="2.5"/><circle cx="48.7" cy="42.3" r="2.5"/><circle cx="40" cy="48.8" r="2.5"/></g></svg></span><span class="nm"><small>GARÉo</small><b>SERM HDF</b></span></a>
+    <a class="app" href="releve-acc/" style="--c:#0A6A87;--s:rgba(10,106,135,.55)"><span class="ic"><svg viewBox="0 0 64 64" aria-hidden="true"><defs><linearGradient id="ga" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1A8DB0"/><stop offset="1" stop-color="#064B60"/></linearGradient></defs>
+<rect width="64" height="64" rx="15" fill="url(#ga)"/><rect width="64" height="32" rx="15" fill="#fff" opacity=".07"/>
+<path d="M32 53.5c0 0-14.5-14.2-14.5-25a14.5 14.5 0 0 1 29 0c0 10.8-14.5 25-14.5 25z" fill="none" stroke="#fff" stroke-width="3.4" stroke-linejoin="round"/>
+<circle cx="32" cy="28.3" r="4.6" fill="#fff"/><g stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M32 18.6v2.2M32 35.8v2.2M22.3 28.3h2.2M39.5 28.3h2.2M25.1 21.4l1.6 1.6M37.3 33.6l1.6 1.6M38.9 21.4l-1.6 1.6M26.7 33.6l-1.6 1.6"/></g></svg></span><span class="nm"><small>GARÉo</small><b>Relevé ACC</b></span></a>
     <div class="app soon"><span class="ic"><span>+</span></span><span class="nm"><small>GARÉo</small><b>À venir</b></span></div>
   </div>
 </main>
-<section class="info"><div class="box">
-  <div class="warn"><b>Prototype à usage interne exclusivement.</b> Ces outils sont en cours de développement et réservés aux équipes des missions concernées. Merci de ne pas diffuser ce lien.</div>
-  <div><h3>Statut</h3><p>Outils expérimentaux développés dans le cadre de missions AREP. Ce site n'est pas un service officiel d'AREP ni de SNCF Gares &amp; Connexions ; les fonctionnalités peuvent évoluer ou être interrompues sans préavis.</p></div>
-  <div><h3>Données</h3><p><b>Relevé ACC</b> : tout reste sur l'appareil (navigateur) ; rien n'est envoyé sur un serveur, les exports sont téléchargés en local. <b>SERM HDF</b> : les saisies sont synchronisées sur une base Supabase pour le travail à plusieurs.</p></div>
-  <div><h3>Confidentialité</h3><p>Aucun cookie, aucun traceur, aucune mesure d'audience. Les polices de caractères sont chargées depuis Google Fonts. Plans, photos et documents restent la propriété de leurs détenteurs : reproduction et diffusion interdites.</p></div>
-  <div><h3>Mentions légales</h3><p>Conception et développement : Tony BEGO (AREP). Hébergement : GitHub Pages, GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis.</p></div>
-</div></section>
-<footer>GARÉo · prototype · usage interne exclusivement · 2026</footer>
+
+<footer>GARÉo · prototype · usage interne exclusivement · ne pas diffuser le lien</footer>
 <script>
 /* l'ancienne appli était installée à la racine : on force la mise à jour de son service worker (qui se retire tout seul) */
 if ('serviceWorker' in navigator) navigator.serviceWorker.getRegistrations().then(rs => rs.forEach(r => { if (new URL(r.scope).pathname === location.pathname.replace(/index\.html$/, '')) r.update(); }));
