@@ -1,4 +1,10 @@
-# GARÉo Photo — relevé photo de visite
+# GARÉo — outils de relevé de terrain en gare
+
+Page d'accueil : `index.html`, avec deux modules :
+- `serm-hdf/` : GARÉo SERM HDF (copie du dépôt SERM-HDF du 11/06/2026, inchangée) ;
+- `releve-acc/` : GARÉo Relevé ACC (ex-GARÉo Photo), relevé photo des visites ACC.
+
+## GARÉo Relevé ACC
 
 Appli photo hors-ligne : on prend la photo, on la pointe sur le plan (position + direction), on la range (zone libre, un ou plusieurs équipements, aléas, note). Chaque photo est gardée dans l'appli et copiée, déjà nommée, dans Téléchargements.
 
@@ -6,7 +12,7 @@ Appli photo hors-ligne : on prend la photo, on la pointe sur le plan (position +
 1. github.com → New repository → `gareo-photo` (public) → Create.
 2. « uploading an existing file » → glisser **tout le contenu** de ce dossier (index.html, sw.js, manifest.webmanifest, icônes, dossier `plans/`) → Commit.
 3. Settings → Pages → Source : *Deploy from a branch*, branche `main`, dossier `/ (root)` → Save.
-4. Après 1 à 2 min : `https://tonybego33.github.io/gareo-photo/`
+4. Après 1 à 2 min : `https://tonybego33.github.io/gareo-photo/releve-acc/`
 
 ## Sur le téléphone
 - Ouvrir l'adresse dans Chrome, menu ⋮ → **Ajouter à l'écran d'accueil**.
