@@ -81,6 +81,7 @@ label.f{display:block;font-size:13px;color:var(--mute);margin:12px 0 5px;font-we
 .gcard b{font-size:19px;font-weight:900}.gcard .gm{font-size:13px;color:var(--mute)}
 .gcard .go{font-size:28px;color:#B8BEC6;padding:0 6px}
 .gcard.add{border-style:dashed;border-width:2px;background:transparent}.gcard.add .cv{background:#fff;border:1px dashed #C9CED4}
+.card.share{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-color:var(--acc);background:var(--acc2)}
 .plrow{display:flex;gap:10px;align-items:center;margin-bottom:8px}.plrow img{width:84px;height:60px;object-fit:cover;border-radius:8px;border:1px solid var(--line);flex-shrink:0;background:#fff}
 /* terrain */
 .cap{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px}
@@ -196,7 +197,7 @@ label.f{display:block;font-size:13px;color:var(--mute);margin:12px 0 5px;font-we
    plan, on la range (zone libre, équipements, aléas, note).
    Fichier unique, aucune dépendance externe, fonctionne hors-ligne.
    ===================================================================== */
-const VERSION = 'v2026-11-17 · 16';
+const VERSION = 'v2026-11-17 · 17';
 const STORE_KEY = 'gareoPhoto.v2';
 
 const EQUIP = [{"n": "Abri vélo", "l": [1, 2, 1, 3, 2], "d": "Abri / structure légère de stationnement et protection des vélos"}, {"n": "Abris de quais/marquise", "l": [3, 3, 2, 4, 1], "d": "Abris ou marquises protégeant les voyageurs sur les quais"}, {"n": "AEP (Adduction eau potable)", "l": [2, 2, 2, 4, 4], "d": "Réseau d’alimentation en eau potable de la gare (sanitaires, robinets, usages courants)"}, {"n": "Alimentation SNCF Réseau", "l": [3, 3, 4, 4, 3], "d": "Alimentation électrique dédiée aux équipements ferroviaires de SNCF Réseau en gare (signalisation, aiguillages, postes, etc.)"}, {"n": "Armoire de climatisation", "l": [1, 2, 3, 1, 1], "d": "Armoire de traitement d’air / climatisation alimentant principalement des locaux techniques ou équipements sensibles"}, {"n": "Armoire élévatique", "l": [3, 2, 2, 4, 1], "d": "Armoire de commande et de puissance des ascenseurs et escaliers mécaniques"}, {"n": "ART PMR", "l": [0, 2, 2, 4, 4], "d": "Dispositif d’aide et d’information dédié aux PMR"}, {"n": "ART/AMT/BLS (Automate de vente)", "l": [0, 2, 2, 4, 0], "d": "Automates de vente de titres de transport"}, {"n": "Ascenseur de service / Monte charge", "l": [1, 2, 3, 1, 1], "d": "Ascenseur dédié aux flux logistiques et manutention"}, {"n": "Ascenseur non secouru", "l": [3, 2, 1, 4, 1], "d": "Ascenseur voyageurs non intégré au dispositif d'évacuation"}, {"n": "Ascenseur secouru", "l": [4, 2, 1, 4, 1], "d": "Ascenseur intégré au dispositif d'évacuation de sécurité"}, {"n": "Assise quais", "l": [2, 1, 0, 4, 1], "d": "Sièges ou bancs installés sur les quais"}, {"n": "BAES", "l": [4, 0, 1, 1, 1], "d": "Blocs autonomes d'éclairage de sécurité"}, {"n": "Baie CFA", "l": [4, 3, 4, 1, 1], "d": "Baie courants faibles pour réseaux et systèmes numériques"}, {"n": "Baie Sono", "l": [4, 1, 2, 3, 1], "d": "Baie de diffusion sonore de sécurité et d'exploitation"}, {"n": "Baie Sono commerciale", "l": [0, 2, 2, 2, 0], "d": "Baie de diffusion sonore à usage commercial/confort"}, {"n": "Balise sonore", "l": [2, 0, 1, 2, 1], "d": "Balise d'orientation sonore pour déficients visuels"}, {"n": "Bandes détection à la canne", "l": [4, 0, 1, 3, 3], "d": "Bandes au sol détectables à la canne des malvoyants"}, {"n": "Bandes pododactiles", "l": [4, 0, 1, 3, 1], "d": "Bandes en relief d'alerte au sol (ex. bord de quai)"}, {"n": "Barrières et clôtures fixes", "l": [4, 2, 3, 1, 1], "d": "Clôtures rigides séparant zones publiques et zones dangereuses"}, {"n": "Barrières extérieurs levantes", "l": [4, 2, 3, 1, 1], "d": "Barrières motorisées de contrôle d'accès véhicules"}, {"n": "Borne d'appel d'urgence", "l": [4, 2, 1, 1, 1], "d": "Borne permettant aux usagers d'alerter en cas d'urgence"}, {"n": "Bureaux", "l": [1, 3, 4, 1, 4], "d": "Locaux administratifs et de travail"}, {"n": "Caméras", "l": [1, 1, 3, 1, 1], "d": "Caméras de vidéosurveillance générales"}, {"n": "Caméras ascenseurs", "l": [4, 1, 1, 3, 1], "d": "Caméras dédiées à la surveillance des cabines d'ascenseurs"}, {"n": "Caméras pour téléopération", "l": [1, 1, 3, 1, 1], "d": "Caméras nécessaires au pilotage à distance d'équipements"}, {"n": "Caméras vente billetterie", "l": [1, 1, 1, 3, 1], "d": "Caméras de surveillance zones de vente/guichets"}, {"n": "Centrale GTC/GTB", "l": [4, 4, 4, 4, 4], "d": "Système centralisé de gestion technique/énergétique du bâtiment"}, {"n": "Centrale SSI", "l": [4, 4, 1, 1, 1], "d": "Unité centrale du Système de Sécurité Incendie"}, {"n": "Chambre froide", "l": [1, 3, 3, 2, 1], "d": "Chambre à froid pour usages commerciaux/restauration"}, {"n": "Château d’eau", "l": [4, 3, 3, 3, 3], "d": "Ouvrage de stockage et de mise en pression de l'eau du site"}, {"n": "Chaudière et circuit d'eau chaude", "l": [1, 4, 1, 3, 3], "d": "Production et distribution d'eau chaude de chauffage"}, {"n": "Clim locaux techniques", "l": [1, 2, 4, 1, 1], "d": "Climatisation des locaux abritant des équipements sensibles"}, {"n": "Cœur de réseau télécoms", "l": [4, 4, 4, 4, 2], "d": "Noyau des infrastructures réseau et télécoms de la gare"}, {"n": "Désenfumage mécanique", "l": [4, 2, 1, 1, 1], "d": "Système motorisé d'extraction des fumées en cas d'incendie"}, {"n": "Désenfumage naturel", "l": [4, 2, 1, 1, 1], "d": "Trappes ou ouvrants pour évacuation naturelle des fumées"}, {"n": "Détecteur incendie", "l": [4, 1, 4, 1, 1], "d": "Capteurs de détection précoce de départ de feu"}, {"n": "Eau chaude sanitaire", "l": [1, 2, 1, 3, 3], "d": "Production d'ECS pour sanitaires et usages courants"}, {"n": "Eclairage", "l": [3, 1, 2, 4, 2], "d": "Éclairage général des espaces gare et accès"}, {"n": "Eclairage de sécurité sur source centrale", "l": [4, 1, 1, 1, 1], "d": "Éclairage de sécurité alimenté par une source centralisée"}, {"n": "Eclairage indispensable à l'ouverture d'un espace", "l": [1, 1, 4, 1, 1], "d": "Éclairage minimal réglementaire conditionnant l'ouverture au public"}, {"n": "Ecran TFT PMR", "l": [1, 2, 2, 3, 4], "d": "Écran d'information adapté aux besoins des PMR"}, {"n": "Ecrans TFT/TIM", "l": [1, 2, 2, 4, 1], "d": "Écrans d'information voyageurs (horaires, voies, messages)"}, {"n": "Emetteur de chaleur ERP", "l": [1, 2, 1, 3, 2], "d": "Radiateurs ou terminaux de chauffage en zones voyageurs"}, {"n": "Emetteur de chaleur ERT", "l": [1, 2, 1, 1, 4], "d": "Radiateurs ou terminaux de chauffage en zones techniques"}, {"n": "Ensemble local technique Transformateur", "l": [4, 4, 4, 4, 4], "d": "Local abritant le transformateur principal d'alimentation de la gare"}, {"n": "Ensemble local technique Transformateur de secours avec Source secours BT/HT", "l": [4, 4, 4, 4, 2], "d": "Local abritant transformateur et source électrique de secours"}, {"n": "Enveloppe", "l": [4, 4, 4, 3, 3], "d": "Façades, toitures, menuiseries, étanchéité du bâtiment"}, {"n": "Equipement ferroviaire réseau", "l": [4, 4, 4, 1, 1], "d": "Équipements d'infrastructure ferroviaire (signalisation, voie, aiguillage…)"}, {"n": "Equipement médical de premiers secours", "l": [4, 1, 1, 1, 1], "d": "\""}, {"n": "Escalier Mécanique", "l": [1, 4, 1, 3, 1], "d": "Escalier motorisé pour le transport de voyageurs"}, {"n": "Escalier Mécanique secouru", "l": [4, 4, 1, 3, 1], "d": "Escalier mécanique intégré aux cheminements de sécurité"}, {"n": "Espace commercial", "l": [1, 4, 3, 3, 1], "d": "Locaux dédiés aux commerces et services en gare"}, {"n": "Espace d'attente", "l": [1, 4, 3, 4, 1], "d": "Zones de salle d'attente et assises voyageurs"}, {"n": "Espace de circulation", "l": [2, 4, 3, 4, 1], "d": "Couloirs, halls et zones de déplacement voyageurs"}, {"n": "Extinction incendie par gaz argon", "l": [4, 3, 4, 1, 1], "d": "Système d'extinction automatisé par gaz en locaux sensibles"}, {"n": "Extinction incendie par sprinklage", "l": [4, 3, 4, 1, 1], "d": "Réseau de sprinklers automatiques contre l'incendie"}, {"n": "Fondation", "l": [4, 4, 4, 1, 1], "d": "Ouvrages de fondation du bâtiment ou de l'ouvrage"}, {"n": "Fontaine à eau", "l": [0, 2, 0, 4, 3], "d": "Fontaines de distribution d'eau potable aux usagers"}, {"n": "Groupe de production de froid", "l": [1, 3, 3, 1, 2], "d": "Production centralisée de froid pour la climatisation"}, {"n": "Haut-parleur", "l": [4, 2, 3, 3, 0], "d": "Diffuseurs sonores dans les espaces voyageurs et techniques"}, {"n": "Interphonie Ascenseur", "l": [4, 2, 1, 3, 1], "d": "Système d'appel et de communication en cabine d'ascenseur"}, {"n": "Interphonie CAB", "l": [1, 1, 2, 2, 1], "d": "Système d'interphonie intégré aux portillons automatiques de contrôle d'accès et de billettique"}, {"n": "Ligne CAB/PEC", "l": [1, 3, 4, 3, 1], "d": "Ligne de portillons de contrôle d'accès ou billettique"}, {"n": "Lignes de vie ou autres dispositifs fixes pour l'entretien", "l": [4, 1, 3, 1, 4], "d": "Dispositifs de protection contre les chutes pour interventions en hauteur"}, {"n": "Local technique", "l": [1, 4, 4, 1, 2], "d": "Local abritant des équipements techniques (élec, CVC, IT…)"}, {"n": "Ouvrage d'assainissement ou technique", "l": [2, 4, 2, 1, 4], "d": "Ouvrages de collecte et gestion des eaux usées/pluviales"}, {"n": "Panneaux photovoltaïques", "l": [1, 3, 3, 1, 4], "d": "Installation de production d'électricité solaire"}, {"n": "Panneaux solaires thermiques", "l": [1, 3, 3, 1, 4], "d": "Capteurs solaires pour production de chaleur ou d'ECS"}, {"n": "Paratonnerre", "l": [4, 3, 2, 1, 1], "d": "Dispositif de protection contre la foudre"}, {"n": "Parking", "l": [1, 3, 1, 4, 1], "d": "Parking voyageurs accolé à la gare"}, {"n": "Parking exploitants", "l": [1, 3, 4, 1, 3], "d": "Parking réservé aux personnels et prestataires"}, {"n": "Passage souterrain", "l": [1, 4, 4, 4, 0], "d": "Ouvrage souterrain pour accéder aux quais et aux espaces"}, {"n": "Passerelle", "l": [4, 4, 4, 4, 0], "d": "Ouvrage aérien piéton pour franchir les voies"}, {"n": "Petit ouvrage sous voie", "l": [1, 4, 2, 1, 1], "d": "Petit ouvrage (buse, dalot) traversant sous la voie ferrée"}, {"n": "Pneumatique", "l": [1, 3, 2, 1, 1], "d": "Réseau d'air comprimé pour automatismes et équipements"}, {"n": "Pompe de relevage", "l": [1, 3, 4, 1, 3], "d": "Pompe évacuant les eaux de locaux bas ou souterrains"}, {"n": "Ponts rails", "l": [4, 4, 4, 1, 1], "d": "Ponts supportant les voies ferrées"}, {"n": "Ponts route", "l": [4, 4, 4, 1, 1], "d": "Ponts routiers associés à la gare ou franchissant la voie"}, {"n": "Portail mécanique de secours téléopéré", "l": [4, 3, 3, 1, 1], "d": "Portail motorisé de secours commandable à distance"}, {"n": "Portes auto", "l": [1, 3, 3, 3, 1], "d": "Portes automatiques d'accès aux bâtiments et espaces"}, {"n": "Pupitre téléopération", "l": [4, 4, 4, 1, 2], "d": "Poste de commande et de supervision centralisé permettant à un opérateur (agent ou centre de téléopération) de contrôler et piloter à distan"}, {"n": "Quai", "l": [1, 4, 4, 4, 2], "d": "Plateforme voyageurs au bord des voies"}, {"n": "Réseaux de plomberies", "l": [1, 3, 4, 3, 3], "d": "Réseaux d'eau, évacuation et raccordements sanitaires"}, {"n": "Rideau mécanique", "l": [4, 2, 3, 1, 1], "d": "Rideau de fermeture manuel ou localement motorisé"}, {"n": "Rideau métallique téléopéré", "l": [4, 2, 3, 1, 1], "d": "Rideau métallique motorisé commandable à distance"}, {"n": "Sanitaire ERP", "l": [1, 3, 1, 4, 2], "d": "Sanitaires accessibles au public voyageurs"}, {"n": "Sanitaires ERT", "l": [1, 3, 1, 1, 4], "d": "Sanitaires pour personnels et zones techniques"}, {"n": "Sirène d'évacuation et diffuseur lumineux", "l": [4, 1, 1, 1, 1], "d": "Dispositifs sonores et visuels d'alarme générale"}, {"n": "Sirène évacuation", "l": [4, 1, 1, 1, 1], "d": "Dispositifs sonores d'alarme incendie et d'évacuation"}, {"n": "Source centrale de secours", "l": [4, 3, 4, 4, 1], "d": "Source électrique centralisée pour circuits de secours"}, {"n": "SSI - Diffuseurs lumineux", "l": [4, 1, 1, 1, 1], "d": "Diffuseurs lumineux contrôlés par le SSI"}, {"n": "Structure", "l": [4, 4, 4, 1, 1], "d": "Ossature porteuse du bâtiment ou de l'ouvrage"}, {"n": "Tableau Divisionnaire", "l": [4, 2, 3, 3, 1], "d": "Tableau électrique distribuant l'électricité à une zone ou un usage"}, {"n": "Tableau divisionnaire de bâtiment", "l": [4, 2, 4, 4, 2], "d": "Tableau électrique dédié à un bâtiment ou une entité"}, {"n": "Tableau Général Secouru", "l": [4, 2, 4, 4, 2], "d": "Tableau alimentant les circuits électriques secourus"}, {"n": "Tarif Jaune/bleu", "l": [4, 3, 4, 4, 1], "d": "Point de livraison électrique du réseau public (comptage HTA/BT)"}, {"n": "téléphone", "l": [1, 1, 2, 1, 1], "d": "Téléphonie fixe interne et externe de la gare"}, {"n": "Terrains nus G&C", "l": [1, 1, 2, 0, 2], "d": "Terrains nus de gestion et construction liés à la gare"}, {"n": "Terrains nus non G&C", "l": [1, 1, 2, 0, 2], "d": "Terrains nus hors périmètre gare ou centre"}, {"n": "TGBT / TGBTR", "l": [4, 4, 4, 4, 2], "d": "Tableau Général Basse Tension (et secouru réseau)"}, {"n": "Traversée de voie piétonne (TVP)", "l": [4, 3, 3, 4, 1], "d": "Passage piéton traversant les voies au niveau du sol"}, {"n": "Ventilation", "l": [2, 2, 1, 4, 1], "d": "Ventilation des locaux, halls et passages"}];
@@ -339,7 +340,7 @@ const visitOf = p => Object.values(S.visites).find(x => x.photos.includes(p));
    GARES : Paris-Austerlitz (plans intégrés) + gares créées sur l'appareil
    ===================================================================== */
 const PAZ_NIV = NIVEAUX, PAZ_PLANS = PLANS, PAZ_W = PLAN_W, PAZ_H = PLAN_H;
-const GARES_BUILTIN = {PAZ:{code:'PAZ', nom:'Paris-Austerlitz', builtin:true, plans:Object.keys(PAZ_PLANS).map(id => ({id, label:PAZ_PLANS[id].t}))}};
+const GARES_BUILTIN = {PAZ:{code:'PAZ', nom:'Paris-Austerlitz', builtin:true, shared:'shared/PAZ/', plans:Object.keys(PAZ_PLANS).map(id => ({id, label:PAZ_PLANS[id].t}))}};
 if (!S.gares) S.gares = {};
 if (!S.activeV) S.activeV = {};
 function allGares() {
@@ -419,6 +420,40 @@ async function addPlansTo(code, files) {
   save(); await useGare(code); render();
 }
 
+
+/* ---------- relevé partagé (chiffré, mot de passe) ---------- */
+const SH = {man:{}, busy:null};
+async function sharedMan(code) {
+  const g = gareOf(code); if (!g || !g.shared) return null;
+  if (SH.man[code] !== undefined) return SH.man[code];
+  try { const r = await fetch(g.shared + 'manifest.json', {cache:'no-cache'}); SH.man[code] = r.ok ? await r.json() : null; } catch (e) { SH.man[code] = null; }
+  return SH.man[code];
+}
+function sharedCard(code) {
+  const m = SH.man[code]; if (m === undefined) { sharedMan(code).then(x => { if (x) render(); }); return ''; } if (!m) return '';
+  return `<div class="card share"><div><b>Relevé partagé de la visite du ${dfr(m.debut)}</b><br><span class="small mute">${m.n} prises · photos et fiches · protégé par mot de passe</span></div>
+    ${SH.busy ? `<div style="flex:1;min-width:200px"><div class="small">${esc(SH.busy.lb)} ${SH.busy.done} / ${SH.busy.total}</div><div class="prog"><div style="width:${100 * SH.busy.done / Math.max(1, SH.busy.total)}%"></div></div></div>`
+      : `<button class="btn yel" data-act="loadShared" data-v="${esc(code)}">Charger le relevé</button>`}</div>`;
+}
+async function loadShared(code) {
+  const g = gareOf(code); const m = await sharedMan(code); if (!m) { toast('Relevé partagé introuvable', 'err'); return; }
+  if (visitsOf(code).some(v => v.id === m.id || v.photos.length) && !confirm('Une visite de cette gare existe déjà sur cet appareil. Charger quand même le relevé partagé (la visite du même jour sera remplacée) ?')) return;
+  const pw = prompt('Mot de passe du relevé partagé :'); if (!pw) return;
+  const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+  SH.busy = {lb:'Vérification…', done:0, total:1}; render();
+  try {
+    const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw.trim()), 'PBKDF2', false, ['deriveKey']);
+    const key = await crypto.subtle.deriveKey({name:'PBKDF2', salt:b64(m.kdf.salt), iterations:m.kdf.it, hash:'SHA-256'}, base, {name:'AES-GCM', length:256}, false, ['decrypt']);
+    const dec = async url => { const buf = await (await fetch(g.shared + url, {cache:'no-cache'})).arrayBuffer(); return crypto.subtle.decrypt({name:'AES-GCM', iv:buf.slice(0, 12)}, key, buf.slice(12)); };
+    let j; try { j = JSON.parse(new TextDecoder().decode(await dec(m.releve))); } catch (e) { SH.busy = null; render(); alert('Mot de passe incorrect.'); return; }
+    const ids = Object.keys(m.photos); B.rel = j; B.files = {}; B.unknown = []; SH.busy = {lb:'Téléchargement des photos…', done:0, total:ids.length}; render();
+    let k = 0; const next = async () => { while (k < ids.length) { const id = ids[k++];
+      try { const buf = await dec(m.photos[id]); B.files[id] = {file:new File([buf], id + '.jpg', {type:'image/jpeg'})}; } catch (e) {}
+      SH.busy.done++; if (SH.busy.done % 4 === 0) render(); } };
+    await Promise.all([next(), next(), next(), next()]);
+    SH.busy = null; await importLocal();
+  } catch (e) { console.error(e); SH.busy = null; render(); alert('Chargement impossible : ' + e.message); }
+}
 /* =====================================================================
    EN-TÊTE, NAVIGATION
    ===================================================================== */
@@ -429,6 +464,8 @@ const ICO = {
   terrain:'<svg viewBox="0 0 24 24"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h2.2l1.5-2h5.6l1.5 2h2.2A1.5 1.5 0 0 1 20 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 17.5z"/><circle cx="12" cy="13" r="3.5"/></svg>',
   bureau:'<svg viewBox="0 0 24 24"><path d="M4 20h4l10.5-10.5a2.1 2.1 0 0 0-3-3L5 17v3z"/><path d="M13.5 8.5l3 3"/></svg>',
   export:'<svg viewBox="0 0 24 24"><path d="M12 4v11"/><path d="M7.5 10.5 12 15l4.5-4.5"/><path d="M5 19h14"/></svg>',
+  video:'<svg viewBox="0 0 24 24"><rect x="3" y="6.5" width="12.5" height="11" rx="2"/><path d="M15.5 10.5 21 7.5v9l-5.5-3z"/></svg>',
+  galerie:'<svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="M4 17.5 9.5 13l3.5 3 2.5-2 4.5 3.5"/></svg>',
 };
 const LOGO_SM = '<svg class="glogo" role="img" aria-label="GARÉo" viewBox="0 28 352 130"><polyline points="-12,152 249.54,152 275.54,92.6" fill="none" stroke="#C8102E" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/><g stroke-width="6" stroke-linecap="round"><line x1="261.64" y1="68.52" x2="244.64" y2="39.08" stroke="#FF2A43"/><line x1="279.41" y1="65.07" x2="282.19" y2="45.27" stroke="#268A52"/><line x1="295.54" y1="73.29" x2="316.40" y2="53.14" stroke="#2C7E9C"/><line x1="303.07" y1="88.73" x2="342.68" y2="83.16" stroke="#FF2A43"/><line x1="299.62" y1="106.50" x2="319.53" y2="118.00" stroke="#268A52"/><line x1="285.05" y1="118.72" x2="296.33" y2="149.73" stroke="#2C7E9C"/></g><text x="8" y="122" font-family="Lato,system-ui,sans-serif" font-weight="900" font-size="96" letter-spacing="-3" fill="#FFFFFF">GARÉ</text><circle cx="275.54" cy="92.6" r="23.8" fill="#C8102E"/><circle cx="275.54" cy="92.6" r="8.57" fill="#FFFFFF"/><circle cx="244.64" cy="39.08" r="4.5" fill="#FF2A43"/><circle cx="282.19" cy="45.27" r="4.5" fill="#268A52"/><circle cx="316.40" cy="53.14" r="4.5" fill="#2C7E9C"/><circle cx="342.68" cy="83.16" r="4.5" fill="#FF2A43"/><circle cx="319.53" cy="118.00" r="4.5" fill="#268A52"/><circle cx="296.33" cy="149.73" r="4.5" fill="#2C7E9C"/></svg>';
 const TABS = [['terrain', 'Terrain'], ['bureau', 'Bureau'], ['export', 'Export']];
@@ -462,7 +499,7 @@ function viewHome() {
     return `<button class="gcard" data-act="openGare" data-v="${esc(g.code)}">
       <span class="cv">${img}</span>
       <span class="gi"><span class="gc">${esc(g.code)}</span><b>${esc(g.nom)}</b>
-        <span class="gm">${n ? `${n} prise${n > 1 ? 's' : ''} · ${zones} zone${zones > 1 ? 's' : ''} · visite du ${dfr(v.debut)}${vs.length > 1 ? ` · ${vs.length} visites` : ''}` : 'Aucune prise sur cet appareil'}</span>
+        <span class="gm">${n ? `${n} prise${n > 1 ? 's' : ''} · ${zones} zone${zones > 1 ? 's' : ''} · visite du ${dfr(v.debut)}${vs.length > 1 ? ` · ${vs.length} visites` : ''}` : (g.shared ? 'Relevé partagé disponible : ouvrir pour le charger' : 'Aucune prise sur cet appareil')}</span>
         <span class="gm">${(g.plans || []).length ? `${g.plans.length} plan${g.plans.length > 1 ? 's' : ''}` : 'sans plan'}</span></span>
       <span class="go">›</span></button>`; };
   return `<div class="home"><h1>Mes gares</h1>
@@ -493,7 +530,7 @@ const bOk = p => BU.filter === 'all' || (BU.filter === 'todo' && incomplete(p)) 
 function bGroups(v) { return groupByZone(v.photos).map(g => ({...g, items:g.items.filter(bOk)})).filter(g => g.items.length); }
 function bOrder(v) { return bGroups(v).flatMap(g => g.items); }
 function viewBureau(v) {
-  if (!v || !v.photos.length) return `<div class="card empty"><h2>Pas encore de photo</h2><p class="mute">Prends des photos dans l'onglet Terrain. Visite faite sur un autre appareil : ⚙ Paramètres → Importer une visite.</p></div>`;
+  if (!v || !v.photos.length) return sharedCard(UI.gare) + `<div class="card empty"><h2>Pas encore de photo</h2><p class="mute">Prends des photos dans l'onglet Terrain. Visite faite sur un autre appareil : ⚙ Paramètres → Importer une visite.</p></div>`;
   const ord = bOrder(v); if (!BU.sel || !v.photos.some(p => p.id === BU.sel)) BU.sel = isWide() ? (ord[0] || v.photos[0]).id : null;
   const cnt = k => v.photos.filter(p => k === 'all' || (k === 'todo' && incomplete(p)) || (k === 'star' && p.star) || p.ef === k).length;
   const left = `<div class="bl">
@@ -564,6 +601,7 @@ function renderSettings() {
       ${vs.length ? vs.map(v => `<div class="vrow ${av && v.id === av.id ? 'on' : ''}"><div><b>Visite du ${dfr(v.debut)}</b><span class="small mute"> · ${v.photos.length} prise${v.photos.length > 1 ? 's' : ''}${av && v.id === av.id ? ' · en cours' : ''}</span></div>
         <div class="row">${av && v.id === av.id ? '' : `<button class="btn" data-act="setVisit" data-v="${v.id}">Ouvrir</button>`}<button class="btn" data-act="xRelOf" data-v="${v.id}" title="Sauvegarde .json + .csv">💾</button><button class="btn red" data-act="delVisite" data-id="${v.id}" title="Supprimer">🗑</button></div></div>`).join('') : '<p class="small mute">Pas encore de visite : elle démarre à la première photo.</p>'}
       <button class="btn" style="width:100%;margin-top:8px" data-act="newVisit">＋ Nouvelle visite (autre jour)</button>
+      ${g.shared ? `<button class="btn" style="width:100%;margin-top:8px" data-act="loadShared" data-v="${esc(g.code)}">⤓ Charger le relevé partagé</button>` : ''}
       ${av ? autoCard(av) : ''}</section>` : ''}
     ${g && g.custom && !g.inferred ? `<section><h3>Plans de la gare</h3>
       ${(g.plans || []).map(pl => `<div class="plrow"><img src="${PLANS[pl.id] ? PLANS[pl.id].f : ''}" alt=""><input type="text" data-pll="${pl.id}" value="${esc(pl.label)}"></div>`).join('') || '<p class="small mute">Aucun plan.</p>'}
@@ -649,10 +687,10 @@ function fillThumbs(root=document) { root.querySelectorAll('img[data-th]').forEa
 
 function viewTerrain(v) {
   const L = S.last;
-  return `<div class="cap">
+  return `${!v ? sharedCard(UI.gare) : ''}<div class="cap">
     <button class="btn huge yel" data-act="capP">${ICO.terrain}<span>Photo</span></button>
-    <button class="btn huge pri" data-act="capV"><span class="big">▶</span><span>Vidéo</span></button>
-    <button class="btn huge" data-act="imp"><span class="big">🖼</span><span>Galerie</span></button>
+    <button class="btn huge pri" data-act="capV">${ICO.video}<span>Vidéo</span></button>
+    <button class="btn huge" data-act="imp">${ICO.galerie}<span>Galerie</span></button>
   </div>
   <div class="small mute hint">${L && L.zone ? `Lieu repris pour la prochaine photo : <b>${esc(nivOf(L.niv).label)} · ${esc(L.zone)}</b>${L.pt ? ' · 📍' : ''}${L.eqs && L.eqs.length ? ' · ' + esc(L.eqs.join(', ')) : ''}` : v ? 'Prends une photo, puis pointe-la sur le plan.' : 'Prends la première photo : la visite du jour démarre toute seule.'}</div>
   ${v ? `<div class="card">
@@ -924,7 +962,7 @@ const AL_COL = {CHA:'#D9480F', PLU:'#1C7ED6', FLU:'#1864AB', NAP:'#0B7285', VEN:
 const EF_COL = {agg:'#C8102E', att:'#2E8B57', eva:'#C98A00'};
 const X = {src:null, all:true, busy:null, last:null, zipSyn:true, zipLog:null, crAll:false, crLog:null};
 function viewExport(v) {
-  if (!v || !v.photos.length) return `<div class="card empty"><h2>Rien à exporter pour l'instant</h2><p class="mute">Les exports apparaissent dès la première photo.</p></div>`;
+  if (!v || !v.photos.length) return sharedCard(UI.gare) + `<div class="card empty"><h2>Rien à exporter pour l'instant</h2><p class="mute">Les exports apparaissent dès la première photo.</p></div>`;
   const busy = re => X.busy && re.test(X.busy.lb) ? `<div class="small" style="margin-top:8px">${esc(X.busy.lb)} ${X.busy.done} / ${X.busy.total}</div><div class="prog"><div style="width:${100 * X.busy.done / Math.max(1, X.busy.total)}%"></div></div>` : '';
   return `<div class="xgrid">
   <div class="card xc"><div class="xi">📄</div><h2>Compte rendu Word</h2>
@@ -1713,6 +1751,7 @@ document.addEventListener('click', async ev => {
       for (const v of vs) { for (const x of v.photos) { await DB.del('blobs', bk(x)).catch(() => {}); await DB.del('thumbs', bk(x)).catch(() => {}); } delete S.visites[v.id]; }
       for (const pl of g.plans || []) await DB.del('plans', g.code + '/' + pl.id).catch(() => {});
       delete S.gares[g.code]; delete S.activeV[g.code]; UI.set = false; save(); goHome(); break; }
+    case 'loadShared': UI.set = false; renderSettings(); await loadShared(el.dataset.v); break;
     case 'bFil': BU.filter = el.dataset.v; render(); break;
     case 'bView': BU.view = el.dataset.v; render(); break;
     case 'bPlan': BU.plan = el.dataset.v; render(); break;
@@ -1820,7 +1859,9 @@ document.addEventListener('change', ev => {
 });
 let _wide = isWide(); window.addEventListener('resize', () => { if (isWide() !== _wide) { _wide = isWide(); if (UI.screen === 'gare' && UI.mode === 'bureau' && !UI.ov) render(); } });
 if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(() => {});
-if (NAV0.screen === 'gare' && NAV0.gare && gareOf(NAV0.gare)) enterGare(NAV0.gare, NAV0.mode); else render();
+const HG = location.hash.slice(1).toUpperCase();
+if (HG && gareOf(HG)) { history.replaceState(null, '', location.pathname + location.search); enterGare(HG, 'terrain'); }
+else if (NAV0.screen === 'gare' && NAV0.gare && gareOf(NAV0.gare)) enterGare(NAV0.gare, NAV0.mode); else render();
 </script>
 </body>
 </html>
