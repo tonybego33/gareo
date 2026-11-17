@@ -1,7 +1,7 @@
 /* GARÉo Relevé ACC — service worker : la page marche sans réseau une fois ouverte.
    HTML : réseau d'abord (2,5 s max) puis cache → pas de vieille version coincée.
    Plans / icônes : cache d'abord. */
-const CACHE = 'gareo-releve-v2026-11-17---18';
+const CACHE = 'gareo-releve-v2026-11-17---19';
 const ASSETS = ['./', './index.html', './manifest.webmanifest', './gareo-192.png', './gareo-512.png', './gareo-maskable-512.png', './gareo-apple-180.png',
   './plans/N00.jpg', './plans/N01.jpg', './plans/N02.jpg', './plans/N03.jpg', './cr/base.json'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())); });
