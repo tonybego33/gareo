@@ -8,6 +8,13 @@ Page d'accueil : `index.html`, avec deux modules :
 
 Appli photo hors-ligne : on prend la photo, on la pointe sur le plan (position + direction), on la range (zone libre, un ou plusieurs équipements, aléas, note). Chaque photo est gardée dans l'appli et copiée, déjà nommée, dans Téléchargements.
 
+## Gares intégrées
+- **Toulon (TLN)** : plans `releve-acc/plans/TLN/` (RDC · quais, sous-sols, R+1, R+2), tirés directement des DWG des bâtiments 014, 015, 020, 035 et 037 avec `outils/dwg/`. Les sous-sols sont recalés sous le RDC. Zones par niveau d'après l'extraction A7M (bâtiments, locaux, quais).
+- **Paris-Austerlitz (PAZ)** : plans `releve-acc/plans/N00…N03.jpg`.
+
+## Accès
+Prénom + mot de passe. Un mot de passe ouvre toutes les gares, un autre ouvre Toulon seulement (Austerlitz reste grisée, un appui redemande son mot de passe). Seules les empreintes SHA-256 sont dans le code : barrière légère, pas une vraie sécurité. Les mots de passe se transmettent hors dépôt.
+
 ## Mise en ligne (GitHub Pages)
 1. github.com → New repository → `gareo-photo` (public) → Create.
 2. « uploading an existing file » → glisser **tout le contenu** de ce dossier (index.html, sw.js, manifest.webmanifest, icônes, dossier `plans/`) → Commit.

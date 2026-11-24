@@ -1,9 +1,10 @@
 /* GARÉo Relevé ACC — service worker : la page marche sans réseau une fois ouverte.
    HTML : réseau d'abord (2,5 s max) puis cache → pas de vieille version coincée.
    Plans / icônes : cache d'abord. */
-const CACHE = 'gareo-releve-v2026-11-17---20';
+const CACHE = 'gareo-releve-v2026-11-24---21';
 const ASSETS = ['./', './index.html', './manifest.webmanifest', './gareo-192.png', './gareo-512.png', './gareo-maskable-512.png', './gareo-apple-180.png',
-  './plans/N00.jpg', './plans/N01.jpg', './plans/N02.jpg', './plans/N03.jpg', './cr/base.json'];
+  './plans/N00.jpg', './plans/N01.jpg', './plans/N02.jpg', './plans/N03.jpg',
+  './plans/TLN/RDC.jpg', './plans/TLN/SS.jpg', './plans/TLN/R1.jpg', './plans/TLN/R2.jpg', './cr/base.json'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE && /^gareo-(photo|releve)-/.test(k)).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener('fetch', e => {
