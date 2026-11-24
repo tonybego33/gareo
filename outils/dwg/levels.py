@@ -105,7 +105,7 @@ def draw_text(im, x, y, txt, px, rot, hf, vf, fill, halo=True, bold=False):
 def render(main, ghost, name, labels=(), minpx=7):
     im = Image.new('L', (W * SS, H * SS), 255); dr = ImageDraw.Draw(im)
     for o in ghost:
-        if o[0] == 'L': dr.line([T(p) for p in o[2]], fill=212, width=SS)
+        if o[0] == 'L': dr.line([T(p) for p in o[2]], fill=236, width=SS)
     for o in main:
         if o[0] == 'L': dr.line([T(p) for p in o[2]], fill=40, width=SS)
     n = 0
